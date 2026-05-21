@@ -1,0 +1,22 @@
+# Turnitin Assistant v5.8-server-ready - Dependencies
+# Browser automation
+playwright>=1.40.0
+
+# Excel handling
+openpyxl>=3.1.2
+
+# Desktop UI
+pywebview>=4.4.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Server/API mode (FastAPI)
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+aiofiles>=23.0.0
+python-multipart>=0.0.6
+
+# Install Playwright browsers after installing requirements:
+# python3 -m playwright install chromium

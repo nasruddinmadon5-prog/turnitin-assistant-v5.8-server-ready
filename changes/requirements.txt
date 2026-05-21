@@ -1,0 +1,14 @@
+# Turnitin Assistant v5 Dependencies
+# Clean and minimal dependency list
+
+# Browser automation
+playwright>=1.40.0
+
+# Excel handling
+openpyxl>=3.1.2
+
+# UI framework
+pywebview>=4.4.0
+
+# Install Playwright browsers after installing requirements:
+# python3 -m playwright install chromium

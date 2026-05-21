@@ -1,0 +1,774 @@
+{
+  "submission_no": "26796",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.42/storage/ojs-downloads/26796/Manuscript_AReviewofPEUF_NorHusnina.docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/Manuscript_AReviewofPEUF_NorHusnina.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 70,
+  "structure_score": 47,
+  "layout_score": 78,
+  "formatting_score": 93,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.1625,
+        "y_min": 0.0716,
+        "x_max": 0.8435,
+        "y_max": 0.0912
+      },
+      "evidence_text": "Matched heading: \"A Review of Polymer Enhanced Ultrafiltration Using Carboxymethyl\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": false,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "A Review of Polymer Enhanced Ultrafiltration Using Carboxymethyl",
+          "score": 1.0
+        },
+        {
+          "text": "Cellulose for Arsenic Removal",
+          "score": 1.0
+        },
+        {
+          "text": "Nor Husnina Nor Shamsia, Nurul Huda Baharuddina* Zainura Zainon Noora, Norzita Ngadia and",
+          "score": 0.85
+        },
+        {
+          "text": "a Faculty of Chemical and Energy Engineering, Universiti Teknologi Malaysia, 81310 Skudai, Johor Bah",
+          "score": 0.85
+        },
+        {
+          "text": "b Faculty of Sport Science and Coaching, Universiti Pendidikan Sultan Idris, 35900 Tanjung Malim, Pe",
+          "score": 0.85
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "WARNING",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet contains a full and clear title section with authors and affiliations. DOC snippet text matches but was not detected by the DOC detector, indicating extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet contains a full and clear title section with authors and affiliations. DOC snippet text matches but was not detected by the DOC detector, indicating extraction failure."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.1464,
+        "y_min": 0.1703,
+        "x_max": 0.858,
+        "y_max": 0.1843
+      },
+      "evidence_text": "Matched heading: \"a Faculty of Chemical and Energy Engineering, Universiti Teknologi Malaysia, 81310 Skudai, Johor Bah\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "ABSTRACT"
+      ],
+      "all_candidates": [
+        {
+          "text": "a Faculty of Chemical and Energy Engineering, Universiti Teknologi Malaysia, 81310 Skudai, Johor Bah",
+          "score": 0.7
+        },
+        {
+          "text": "b Faculty of Sport Science and Coaching, Universiti Pendidikan Sultan Idris, 35900 Tanjung Malim, Pe",
+          "score": 0.7
+        },
+        {
+          "text": "Mohd Yusof Baharuddinb",
+          "score": 0.7
+        },
+        {
+          "text": "*Email: nurul.huda@utm.my",
+          "score": 0.45
+        },
+        {
+          "text": "Malaysia",
+          "score": 0.35
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet contains a well-structured authors section with multiple authors, affiliations, and email contact. DOC snippet lacks this section entirely, showing only the title and partial abstract, ind",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The DOC extraction failed to detect the authors section despite the PDF clearly containing it, indicating a likely DOC extraction failure.",
+      "ai_evidence_summary": "PDF snippet contains a well-structured authors section with multiple authors, affiliations, and email contact. DOC snippet lacks this section entirely, showing only the title and partial abstract, indicating a failure in DOC extraction."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.4037,
+        "y_min": 0.2432,
+        "x_max": 0.5951,
+        "y_max": 0.2572
+      },
+      "evidence_text": "Matched heading: \"*Email: nurul.huda@utm.my\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "ABSTRACT"
+      ],
+      "all_candidates": [
+        {
+          "text": "*Email: nurul.huda@utm.my",
+          "score": 0.7
+        },
+        {
+          "text": "Malaysia",
+          "score": 0.45
+        },
+        {
+          "text": "Arsenic contamination in water poses a serious global threat due to its persistence, bioaccumulation",
+          "score": 0.45
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet contains a detailed Affiliations section with multiple institutions and author details. DOC snippet does not contain this section, likely due to extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and structured Affiliations section with institution names and addresses, while the DOC detector failed to extract this component, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet contains a detailed Affiliations section with multiple institutions and author details. DOC snippet does not contain this section, likely due to extraction failure."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "20",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.1391,
+        "y_min": 0.6626,
+        "x_max": 0.8662,
+        "y_max": 0.7316
+      },
+      "evidence_text": "Matched heading: \"* Zainura Zainon Noora, Norzita Ngadia and Mohd Yusof Baharuddinb\na Faculty of Chemical and Energy E\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "corresponding author",
+          "score": 0.5
+        },
+        {
+          "text": "corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ", Nurul Huda Baharuddin have confirmed on behalf of all  authors that are no financial or personal relationship that could have influenced the work  reported in this manuscript.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Graphical_Abstract not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.95,
+      "ai_evidence": "The image contains only formatted text with no figures, diagrams, or graphical elements present.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": {
+        "x_min": 0.4468,
+        "y_min": 0.2724,
+        "x_max": 0.5535,
+        "y_max": 0.2892
+      },
+      "evidence_text": "Matched heading: \"ABSTRACT\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "ABSTRACT",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Arsenic contamination in water poses a serious global threat due to its persistence, bioaccumulation,  and severe health impacts. Conventional treatment techniques, such as coagulation, precipitation,   and adsorption, often face limitations in achieving ultra-low discharge limits and may produce   secondary waste. Polymer-enhanced ultrafiltration (PEUF) has emerged as a promising alternative   that utilises a water-soluble polymer to selectively bind arsenic species before separation through   ultrafiltration membranes. Carboxymethyl cellulose (CMC), a biodegradable and environmentally   friendly polymer, has attracted significant attention due to its high density of carboxyl functional   groups, which allow interactions with arsenic species under controlled pH conditions. Recent  findings indicate that CMC-PEUF systems can achieve removal efficiencies of up to 94–98% for   As(V) and 82–99% for As(III), depending on solution chemistry, polymer dosage, and membrane   characteristics. The mechanisms of arsenic removal by CMC involve hydrogen bonding, localised   electrostatic interactions, and cation-bridging effects rather than strong covalent bonding, enabling   the  formation  o",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.1391,
+        "y_min": 0.2898,
+        "x_max": 0.8658,
+        "y_max": 0.6261
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": arsenic; carboxymethyl cellulose; biosorbent, ultrafiltration; PEUF",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"A Review of Polymer Enhanced Ultrafiltration Using Carboxymethyl\nCellulose for Arsenic Removal\nNor Husnina Nor Shamsia, Nurul Huda Baharuddina* Zainura Zainon Noora, Norzita Ngadia and\nMohd Yusof Baha\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "A Review of Polymer Enhanced Ultrafiltration Using Carboxymethyl\nCellulose for Arsenic Removal\nNor Husnina Nor Shamsia, Nurul Huda Baharuddina* Zainura Zainon Noora, Norzita Ngadia and\nMohd Yusof Baharuddinb\na Faculty of Chemical and Energy Engineering, Universiti Teknologi Malaysia, 81310 Skudai, Johor Bahru,\nMalaysia\nb Faculty of Sport Science and Coaching, Universiti Pendidikan Sultan Idris, 35900 Tanjung Malim, Perak,\nMalaysia\n*Email: nurul.huda@utm.my\nABSTRACT\nArsenic contamination in water poses a serious global threat due to its persistence, bioaccumulation,  and severe health impacts. Conventional treatment techniques, such as coagulation, precipitation,   and adsorption, often face limitations in achieving ultra-low discharge limits and may produce   secondary waste. Polymer-enhan",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet shows a well-formed abstract starting with 'Arsenic contamination in water...' while DOC snippet lacks the abstract section entirely.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "PDF detector found the abstract section with a coherent snippet, while DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a well-formed abstract starting with 'Arsenic contamination in water...' while DOC snippet lacks the abstract section entirely."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet contains title, authors, affiliations, and partial abstract with no Kata Kunci section. PDF snippet similarly lacks any keyword section, showing only title, authors, affiliations, and part",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC snippet contains title, authors, affiliations, and partial abstract with no Kata Kunci section. PDF snippet similarly lacks any keyword section, showing only title, authors, affiliations, and partial abstract."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.1391,
+        "y_min": 0.7758,
+        "x_max": 0.8662,
+        "y_max": 0.9145
+      },
+      "evidence_text": "Matched heading: \"INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "1 INTRODUCTION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Arsenic contamination in natural water bodies, particularly in wastewater sources, has  become a major concern worldwide due to its serious implications on human health and  environmental stability. Numerous studies have reported chronic exposure leading to severe  diseases,  including  various  cancers,  cardiovascular  complications,  and  neurological  impairments (Khan, Gupta, Shrivastava, & Singh, 2022; L. Kumar et al., 2022; Mehdizadeh  et al., 2022; Mojiri et al., 2024; Neumann et al., 2010). In Malaysia, alarming arsenic levels  have been detected in several major water systems, including the Klang River Basin and\n1\n2 3 4 5 6 7 8 9\n10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Methodology not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC and PDF snippets contain only title, author affiliations, and partial abstract. No Methodology section or related content detected in either source.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find any evidence of the Methodology section; no conflicting evidence present.",
+      "ai_evidence_summary": "DOC and PDF snippets contain only title, author affiliations, and partial abstract. No Methodology section or related content detected in either source."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Results_Discussion not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "Both DOC and PDF snippets include only the title, author information, affiliations, and partial abstract. No content related to results or discussion is present in either source.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Results and Discussion section; no conflicting evidence present.",
+      "ai_evidence_summary": "Both DOC and PDF snippets include only the title, author information, affiliations, and partial abstract. No content related to results or discussion is present in either source."
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "PASS",
+      "page": "19",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.1391,
+        "y_min": 0.7384,
+        "x_max": 0.8663,
+        "y_max": 0.912
+      },
+      "evidence_text": "Matched heading: \"CONCLUSIONS\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "7 CONCLUSIONS",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "This review has demonstrated that polymer-enhanced ultrafiltration using carboxymethyl  cellulose (CMC) represents a sustainable and effective method for the removal of arsenic  from  aqueous  environments.  The  unique  functional  groups  present  in  CMC  enable  interactions with arsenic species through hydrogen bonding, localized electrostatic attraction,  and  cation-bridging,  forming  macromolecular  complexes  that  can  be  retained  by  ultrafiltration  membranes.  The  reported  removal  efficiencies  of  CMC-PEUF  systems,  reaching 94-98% for As(V) and 82-99% for As(III), highlight the strong potential of this  method in meeting regulatory discharge standards when operating conditions are carefully  optimized. However, challenges related to polymer loss, membrane fouling, and reduced\n506 507 508 509 510 511 512 513 514 515 516 517 518 519 520 521 522 523 524\n525 526 527 528 529 530 531 532 533 534 535 536 537 538 539 540 541 542 543 544 545 546 547 548 549 550 551 552 553",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "20",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.3847,
+        "y_min": 0.5595,
+        "x_max": 0.6155,
+        "y_max": 0.5763
+      },
+      "evidence_text": "Matched heading: \"ACKNOWLEDGEMENT\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "ACKNOWLEDGEMENT",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "S\nAuthor wishes to thank the Ministry of Higher Education under Fundamental Research Grant  Scheme  FRGS/1/2023/TK08/UTM/02/4 for funding  along the  way to  accomplish  the  research.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.7191,
+        "y_min": 0.1413,
+        "x_max": 0.8029,
+        "y_max": 0.1581
+      },
+      "evidence_text": "Matched heading: \"Reference\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Reference",
+          "score": 0.5
+        },
+        {
+          "text": "REFERENCES",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Klang River, Selangor 72 (Jesi et al., 2024)\nSepang River, Selangor 10.5 (Shukor, Krishnan,\nShing, Ariffin, & Yong,\n2023)\nLangat River Basin, Selangor 34.5 (Ahmed et al., 2021)\nLinggi River, Negeri Sembilan 1.31 (Razak, Aris, Zakaria,\nWee, & Ismail, 2021)\nKuantan River, Pahang 42.30 (Yunus, Zuraidah, &\nJohn, 2020)\nTenom River, Johor >100 ppm (Y. Liang et al., 2020)\nKepayang River, Perak 0.288 (Affandi & Ishak, 2018)\n2.1 Arsenic toxicity and human health effects\nThe toxicological effects of arsenic on human health are profound and multifaceted, ranging  from  acute  symptoms,  such  as  gastrointestinal  distress,  cardiovascular  collapse,  and  neuropathies in cases of high-level exposure, to chronic conditions, including dermal lesions,  respiratory diseases, diabetes, and particularly, various types of cancer resulting from long- term exposure to lower concentrations (Khan et al., 2022; L. Kumar et al., 2022; Mehdizadeh  et al., 2022; Mojiri et al., 2024; Neumann et al., 2010). Arsenic acts by disrupting numerous  cellular  processes,  including  enzyme  activity  inhibition,  oxidative  stress  induction,  genotoxicity,  and  signal  transduction  interference,  ultimately  le",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

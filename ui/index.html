@@ -1,0 +1,1684 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Turnitin Assistant v5.7 Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#00311f",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed": "#001a42",
+                        "secondary-container": "#00a572",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-bright": "#3a3939",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "tertiary-container": "#df7412",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#4d8eff",
+                        "tertiary": "#ffb786",
+                        "outline-variant": "#424754",
+                        "surface-tint": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-tertiary-fixed": "#311400",
+                        "error-container": "#93000a",
+                        "outline": "#8c909f",
+                        "on-tertiary": "#502400",
+                        "surface-container-highest": "#353534",
+                        "primary-fixed": "#d8e2ff",
+                        "primary": "#adc6ff",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#004395",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary": "#4edea3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-surface-variant": "#c2c6d6",
+                        "inverse-on-surface": "#313030",
+                        "on-primary": "#002e6a",
+                        "inverse-primary": "#005ac2",
+                        "background": "#131313",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#003824",
+                        "on-tertiary-container": "#461f00",
+                        "on-primary-container": "#00285d",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-variant": "#353534",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "code-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "label-mono": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; }
+        .glass-panel { background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(12px); border: 1px solid #262626; }
+        .terminal-panel { background: #000000; border: 1px solid #262626; }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #353534; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #424754; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .pulse-dot { animation: heartbeat 1.5s ease-in-out infinite; }
+            .pulse-primary { animation: heartbeat-primary 1.5s ease-in-out infinite; }
+            .flow-line { animation: flow 1.5s linear infinite; stroke-dasharray: 12; stroke-dashoffset: 24; }
+            .data-packet { animation: move-packet 10s linear infinite; }
+            .terminal-log-entry { opacity: 0; animation: fade-in-up 0.4s ease-out forwards; }
+            
+            .hover-lift { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease; }
+            .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); z-index: 10; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-dot, .pulse-primary, .flow-line, .data-packet { animation: none; }
+            .terminal-log-entry { opacity: 1; }
+            .data-packet { display: none !important; }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(78, 222, 163, 0.4); }
+            15% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(78, 222, 163, 0); }
+            30% { transform: scale(1); box-shadow: 0 0 0 0 rgba(78, 222, 163, 0); }
+            45% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(78, 222, 163, 0); }
+            60% { transform: scale(1); box-shadow: 0 0 0 0 rgba(78, 222, 163, 0); }
+        }
+        
+        @keyframes heartbeat-primary {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173, 198, 255, 0.4); }
+            15% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(173, 198, 255, 0); }
+            30% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173, 198, 255, 0); }
+            45% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(173, 198, 255, 0); }
+            60% { transform: scale(1); box-shadow: 0 0 0 0 rgba(173, 198, 255, 0); }
+        }
+        
+        @keyframes flow { to { stroke-dashoffset: 0; } }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes move-packet {
+            0% { left: 0%; opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            5% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            95% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { left: 100%; opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+
+        .system-output-panel {
+          height: 420px;
+          max-height: 420px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .system-output-log {
+          flex: 1;
+          overflow-y: auto;
+          overflow-x: auto;
+          min-height: 0;
+          font-family: monospace;
+          white-space: pre;
+        }
+
+        .main-content {
+          height: calc(100vh - 180px);
+          overflow: hidden;
+        }
+
+        .left-column,
+        .right-column {
+          min-height: 0;
+        }
+
+        .pipeline-packets {
+            position: absolute;
+            left: 2.5rem;
+            right: 2.5rem;
+            top: calc(50% - 1.5rem);
+            height: 1.5rem;
+            z-index: 5;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .data-packet {
+            position: absolute;
+            top: 50%;
+            background: rgba(173, 198, 255, 0.1);
+            border: 1px solid rgba(173, 198, 255, 0.35);
+            color: #adc6ff;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 1.2;
+            box-shadow: 0 0 10px rgba(173, 198, 255, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Inactive node style */
+        .pipeline-node-inactive {
+            opacity: 0.3 !important;
+            filter: grayscale(1) !important;
+            pointer-events: none !important;
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden antialiased">
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 w-full px-lg sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest/50 bg-surface/80 backdrop-blur-md">
+<div class="flex items-center gap-md">
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+                <h2 class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface hidden sm:block">Turnitin Assistant v5.7</h2>
+            </div>
+            <div class="flex items-center gap-lg">
+                <div class="flex items-center gap-sm bg-surface-container px-sm py-xs rounded-full border border-outline-variant/50">
+                    <div id="system-status-indicator" class="w-2 h-2 rounded-full bg-secondary pulse-dot"></div>
+                    <span id="system-status-text" class="text-label-mono font-label-mono text-secondary">SYSTEM READY</span>
+                </div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="main-content flex-1 overflow-y-auto p-lg flex flex-col gap-lg max-w-[1400px] mx-auto w-full">
+<!-- Pipeline Visual -->
+    <section class="glass-panel rounded-xl p-lg flex flex-col gap-md">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">route</span>
+                        Automation Active Progress
+                    </h3>
+</div>
+<div class="relative flex items-center justify-between py-xl px-md overflow-x-auto">
+<!-- Flow Lines (Background) -->
+<div class="absolute left-10 right-10 top-1/2 -translate-y-1/2 h-0.5 bg-outline-variant/30 z-0"></div>
+<svg class="absolute left-10 right-10 top-1/2 -translate-y-1/2 h-1 w-[calc(100%-5rem)] z-0 pointer-events-none" preserveAspectRatio="none">
+<line class="flow-line" opacity="0.5" stroke="#adc6ff" stroke-width="2" x1="0" x2="100%" y1="2" y2="2"></line>
+</svg>
+<!-- Animated Data Packets -->
+<div class="pipeline-packets">
+<div class="data-packet" id="packet-1" style="animation-delay: 0s;">-</div>
+<div class="data-packet" id="packet-2" style="animation-delay: -3.3s;">-</div>
+<div class="data-packet" id="packet-3" style="animation-delay: -6.6s;">-</div>
+</div>
+<!-- Nodes -->
+<div id="pipeline-ojs-login" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">login</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">JT Login</span>
+</div>
+<div id="pipeline-download" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Download Article</span>
+</div>
+<div id="pipeline-excel" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Download Article Record</span>
+</div>
+<div id="pipeline-screening" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Template Screening</span>
+</div>
+<div id="pipeline-upload" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">upload</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Turnitin Upload</span>
+</div>
+<div id="pipeline-filter" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">filter_alt</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Similarity Filter</span>
+</div>
+<div id="pipeline-report" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">file_download</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Download Report</span>
+</div>
+<div id="pipeline-ojs-report-upload" class="relative z-10 flex flex-col items-center gap-sm hover-lift node-wrapper">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center text-outline-variant transition-all duration-300 node-circle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant text-center w-24 node-label">Upload Report to OJS</span>
+</div>
+</div>
+</section>
+<!-- Grid Layout for Actions, Logs, and Details -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg flex-1 min-h-[400px]">
+<!-- Left/Main Column: Actions and Logs -->
+<div class="left-column lg:col-span-8 flex flex-col gap-lg">
+<!-- Action Buttons -->
+<section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-sm">
+<button onclick="startOJSDownload()" class="glass-panel p-sm py-md rounded-lg flex flex-col items-center justify-center gap-xs hover:bg-surface-container-high transition-colors group border-primary/30 bg-primary/5 hover-lift">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors text-2xl">download</span>
+<span class="text-[11px] font-label-mono text-on-surface group-hover:text-primary text-center">Start OJS Download</span>
+</button>
+<button onclick="startTemplateScreening()" class="glass-panel p-sm py-md rounded-lg flex flex-col items-center justify-center gap-xs hover:bg-surface-container-high transition-colors group border-[#ffb786]/30 bg-[#ffb786]/5 hover:border-[#ffb786]/50 hover-lift">
+<span class="material-symbols-outlined text-tertiary transition-colors text-2xl">fact_check</span>
+<span class="text-[11px] font-label-mono text-on-surface group-hover:text-tertiary text-center">Start Template Screening</span>
+</button>
+<button onclick="startTurnitinUpload()" class="glass-panel p-sm py-md rounded-lg flex flex-col items-center justify-center gap-xs hover:bg-surface-container-high transition-colors group border-tertiary/30 bg-tertiary/5 hover:border-tertiary/50 hover-lift">
+<span class="material-symbols-outlined text-tertiary transition-colors text-2xl">upload</span>
+<span class="text-[11px] font-label-mono text-on-surface group-hover:text-tertiary text-center">Start Turnitin Upload</span>
+</button>
+<button onclick="startOJSReportUpload()" class="glass-panel p-sm py-md rounded-lg flex flex-col items-center justify-center gap-xs hover:bg-surface-container-high transition-colors group border-secondary/20 bg-secondary/5 hover-lift">
+<span class="material-symbols-outlined text-secondary group-hover:text-secondary transition-colors text-2xl">cloud_upload</span>
+<span class="text-[11px] font-label-mono text-on-surface group-hover:text-secondary text-center">Upload Report to OJS</span>
+</button>
+<button onclick="startFullWorkflow()" class="col-span-2 sm:col-span-2 md:col-span-1 bg-primary hover:bg-primary-container text-on-primary rounded-lg p-sm py-md flex flex-col items-center justify-center gap-xs shadow-[0_0_15px_rgba(77,142,255,0.2)] transition-all hover:shadow-[0_0_25px_rgba(77,142,255,0.4)] hover-lift">
+<span class="material-symbols-outlined font-bold text-2xl">bolt</span>
+<span class="text-[11px] font-label-mono font-bold text-center">Start Full Workflow</span>
+</button>
+</section>
+<!-- Terminal Logs -->
+<section class="system-output-panel terminal-panel rounded-xl flex flex-col overflow-hidden">
+<div class="border-b border-[#262626] bg-[#0a0a0a] px-md py-sm flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline-variant text-[16px]">terminal</span>
+<span class="text-label-mono font-label-mono text-on-surface-variant">System Output</span>
+</div>
+<div class="flex gap-xs">
+<button onclick="copyLogs()" class="text-outline-variant hover:text-on-surface" title="Copy logs"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button onclick="clearLogs()" class="text-outline-variant hover:text-on-surface" title="Clear logs"><span class="material-symbols-outlined text-[16px]">clear_all</span></button>
+</div>
+</div>
+<div id="terminal-logs" class="system-output-log p-md font-code-sm text-code-sm space-y-1">
+    <div class="flex gap-md terminal-log-entry"><span class="text-outline-variant">[${getCurrentTime()}]</span> <span class="text-secondary">INFO</span> <span class="text-on-surface">Turnitin Assistant v5.7 initialized</span></div>
+<div class="flex gap-md terminal-log-entry"><span class="text-outline-variant">[${getCurrentTime()}]</span> <span class="text-secondary">INFO</span> <span class="text-on-surface">Ready for operations. Click buttons to start.</span></div>
+</div>
+</section>
+</div>
+<!-- Right Column: Active Process Details -->
+<aside class="right-column lg:col-span-4 glass-panel rounded-xl p-md flex flex-col gap-md justify-start overflow-y-auto">
+<div class="flex items-center gap-sm border-b border-outline-variant/50 pb-sm">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">System Status</h3>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+    <div id="status-ojs" class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-xs flex flex-col items-center justify-center gap-0.5 hover-lift">
+        <span class="material-symbols-outlined text-sm text-outline-variant">login</span>
+        <span class="text-[8px] font-label-mono text-outline-variant leading-tight">OJS</span>
+        <span id="status-ojs-text" class="text-[9px] font-code-sm font-code-sm text-secondary leading-tight">Ready</span>
+    </div>
+    <div id="status-turnitin" class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-xs flex flex-col items-center justify-center gap-0.5 hover-lift">
+        <span class="material-symbols-outlined text-sm text-outline-variant">upload</span>
+        <span class="text-[8px] font-label-mono text-outline-variant leading-tight">TURNITIN</span>
+        <span id="status-turnitin-text" class="text-[9px] font-code-sm font-code-sm text-secondary leading-tight">Ready</span>
+    </div>
+    <div id="status-ojs-upload" class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-xs flex flex-col items-center justify-center gap-0.5 hover-lift">
+        <span class="material-symbols-outlined text-sm text-outline-variant">cloud_upload</span>
+        <span class="text-[8px] font-label-mono text-outline-variant leading-tight">OJS UPLOAD</span>
+        <span id="status-ojs-upload-text" class="text-[9px] font-code-sm font-code-sm text-secondary leading-tight">Ready</span>
+    </div>
+    <div id="status-screening" class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-xs flex flex-col items-center justify-center gap-0.5 hover-lift">
+        <span class="material-symbols-outlined text-sm text-outline-variant">fact_check</span>
+        <span class="text-[8px] font-label-mono text-outline-variant leading-tight">SCREENING</span>
+        <span id="status-screening-text" class="text-[9px] font-code-sm font-code-sm text-secondary leading-tight">Ready</span>
+    </div>
+</div>
+
+<!-- Screening Summary Panel -->
+<div id="screening-summary-panel" class="flex-col gap-md pt-sm border-t border-outline-variant/30" style="display: none;">
+    <div class="flex items-center gap-sm px-sm">
+        <span class="material-symbols-outlined text-primary text-sm">fact_check</span>
+        <h4 class="text-[10px] font-label-mono text-outline-variant uppercase tracking-wider">Screening Summary</h4>
+    </div>
+    <div id="screening-summary-content" class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-sm space-y-sm">
+        <div class="flex justify-between items-center">
+            <span class="text-[10px] font-label-mono text-outline-variant">Status</span>
+            <span id="screening-summary-status" class="text-code-sm font-code-sm text-secondary">Screening Completed</span>
+        </div>
+        <div id="screening-summary-counts" class="flex items-center justify-center gap-sm pt-xs">
+            <span id="screening-passed-count" class="text-code-sm font-code-sm" style="color: #4edea3;">0 Passed</span>
+            <span class="text-outline-variant">•</span>
+            <span id="screening-warning-count" class="text-code-sm font-code-sm" style="color: #ffb786;">0 Warning</span>
+            <span class="text-outline-variant">•</span>
+            <span id="screening-failed-count" class="text-code-sm font-code-sm" style="color: #ffb4ab;">0 Failed</span>
+        </div>
+    </div>
+</div>
+
+<!-- Current Job Panel (replaces Storage Paths) -->
+<div class="flex flex-col gap-md pt-sm border-t border-outline-variant/30">
+    <div class="flex items-center gap-sm px-sm">
+        <span class="material-symbols-outlined text-primary text-sm">assignment</span>
+        <h4 class="text-[10px] font-label-mono text-outline-variant uppercase tracking-wider">Current Job</h4>
+    </div>
+    <div class="bg-[#0a0a0a] border border-[#262626] rounded-lg p-sm space-y-sm">
+        <div class="flex justify-between items-center">
+            <span class="text-[10px] font-label-mono text-outline-variant">Workflow Mode</span>
+            <span id="current-workflow-mode" class="text-code-sm font-code-sm text-secondary">Idle</span>
+        </div>
+        <div class="flex justify-between items-center">
+            <span class="text-[10px] font-label-mono text-outline-variant">Current Submission</span>
+            <span id="current-submission-no" class="text-code-sm font-code-sm text-on-surface">-</span>
+        </div>
+        <div class="flex justify-between items-center">
+            <span class="text-[10px] font-label-mono text-outline-variant">Current Stage</span>
+            <span id="current-stage" class="text-code-sm font-code-sm text-on-surface">-</span>
+        </div>
+        <div class="flex justify-between items-center">
+            <span class="text-[10px] font-label-mono text-outline-variant">Last Updated</span>
+            <span id="current-updated-at" class="text-code-sm font-code-sm text-on-surface-variant">-</span>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm pt-sm border-t border-outline-variant/30">
+    <button onclick="openExcelFile()" class="glass-panel p-sm rounded-lg flex items-center justify-center gap-xs hover:bg-surface-container-high transition-all border-primary/20 hover:border-primary/50 group hover-lift">
+        <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">table_chart</span>
+        <span class="text-[11px] font-label-mono text-on-surface-variant group-hover:text-on-surface">Open Excel</span>
+    </button>
+    <button onclick="openOJSDownloadsFolder()" class="glass-panel p-sm rounded-lg flex items-center justify-center gap-xs hover:bg-surface-container-high transition-all border-primary/20 hover:border-primary/50 group hover-lift">
+        <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">cloud_download</span>
+        <span class="text-[11px] font-label-mono text-on-surface-variant group-hover:text-on-surface text-center leading-tight">Open Download Article</span>
+    </button>
+    <button onclick="openTurnitinReportsFolder()" class="glass-panel p-sm rounded-lg flex items-center justify-center gap-xs hover:bg-surface-container-high transition-all border-primary/20 hover:border-primary/50 group hover-lift">
+        <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">assessment</span>
+        <span class="text-[11px] font-label-mono text-on-surface-variant group-hover:text-on-surface">Open Turnitin Reports</span>
+    </button>
+    <button onclick="openScreeningReportsFolder()" class="glass-panel p-sm rounded-lg flex items-center justify-center gap-xs hover:bg-surface-container-high transition-all border-tertiary/20 hover:border-tertiary/50 group hover-lift">
+        <span class="material-symbols-outlined text-[18px] text-tertiary group-hover:scale-110 transition-transform">fact_check</span>
+        <span class="text-[11px] font-label-mono text-on-surface-variant group-hover:text-tertiary">Open Screening Reports</span>
+    </button>
+</div>
+
+<div class="flex flex-col gap-md pt-sm border-t border-outline-variant/30">
+    <div class="flex items-center justify-between gap-sm px-sm">
+        <div class="flex items-center gap-sm">
+            <span class="material-symbols-outlined text-primary text-sm">terminal</span>
+            <h4 class="text-[10px] font-label-mono text-outline-variant uppercase tracking-wider">Recent Paper Progress</h4>
+            <span id="paper-progress-total" class="text-[9px] font-label-mono text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded-full border border-outline-variant/30">0</span>
+        </div>
+        <div class="flex items-center gap-xs">
+            <span class="text-[9px] font-label-mono text-outline-variant">Filter:</span>
+            <select id="paper-filter-status" onchange="applyPaperFilters()" class="bg-surface-container border border-outline-variant/30 rounded text-[9px] font-label-mono text-on-surface-variant px-1 py-0.5 outline-none cursor-pointer">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="incomplete">Incomplete</option>
+            </select>
+            <select id="paper-filter-time" onchange="applyPaperFilters()" class="bg-surface-container border border-outline-variant/30 rounded text-[9px] font-label-mono text-on-surface-variant px-1 py-0.5 outline-none cursor-pointer">
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+            </select>
+        </div>
+    </div>
+    <div id="paper-progress-list" class="space-y-sm overflow-y-auto max-h-[400px] pr-xs scrollbar-thin">
+        <div class="text-center py-md">
+            <span class="material-symbols-outlined animate-spin text-lg text-on-surface-variant">sync</span>
+            <p class="text-[11px] font-body-md text-on-surface-variant mt-xs">Loading paper progress...</p>
+        </div>
+    </div>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer with copyright -->
+<footer class="text-center py-sm border-t border-outline-variant/30 bg-surface-container-lowest/50">
+    <p class="text-[10px] font-label-mono text-on-surface-variant">
+        © 2026 Nasruddin Madon.
+
+Turnitin Assistant v5.7 is a proprietary workflow automation system developed specially for Unit Jurnal, Penerbit UTM Press.
+
+All rights reserved. Internal use only.
+    </p>
+</footer>
+</main>
+
+<script>
+    // ─── Workflow Mode State ─────────────────────────────────────────────────
+    let currentWorkflowMode = 'idle';
+    let currentSubmissionNo = null;
+
+    // ─── Screening Tracking ──────────────────────────────────────────────────
+    let screeningPassedCount = 0;
+    let screeningWarningCount = 0;
+    let screeningFailedCount = 0;
+    let screeningTotalCount = 0;
+    let screeningHasFatalError = false;
+
+    // ─── Workflow Node Definitions ────────────────────────────────────────────
+    const WORKFLOW_NODES = {
+        ojs_download: [
+            'pipeline-ojs-login',
+            'pipeline-download',
+            'pipeline-excel'
+        ],
+        turnitin_upload: [
+            'pipeline-excel',
+            'pipeline-upload',
+            'pipeline-filter',
+            'pipeline-report'
+        ],
+        ojs_report_upload: [
+            'pipeline-excel',
+            'pipeline-ojs-report-upload'
+        ],
+        full_workflow: [
+            'pipeline-ojs-login',
+            'pipeline-download',
+            'pipeline-excel',
+            'pipeline-upload',
+            'pipeline-filter',
+            'pipeline-report',
+            'pipeline-ojs-report-upload'
+        ]
+    };
+
+    const ALL_NODES = [
+        'pipeline-ojs-login',
+        'pipeline-download',
+        'pipeline-excel',
+        'pipeline-screening',
+        'pipeline-upload',
+        'pipeline-filter',
+        'pipeline-report',
+        'pipeline-ojs-report-upload'
+    ];
+
+    const WORKFLOW_NODES_TEMPLATE = {
+        template_screening: [
+            'pipeline-excel',
+            'pipeline-screening'
+        ],
+        full_workflow: [
+            'pipeline-ojs-login',
+            'pipeline-download',
+            'pipeline-excel',
+            'pipeline-screening',
+            'pipeline-upload',
+            'pipeline-filter',
+            'pipeline-report',
+            'pipeline-ojs-report-upload'
+        ]
+    };
+    // Merge template screening nodes (overrides full_workflow to include screening)
+    Object.assign(WORKFLOW_NODES, WORKFLOW_NODES_TEMPLATE);
+
+    function getCurrentTime() {
+        return new Date().toLocaleTimeString('en-GB', { hour12: false });
+    }
+
+    function updateCurrentJobTimestamp() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-GB', { hour12: false });
+        const date = now.toLocaleDateString('en-GB');
+        document.getElementById('current-updated-at').textContent = `${date} ${time}`;
+    }
+
+    function updateCurrentJobField(fieldId, value) {
+        const el = document.getElementById(fieldId);
+        if (el) el.textContent = value;
+    }
+
+    // ─── Pipeline Packet Text ───────────────────────────────────────────────
+    function setPipelinePacketText(text) {
+        const packet = document.querySelector('.data-packet');
+        if (packet && text) packet.textContent = text;
+    }
+
+    function setPipelinePacketsForSubmission(subNo, prefix, stageIndex) {
+        const packets = document.querySelectorAll('.data-packet');
+        // Show submission number at the current active stage
+        const labels = [
+            `SUB-${subNo}`,
+            `REPORT-${subNo}`,
+            `${prefix}-${subNo}`,
+        ];
+        packets.forEach((p, i) => {
+            if (labels[i]) {
+                // If a stageIndex is given, only show that packet, hide others
+                if (stageIndex !== undefined && i !== stageIndex) {
+                    p.textContent = labels[i];
+                    p.style.display = 'none';
+                } else {
+                    p.textContent = labels[i];
+                    p.style.display = '';
+                }
+            }
+        });
+    }
+
+    function resetPipelinePackets() {
+        const packets = document.querySelectorAll('.data-packet');
+        packets.forEach(p => {
+            p.textContent = '-';
+        });
+    }
+
+    // ─── Logging ────────────────────────────────────────────────────────────
+    function addLog(message, type = 'INFO') {
+        const terminal = document.getElementById('terminal-logs');
+        const time = getCurrentTime();
+        
+        const typeColors = {
+            'INFO': 'text-secondary',
+            'EXEC': 'text-primary',
+            'WARN': 'text-tertiary',
+            'ERROR': 'text-error',
+            'SUCCESS': 'text-secondary'
+        };
+        
+        const logEntry = document.createElement('div');
+        logEntry.className = 'flex gap-md terminal-log-entry';
+        logEntry.innerHTML = `
+            <span class="text-outline-variant">[${time}]</span>
+            <span class="${typeColors[type] || 'text-secondary'}">${type}</span>
+            <span class="text-on-surface">${message}</span>
+        `;
+        
+        terminal.appendChild(logEntry);
+        terminal.scrollTop = terminal.scrollHeight;
+        
+        updatePipelineFromLog(message);
+        updateSystemStatusFromLog(message);
+        updateCurrentJobFromLog(message);
+        updateScreeningStatusFromLog(message);
+    }
+
+    function copyLogs() {
+        const terminal = document.getElementById('terminal-logs');
+        const lines = terminal.querySelectorAll('.terminal-log-entry');
+        let text = '';
+        lines.forEach(line => {
+            const spans = line.querySelectorAll('span');
+            const textParts = [];
+            spans.forEach(s => textParts.push(s.textContent));
+            text += textParts.join(' ') + '\n';
+        });
+        navigator.clipboard.writeText(text.trim()).then(() => {
+            addLog('Logs copied to clipboard', 'INFO');
+        }).catch(() => {
+            // Fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = text.trim();
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        });
+    }
+
+    function clearLogs() {
+        const terminal = document.getElementById('terminal-logs');
+        terminal.innerHTML = `
+            <div class="flex gap-md terminal-log-entry"><span class="text-outline-variant">[${getCurrentTime()}]</span> <span class="text-secondary">INFO</span> <span class="text-on-surface">Logs cleared</span></div>
+        `;
+    }
+
+    // ─── Pipeline State Management ───────────────────────────────────────────
+    function setPipelineNodeState(nodeId, state) {
+        const node = document.getElementById(nodeId);
+        if (!node) return;
+        
+        const wrapper = node;
+        const circle = wrapper.querySelector('.node-circle') || wrapper.querySelector('div');
+        const label = wrapper.querySelector('.node-label') || wrapper.querySelector('span');
+        
+        // Remove inactive class first
+        wrapper.classList.remove('pipeline-node-inactive');
+        
+        circle.classList.remove('opacity-50', 'border-outline-variant', 'text-outline-variant',
+            'border-primary', 'text-primary', 'bg-primary/20', 'shadow-[0_0_20px_rgba(173,198,255,0.4)]', 'scale-110',
+            'border-secondary', 'text-secondary', 'shadow-[0_0_15px_rgba(78,222,163,0.2)]',
+            'border-error', 'text-error', 'shadow-[0_0_15px_rgba(255,180,171,0.2)]');
+        label.classList.remove('text-on-surface-variant', 'text-primary', 'font-bold', 'text-secondary', 'text-error');
+        
+        if (state === 'inactive') {
+            wrapper.classList.add('pipeline-node-inactive');
+            circle.classList.add('border-outline-variant', 'text-outline-variant');
+            label.classList.add('text-on-surface-variant');
+        } else if (state === 'pending') {
+            circle.classList.add('opacity-50', 'border-outline-variant', 'text-outline-variant');
+            label.classList.add('text-on-surface-variant');
+        } else if (state === 'active') {
+            circle.classList.add('border-primary', 'text-primary', 'bg-primary/20', 'shadow-[0_0_20px_rgba(173,198,255,0.4)]', 'scale-110');
+            label.classList.add('text-primary', 'font-bold');
+        } else if (state === 'completed') {
+            circle.classList.add('border-secondary', 'text-secondary', 'shadow-[0_0_15px_rgba(78,222,163,0.2)]');
+            label.classList.add('text-secondary');
+        } else if (state === 'error') {
+            circle.classList.add('border-error', 'text-error', 'shadow-[0_0_15px_rgba(255,180,171,0.2)]');
+            label.classList.add('text-error');
+        }
+    }
+
+    // ─── Reset Pipeline For Workflow ────────────────────────────────────────
+    function resetPipelineForWorkflow(mode) {
+        // Reset screening tracking
+        screeningPassedCount = 0;
+        screeningWarningCount = 0;
+        screeningFailedCount = 0;
+        screeningTotalCount = 0;
+        screeningHasFatalError = false;
+        document.getElementById('screening-summary-panel').style.display = 'none';
+        
+        // Reset all nodes to pending first
+        ALL_NODES.forEach(id => {
+            setPipelineNodeState(id, 'pending');
+        });
+
+        if (mode === 'idle') {
+            ALL_NODES.forEach(id => {
+                setPipelineNodeState(id, 'pending');
+            });
+            // Hide packet animation
+            document.querySelectorAll('.data-packet').forEach(p => {
+                p.style.display = 'none';
+            });
+            return;
+        }
+
+        const activeNodes = WORKFLOW_NODES[mode] || [];
+
+        // Mark nodes not in this workflow as inactive
+        ALL_NODES.forEach(id => {
+            if (!activeNodes.includes(id)) {
+                setPipelineNodeState(id, 'inactive');
+            } else {
+                setPipelineNodeState(id, 'pending');
+            }
+        });
+
+        // Mark first node in workflow as active
+        if (activeNodes.length > 0) {
+            setPipelineNodeState(activeNodes[0], 'active');
+        }
+
+        // Show/hide data packets based on workflow
+        const packets = document.querySelectorAll('.data-packet');
+        if (mode === 'full_workflow') {
+            packets.forEach(p => { p.style.display = ''; });
+        } else if (mode === 'ojs_download' || mode === 'turnitin_upload' || mode === 'ojs_report_upload') {
+            // For partial workflows, show only first packet near active node
+            packets.forEach((p, i) => {
+                if (i === 0) {
+                    p.style.display = '';
+                } else {
+                    p.style.display = 'none';
+                }
+            });
+        } else {
+            packets.forEach(p => { p.style.display = 'none'; });
+        }
+    }
+
+    // ─── Action Button Functions ─────────────────────────────────────────────
+    function startOJSDownload() {
+        currentWorkflowMode = 'ojs_download';
+        resetPipelineForWorkflow('ojs_download');
+        updateCurrentJobField('current-workflow-mode', 'OJS Download');
+        updateCurrentJobField('current-stage', 'Starting OJS Download');
+        updateCurrentJobTimestamp();
+        addLog('Starting OJS download engine...', 'EXEC');
+        if (window.pywebview) {
+            window.pywebview.api.start_ojs_download().then(response => {
+                addLog(response, 'SUCCESS');
+            });
+        }
+    }
+
+    function startTurnitinUpload() {
+        currentWorkflowMode = 'turnitin_upload';
+        resetPipelineForWorkflow('turnitin_upload');
+        updateCurrentJobField('current-workflow-mode', 'Turnitin Upload');
+        updateCurrentJobField('current-stage', 'Starting Turnitin Upload');
+        updateCurrentJobTimestamp();
+        addLog('Starting Turnitin upload engine...', 'EXEC');
+        if (window.pywebview) {
+            window.pywebview.api.start_turnitin_upload().then(response => {
+                addLog(response, 'SUCCESS');
+            });
+        }
+    }
+
+    function startOJSReportUpload() {
+        currentWorkflowMode = 'ojs_report_upload';
+        resetPipelineForWorkflow('ojs_report_upload');
+        updateCurrentJobField('current-workflow-mode', 'OJS Report Upload');
+        updateCurrentJobField('current-stage', 'Starting OJS Report Upload');
+        updateCurrentJobTimestamp();
+        addLog('Starting Upload Report to OJS engine...', 'EXEC');
+        addLog('[OJS UPLOAD] Reading pending submissions from Excel...', 'INFO');
+        if (window.pywebview) {
+            window.pywebview.api.start_ojs_report_upload().then(response => {
+                addLog(response, 'SUCCESS');
+            });
+        }
+    }
+
+    function startTemplateScreening() {
+        currentWorkflowMode = 'template_screening';
+        resetPipelineForWorkflow('template_screening');
+        updateCurrentJobField('current-workflow-mode', 'Template Screening');
+        updateCurrentJobField('current-stage', 'Starting Template Screening');
+        updateCurrentJobTimestamp();
+        addLog('Starting Template Screening engine...', 'EXEC');
+        addLog('[SCREENING] Reading Excel and finding pending files...', 'INFO');
+        if (window.pywebview) {
+            window.pywebview.api.start_template_screening().then(response => {
+                addLog(response, 'SUCCESS');
+            });
+        }
+    }
+
+    function startFullWorkflow() {
+        currentWorkflowMode = 'full_workflow';
+        resetPipelineForWorkflow('full_workflow');
+        updateCurrentJobField('current-workflow-mode', 'Full Workflow');
+        updateCurrentJobField('current-stage', 'Starting Full Workflow');
+        updateCurrentJobTimestamp();
+        addLog('Starting full workflow...', 'EXEC');
+        addLog('Step 1: OJS download will run first', 'INFO');
+        addLog('Step 2: Turnitin upload will run after OJS completes', 'INFO');
+        if (window.pywebview) {
+            window.pywebview.api.start_full_workflow().then(response => {
+                addLog(response.ojs_message || 'OJS starting...', 'SUCCESS');
+                addLog(response.turnitin_message || 'Turnitin will start after OJS...', 'INFO');
+            });
+        }
+    }
+
+    function logUtilityResponse(response) {
+        const type = typeof response === 'string' && response.includes('❌') ? 'ERROR' : 'SUCCESS';
+        addLog(response || 'No response returned from utility action.', type);
+    }
+
+    function runUtilityAction(actionLabel, apiMethodName) {
+        addLog(`${actionLabel} requested...`, 'EXEC');
+        if (window.pywebview && window.pywebview.api && window.pywebview.api[apiMethodName]) {
+            window.pywebview.api[apiMethodName]().then(logUtilityResponse).catch(error => {
+                addLog(`${actionLabel} failed: ${error}`, 'ERROR');
+            });
+        } else {
+            addLog(`${actionLabel} unavailable: pywebview API is not ready.`, 'ERROR');
+        }
+    }
+
+    function openExcelFile() {
+        runUtilityAction('Open Excel', 'open_excel_file');
+    }
+
+    function openOJSDownloadsFolder() {
+        runUtilityAction('Open OJS Downloads', 'open_ojs_downloads_folder');
+    }
+
+    function openTurnitinReportsFolder() {
+        runUtilityAction('Open Turnitin Reports', 'open_turnitin_reports_folder');
+    }
+
+    function openScreeningReportsFolder() {
+        runUtilityAction('Open Screening Reports', 'open_screening_reports_folder');
+    }
+
+    // ─── Live Paper Progress from Excel ──────────────────────────────────────
+    // Cache for raw card data
+    let cachedPaperCards = [];
+
+    function parseTimestamp(timestamp) {
+        if (!timestamp) return null;
+        const parts = timestamp.split(/[- :]/);
+        if (parts.length < 5) return null;
+        return new Date(parts[0], parts[1]-1, parts[2], parts[3], parts[4], parts[5] || 0);
+    }
+
+    function isSameDay(d1, d2) {
+        return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
+    }
+
+    function isSameWeek(d1, d2) {
+        const startOfWeek = (date) => {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+            d.setDate(diff);
+            d.setHours(0,0,0,0);
+            return d;
+        };
+        return startOfWeek(d1).getTime() === startOfWeek(d2).getTime();
+    }
+
+    function isSameMonth(d1, d2) {
+        return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth();
+    }
+
+    function timeago(timestamp) {
+        if (!timestamp) return 'Recently';
+        const ts = parseTimestamp(timestamp);
+        if (!ts) return timestamp;
+        const now = new Date();
+        const diffMs = now - ts;
+        const diffSec = Math.floor(diffMs / 1000);
+        const diffMin = Math.floor(diffSec / 60);
+        const diffHour = Math.floor(diffMin / 60);
+        const diffDay = Math.floor(diffHour / 24);
+        const diffWeek = Math.floor(diffDay / 7);
+        const diffMonth = Math.floor(diffDay / 30);
+        
+        if (diffSec < 60) return 'Just now';
+        if (diffMin < 60) return diffMin + 'm ago';
+        if (diffHour < 24) return diffHour + 'h ago';
+        if (diffDay === 1) return 'Yesterday';
+        if (diffDay < 7) return diffDay + 'd ago';
+        if (diffWeek < 5) return diffWeek + 'w ago';
+        if (diffMonth < 12) return diffMonth + 'mo ago';
+        return Math.floor(diffDay / 365) + 'y ago';
+    }
+
+    function getStatusStyle(status) {
+        if (status === 'completed') {
+            return { bg: 'rgba(78,222,163,0.1)', color: '#4edea3', border: '1px solid rgba(78,222,163,0.2)', icon: 'check_circle' };
+        } else if (status === 'error') {
+            return { bg: 'rgba(255,180,171,0.1)', color: '#ffb4ab', border: '1px solid rgba(255,180,171,0.2)', icon: 'error' };
+        } else {
+            return { bg: '#201f1f', color: '#c2c6d6', border: '1px solid #424754', icon: 'pending' };
+        }
+    }
+
+    function isCardFullyComplete(card) {
+        return card.download === 'completed' && card.turnitin === 'completed' && card.upload === 'completed' && card.screening === 'completed';
+    }
+
+    function isCardIncomplete(card) {
+        return card.download !== 'completed' || card.turnitin !== 'completed' || card.upload !== 'completed' || (card.screening !== undefined && card.screening !== 'completed');
+    }
+
+    function applyPaperFilters() {
+        if (cachedPaperCards.length === 0) return;
+        const statusFilter = document.getElementById('paper-filter-status').value;
+        const timeFilter = document.getElementById('paper-filter-time').value;
+        const now = new Date();
+
+        // Filter
+        let filtered = cachedPaperCards.filter(card => {
+            // Status filter
+            if (statusFilter === 'completed' && !isCardFullyComplete(card)) return false;
+            if (statusFilter === 'incomplete' && !isCardIncomplete(card)) return false;
+
+            // Time filter
+            if (timeFilter !== 'all') {
+                const ts = parseTimestamp(card.timestamp);
+                if (!ts) return false;
+                if (timeFilter === 'today' && !isSameDay(ts, now)) return false;
+                if (timeFilter === 'week' && !isSameWeek(ts, now)) return false;
+                if (timeFilter === 'month' && !isSameMonth(ts, now)) return false;
+            }
+
+            return true;
+        });
+
+        // Sort: newest first (by timestamp descending)
+        filtered.sort((a, b) => {
+            const ta = parseTimestamp(a.timestamp);
+            const tb = parseTimestamp(b.timestamp);
+            if (!ta && !tb) return 0;
+            if (!ta) return 1;
+            if (!tb) return -1;
+            return tb - ta;
+        });
+
+        renderFilteredCards(filtered);
+    }
+
+    function renderFilteredCards(cards) {
+        const container = document.getElementById('paper-progress-list');
+        if (!container) return;
+        
+        if (!cards || cards.length === 0) {
+            container.innerHTML = '<div class="text-center py-md"><span class="material-symbols-outlined text-lg text-on-surface-variant">info</span><p class="text-[11px] font-body-md text-on-surface-variant mt-xs">No submissions match filter</p></div>';
+            return;
+        }
+        
+        let html = '';
+        cards.forEach(card => {
+            const dlStyle = getStatusStyle(card.download);
+            const scStyle = getStatusStyle(card.screening);
+            const tiStyle = getStatusStyle(card.turnitin);
+            const upStyle = getStatusStyle(card.upload);
+            const timeText = timeago(card.timestamp);
+            
+            html += `
+                <div class="glass-panel p-sm rounded-lg flex flex-col gap-xs hover:bg-surface-container-high transition-all border border-outline-variant/20 hover-lift">
+                    <div class="flex justify-between items-start">
+                        <span class="text-code-sm font-code-sm font-bold text-primary">${card.sub_no}</span>
+                        <span class="text-[9px] font-label-mono text-on-surface-variant">${timeText}</span>
+                    </div>
+                    <p class="text-[11px] font-body-md text-on-surface-variant">${card.current}</p>
+                    <div class="flex gap-xs mt-xs">
+                        <span class="flex items-center gap-xs px-1.5 py-0.5 rounded text-[8px] font-label-mono" style="background:${dlStyle.bg}; color:${dlStyle.color}; border:${dlStyle.border};"><span class="material-symbols-outlined text-[10px]">${dlStyle.icon}</span> Download</span>
+                        <span class="flex items-center gap-xs px-1.5 py-0.5 rounded text-[8px] font-label-mono" style="background:${scStyle.bg}; color:${scStyle.color}; border:${scStyle.border};"><span class="material-symbols-outlined text-[10px]">${scStyle.icon}</span> SCREENING</span>
+                        <span class="flex items-center gap-xs px-1.5 py-0.5 rounded text-[8px] font-label-mono" style="background:${tiStyle.bg}; color:${tiStyle.color}; border:${tiStyle.border};"><span class="material-symbols-outlined text-[10px]">${tiStyle.icon}</span> TURNITIN</span>
+                        <span class="flex items-center gap-xs px-1.5 py-0.5 rounded text-[8px] font-label-mono" style="background:${upStyle.bg}; color:${upStyle.color}; border:${upStyle.border};"><span class="material-symbols-outlined text-[10px]">${upStyle.icon}</span> UPLOAD</span>
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        // Update total count
+        const totalSpan = document.getElementById('paper-progress-total');
+        if (totalSpan) {
+            totalSpan.textContent = cards.length;
+        }
+    }
+
+    function loadPaperProgress() {
+        const container = document.getElementById('paper-progress-list');
+        if (!container) return;
+        
+        if (window.pywebview && window.pywebview.api && window.pywebview.api.get_paper_progress) {
+            window.pywebview.api.get_paper_progress().then(response => {
+                try {
+                    const data = typeof response === 'string' ? JSON.parse(response) : response;
+                    if (data.error) {
+                        container.innerHTML = '<div class="text-center py-md"><span class="material-symbols-outlined text-lg text-on-surface-variant">error</span><p class="text-[11px] font-body-md text-on-surface-variant mt-xs">Error: ' + data.error + '</p></div>';
+                    } else {
+                        cachedPaperCards = data.cards || [];
+                        applyPaperFilters();
+                    }
+                } catch (e) {
+                    container.innerHTML = '<div class="text-center py-md"><span class="material-symbols-outlined text-lg text-on-surface-variant">error</span><p class="text-[11px] font-body-md text-on-surface-variant mt-xs">Failed to parse data</p></div>';
+                }
+            }).catch(error => {});
+        } else {
+            container.innerHTML = '<div class="text-center py-md"><span class="material-symbols-outlined text-lg text-on-surface-variant">cloud_off</span><p class="text-[11px] font-body-md text-on-surface-variant mt-xs">Paper progress loads when app is running</p></div>';
+        }
+    }
+
+    setInterval(loadPaperProgress, 10000);
+    setTimeout(loadPaperProgress, 500);
+
+    // ─── Template Screening Status Tracking (v5.7) ─────────────────────────
+    // SEPARATES workflow status from paper evaluation result
+    // v5.7: statuses are PASS / NEEDS MANUAL REVIEW / REJECT
+    function updateScreeningStatusFromLog(message) {
+        const msg = message.toLowerCase();
+        const screeningText = document.getElementById('status-screening-text');
+        const screeningPanel = document.getElementById('screening-summary-panel');
+        
+        // ── WORKFLOW STATUS (engine process) ──
+        if (msg.includes('[screening]') && msg.includes('starting template screening')) {
+            screeningHasFatalError = false;
+            screeningText.textContent = 'Screening Starting';
+            screeningText.className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('[screening]') && msg.includes('reading excel')) {
+            screeningText.textContent = 'Reading Excel';
+            screeningText.className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('[screening]') && msg.includes('converting docx')) {
+            screeningText.textContent = 'Converting DOCX...';
+            screeningText.className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('[screening]') && msg.includes('running template screening')) {
+            screeningText.textContent = 'Screening PDF...';
+            screeningText.className = 'text-code-sm font-code-sm text-primary';
+        }
+        
+        // ── v5.7: Parse individual paper screening result for summary counts ──
+        // New pattern: "[SCREENING] SUB-26799: PASS (Score: 80)"
+        // New pattern: "[SCREENING] SUB-26799: NEEDS MANUAL REVIEW (Score: 65)"
+        // New pattern: "[SCREENING] SUB-26799: REJECT (Score: 30)"
+        const subMatch = msg.match(/sub-?\d{4,8}/i);
+        if (subMatch) {
+            // Match v5.7 statuses: PASS, NEEDS MANUAL REVIEW, REJECT
+            // Also handle old SCREENING PASS/WARNING/FAILED for backward compat
+            let result = null;
+            if (msg.includes('needs manual review') || msg.includes('needs_review')) {
+                result = 'needs_review';
+            } else if (msg.includes('reject')) {
+                result = 'failed';
+            } else if (msg.includes('pass')) {
+                result = 'pass';
+            } else if (msg.includes('warning')) {
+                result = 'warning';
+            } else if (msg.includes('failed')) {
+                result = 'failed';
+            } else if (msg.includes('error')) {
+                result = 'error';
+            }
+            
+            if (result === 'pass') {
+                screeningPassedCount++;
+            } else if (result === 'warning' || result === 'needs_review') {
+                screeningWarningCount++;
+            } else if (result === 'failed') {
+                screeningFailedCount++;
+            } else if (result === 'error') {
+                if (isScreeningFatalError(msg)) {
+                    screeningHasFatalError = true;
+                } else {
+                    screeningFailedCount++;
+                }
+            }
+            screeningTotalCount = screeningPassedCount + screeningWarningCount + screeningFailedCount;
+        }
+        
+        // ── ENGINE COMPLETION ──
+        if ((msg.includes('[screening]') && msg.includes('excel updated')) ||
+            (msg.includes('[screening]') && msg.includes('screened') && msg.includes('errors'))) {
+            
+            if (!screeningHasFatalError) {
+                screeningText.textContent = 'Screening Completed';
+                screeningText.className = 'text-code-sm font-code-sm text-secondary';
+                screeningPanel.style.display = 'flex';
+                document.getElementById('screening-summary-status').textContent = 'Screening Completed';
+                document.getElementById('screening-summary-status').className = 'text-code-sm font-code-sm text-secondary';
+            } else {
+                screeningText.textContent = 'Screening Error';
+                screeningText.className = 'text-code-sm font-code-sm text-error';
+                screeningPanel.style.display = 'flex';
+                document.getElementById('screening-summary-status').textContent = 'Screening Error';
+                document.getElementById('screening-summary-status').className = 'text-code-sm font-code-sm text-error';
+            }
+            
+            // v5.7: Update summary counts with new status labels
+            document.getElementById('screening-passed-count').textContent = `${screeningPassedCount} Passed`;
+            document.getElementById('screening-warning-count').textContent = `${screeningWarningCount} Needs Review`;
+            document.getElementById('screening-failed-count').textContent = `${screeningFailedCount} Failed`;
+        }
+        
+        if (msg.includes('[screening]') && msg.includes('done') && !msg.includes('❌')) {
+            screeningText.textContent = 'Ready';
+            screeningText.className = 'text-code-sm font-code-sm text-secondary';
+        }
+        
+        // ── REAL ENGINE ERROR ──
+        if (msg.includes('[screening]') && msg.includes('error') && isScreeningFatalError(msg)) {
+            screeningText.textContent = 'Screening Error';
+            screeningText.className = 'text-code-sm font-code-sm text-error';
+            screeningHasFatalError = true;
+            screeningPanel.style.display = 'flex';
+            document.getElementById('screening-summary-status').textContent = 'Screening Error';
+            document.getElementById('screening-summary-status').className = 'text-code-sm font-code-sm text-error';
+        }
+    }
+
+    // Helper: determine if a screening message represents a real engine fatal error
+    // vs a paper evaluation failure (which is NOT an engine error)
+    function isScreeningFatalError(msg) {
+        const fatalPatterns = [
+            'failed to parse pdf',
+            'pdf parsing failure',
+            'docx to pdf conversion failed',
+            'unsupported file format',
+            'file not found',
+            'rules file not found',
+            'screening engine error',
+            'traceback',
+            'exception',
+            'unexpected error',
+        ];
+        const lower = msg.toLowerCase();
+        for (const pat of fatalPatterns) {
+            if (lower.includes(pat)) return true;
+        }
+        return false;
+    }
+
+    // ─── Update Current Job from Logs ───────────────────────────────────────
+    function updateCurrentJobFromLog(message) {
+        const msg = message.toLowerCase();
+        
+        // Extract submission number
+        const subMatch =
+            msg.match(/sub-(\d{4,8})/) ||
+            msg.match(/submission[_ ]no\s*[:\-–]\s*(\d{4,8})/i) ||
+            msg.match(/search entered[:\s]+(\d{4,8})/i) ||
+            msg.match(/searching submission[:\s]+(\d{4,8})/i) ||
+            msg.match(/process[:\s]+(\d{4,8})/i) ||
+            msg.match(/\/ojs-downloads\/(\d{4,8})\//) ||
+            msg.match(/downloads\/(\d{4,8})/);
+
+        if (subMatch && subMatch[1]) {
+            currentSubmissionNo = subMatch[1];
+            updateCurrentJobField('current-submission-no', `SUB-${currentSubmissionNo}`);
+        }
+
+        // Update current stage based on log content
+        if (msg.includes('launching browser') || msg.includes('please login manually')) {
+            updateCurrentJobField('current-stage', 'OJS Login Required');
+        } else if (msg.includes('already logged in') || msg.includes('login detected') || msg.includes('[ok] login detected')) {
+            updateCurrentJobField('current-stage', 'OJS Logged In');
+        } else if (msg.includes('downloading submission') || msg.includes('[download]')) {
+            updateCurrentJobField('current-stage', 'Downloading Article');
+            if (currentSubmissionNo) {
+                updateCurrentJobField('current-submission-no', `SUB-${currentSubmissionNo}`);
+            }
+        } else if (msg.includes('[success]') && msg.includes('download')) {
+            updateCurrentJobField('current-stage', 'Article Downloaded');
+        } else if (msg.includes('[excel]') || msg.includes('logged to turnitin') || msg.includes('sudah downloaded dalam excel')) {
+            updateCurrentJobField('current-stage', 'Excel Bridge Updated');
+        } else if (msg.includes('starting turnitin upload') || msg.includes('[turnitin] starting')) {
+            updateCurrentJobField('current-stage', 'Starting Turnitin Upload');
+        } else if (msg.includes('[bridge] selected submission_no') || msg.includes('upload_form_filled')) {
+            updateCurrentJobField('current-stage', 'Uploading to Turnitin');
+        } else if (msg.includes('uploaded') && msg.includes('turnitin')) {
+            updateCurrentJobField('current-stage', 'Turnitin Upload Complete');
+        } else if (msg.includes('opening all sources') || msg.includes('filter sources')) {
+            updateCurrentJobField('current-stage', 'Filtering Similarity');
+        } else if (msg.includes('final score after filtering') || msg.includes('filter_done')) {
+            updateCurrentJobField('current-stage', 'Similarity Filtered');
+        } else if (msg.includes('download pdf') || msg.includes('downloading report')) {
+            updateCurrentJobField('current-stage', 'Downloading Report');
+        } else if (msg.includes('pdf saved')) {
+            updateCurrentJobField('current-stage', 'Report Downloaded');
+        } else if (msg.includes('upload report to ojs') || msg.includes('ojs report upload') || msg.includes('uploading report')) {
+            updateCurrentJobField('current-stage', 'Uploading Report to OJS');
+        } else if (msg.includes('berjaya upload ojs') || msg.includes('report uploaded to ojs')) {
+            updateCurrentJobField('current-stage', 'Report Uploaded to OJS - Complete');
+        } else if (msg.includes('tak berjaya upload ojs') || msg.includes('upload failed')) {
+            updateCurrentJobField('current-stage', 'Upload Failed');
+        } else if (msg.includes('no pending submissions') || msg.includes('tiada row pending')) {
+            updateCurrentJobField('current-stage', 'No Pending Submissions');
+        }
+
+        updateCurrentJobTimestamp();
+    }
+
+    // ─── Pipeline Log Integration (Workflow-Aware) ────────────────────────────
+    // Track which submission we're processing per workflow
+    let pipelineSequenceData = {
+        submissionNo: null,
+        lastCompletedNode: null,
+        stageLocked: false
+    };
+
+    // Activate a node: complete all nodes before it, set it to active, set all after to pending
+    function activatePipelineNode(nodeId, activeNodes) {
+        const idx = activeNodes.indexOf(nodeId);
+        if (idx === -1) return;
+        activeNodes.forEach((id, i) => {
+            if (i < idx) {
+                setPipelineNodeState(id, 'completed');
+            } else if (i === idx) {
+                setPipelineNodeState(id, 'active');
+            } else {
+                setPipelineNodeState(id, 'pending');
+            }
+        });
+    }
+
+    // Complete a node: set it to completed, and activate the next node in workflow
+    function completePipelineNode(nodeId, activeNodes) {
+        const idx = activeNodes.indexOf(nodeId);
+        if (idx === -1) return;
+        setPipelineNodeState(nodeId, 'completed');
+        // If there's a next node in the workflow, activate it
+        if (idx + 1 < activeNodes.length) {
+            setPipelineNodeState(activeNodes[idx + 1], 'active');
+        }
+    }
+
+    function updatePipelineFromLog(message) {
+        const msg = message.toLowerCase();
+        
+        // ── Submission number tracking ──
+        const subMatch =
+            msg.match(/sub-(\d{4,8})/) ||
+            msg.match(/submission[_ ]no\s*[:\-–]\s*(\d{4,8})/i) ||
+            msg.match(/search entered[:\s]+(\d{4,8})/i) ||
+            msg.match(/searching submission[:\s]+(\d{4,8})/i) ||
+            msg.match(/process[:\s]+(\d{4,8})/i) ||
+            msg.match(/\/ojs-downloads\/(\d{4,8})\//) ||
+            msg.match(/downloads\/(\d{4,8})/);
+
+        if (subMatch && subMatch[1]) {
+            const newSubNo = subMatch[1];
+            if (pipelineSequenceData.submissionNo && pipelineSequenceData.submissionNo !== newSubNo) {
+                pipelineSequenceData.submissionNo = newSubNo;
+                pipelineSequenceData.stageLocked = false;
+            } else {
+                pipelineSequenceData.submissionNo = newSubNo;
+            }
+            let prefix = 'SUB';
+            let stageIndex = 0;
+            if (msg.includes('ojs upload') || msg.includes('upload report')) {
+                prefix = 'OJS-UPLOAD';
+                stageIndex = 2;
+            } else if (msg.includes('turnitin') || msg.includes('filter') || msg.includes('report:') || msg.includes('report saved')) {
+                prefix = 'REPORT';
+                stageIndex = 1;
+            } else if (msg.includes('process:') || msg.includes('[download]') || msg.includes('[success]') || msg.includes('ojs-downloads') || msg.includes('downloading submission')) {
+                prefix = 'SUB';
+                stageIndex = 0;
+            } else if (msg.includes('[excel]') || msg.includes('logged to turnitin')) {
+                prefix = 'SUB';
+                stageIndex = 0;
+            }
+            setPipelinePacketsForSubmission(newSubNo, prefix, stageIndex);
+        }
+
+        // Only process pipeline state changes if we're in a workflow mode
+        if (currentWorkflowMode === 'idle') return;
+
+        const activeNodes = WORKFLOW_NODES[currentWorkflowMode] || [];
+
+        function isInWorkflow(nodeId) {
+            return activeNodes.includes(nodeId);
+        }
+
+        // ── Stage mapping based on log messages ──
+        // Only one node is active at a time. activatePipelineNode() completes all
+        // previous nodes, activates the target, and sets future nodes to pending.
+        // completePipelineNode() marks the target completed and activates the next.
+
+        // OJS Login (LOGIN_STARTED / LOGIN_CHECK / LOGIN_READY)
+        if ((msg.includes('launching browser with persistent ojs') || 
+             msg.includes('[ojs] please login manually') ||
+             msg.includes('starting ojs download engine')) && isInWorkflow('pipeline-ojs-login')) {
+            activatePipelineNode('pipeline-ojs-login', activeNodes);
+        }
+        if ((msg.includes('already logged in') || msg.includes('login detected') || msg.includes('[ok] login detected')) && isInWorkflow('pipeline-ojs-login')) {
+            completePipelineNode('pipeline-ojs-login', activeNodes);
+        }
+
+        // Download Article (DOWNLOAD_STARTED / DOWNLOADING_ARTICLE)
+        if ((msg.includes('process:') || msg.includes('[download]') || msg.includes('downloading submission')) && isInWorkflow('pipeline-download')) {
+            activatePipelineNode('pipeline-download', activeNodes);
+        }
+        // Article Downloaded (ARTICLE_DOWNLOADED)
+        if ((msg.includes('[success]') || msg.includes('downloaded:') || (msg.includes('✅') && msg.includes('download'))) && isInWorkflow('pipeline-download')) {
+            completePipelineNode('pipeline-download', activeNodes);
+        }
+
+        // Download Article Record / Excel Bridge (RECORD_UPDATE_STARTED / EXCEL_BRIDGE_UPDATING)
+        // Only activate on start signals, not on completion signals
+        if ((msg.includes('[excel]') && !msg.includes('sudah downloaded') && !msg.includes('✅') && !msg.includes('complete') && !msg.includes('done')) && isInWorkflow('pipeline-excel')) {
+            activatePipelineNode('pipeline-excel', activeNodes);
+        }
+        // Record Update Done (RECORD_UPDATE_DONE / EXCEL_BRIDGE_UPDATED)
+        if ((msg.includes('sudah downloaded dalam excel') || 
+             msg.includes('logged to turnitin') ||
+             (msg.includes('[excel]') && (msg.includes('✅') || msg.includes('complete') || msg.includes('done')))) && isInWorkflow('pipeline-excel')) {
+            completePipelineNode('pipeline-excel', activeNodes);
+        }
+
+        // Turnitin Upload (TURNITIN_UPLOAD_STARTED)
+        if ((msg.includes('[turnitin] starting upload') || msg.includes('starting turnitin upload engine') ||
+             msg.includes('[bridge] selected submission_no') || msg.includes('upload_form_filled')) && isInWorkflow('pipeline-upload')) {
+            activatePipelineNode('pipeline-upload', activeNodes);
+        }
+        if ((msg.includes('uploaded') && msg.includes('turnitin')) || msg.includes('confirmed') || msg.includes('upload complete')) {
+            if (isInWorkflow('pipeline-upload')) completePipelineNode('pipeline-upload', activeNodes);
+        }
+
+        // Similarity Filter (SIMILARITY_FILTER_STARTED)
+        if ((msg.includes('opening all sources') || msg.includes('filter sources') || 
+             msg.includes('filtering similarity')) && isInWorkflow('pipeline-filter')) {
+            activatePipelineNode('pipeline-filter', activeNodes);
+        }
+        if ((msg.includes('final score after filtering') || msg.includes('filter_done') || 
+             msg.includes('filtering complete')) && isInWorkflow('pipeline-filter')) {
+            completePipelineNode('pipeline-filter', activeNodes);
+        }
+
+        // Download Report (REPORT_DOWNLOAD_STARTED)
+        if ((msg.includes('download pdf') || msg.includes('downloading report')) && isInWorkflow('pipeline-report')) {
+            activatePipelineNode('pipeline-report', activeNodes);
+        }
+        if ((msg.includes('pdf saved') || msg.includes('report:') || 
+            (msg.includes('downloaded') && msg.includes('report'))) && isInWorkflow('pipeline-report')) {
+            completePipelineNode('pipeline-report', activeNodes);
+        }
+
+        // Upload Report to OJS (OJS_UPLOAD_STARTED)
+        if ((msg.includes('upload report to ojs') ||
+             msg.includes('ojs report upload') ||
+             msg.includes('uploading report') ||
+             msg.includes('searching submission')) && isInWorkflow('pipeline-ojs-report-upload')) {
+            activatePipelineNode('pipeline-ojs-report-upload', activeNodes);
+        }
+        if ((msg.includes('berjaya upload ojs') ||
+             msg.includes('report uploaded to ojs') ||
+             msg.includes('ojs upload completed') ||
+             msg.includes('done upload turnitin reports')) && isInWorkflow('pipeline-ojs-report-upload')) {
+            completePipelineNode('pipeline-ojs-report-upload', activeNodes);
+        }
+        // Error detection for OJS upload
+        if ((msg.includes('tak berjaya upload ojs') ||
+             msg.includes('[ojs upload] ❌') ||
+             msg.includes('upload failed')) && isInWorkflow('pipeline-ojs-report-upload')) {
+            setPipelineNodeState('pipeline-ojs-report-upload', 'error');
+        }
+
+        // ── Template Screening Pipeline Tracking ──
+        if ((msg.includes('[screening]') && msg.includes('reading excel')) && isInWorkflow('pipeline-excel')) {
+            activatePipelineNode('pipeline-excel', activeNodes);
+        }
+        if ((msg.includes('[screening]') && msg.includes('reading excel') || msg.includes('found')) && isInWorkflow('pipeline-excel')) {
+            completePipelineNode('pipeline-excel', activeNodes);
+        }
+        if ((msg.includes('[screening]') && (msg.includes('converting docx') || msg.includes('running template screening'))) && isInWorkflow('pipeline-screening')) {
+            activatePipelineNode('pipeline-screening', activeNodes);
+        }
+        if ((msg.includes('[screening]') && msg.includes('done')) && isInWorkflow('pipeline-screening')) {
+            completePipelineNode('pipeline-screening', activeNodes);
+        }
+    }
+
+    // ─── Global App Status State Machine ────────────────────────────────────
+    // app_status values: 'READY', 'RUNNING', 'WAITING_LOGIN', 'ERROR'
+    let appStatus = 'READY';
+    let engineRunningCount = 0;  // track how many engines are actively running
+    let engineWaitingLoginCount = 0;  // track how many are waiting login
+    let engineFatalError = false;
+
+    function setAppStatus(newStatus, reason) {
+        if (newStatus === 'ERROR' && appStatus === 'WAITING_LOGIN') {
+            // Only override WAITING_LOGIN with real ERROR, not the other way around
+            // WAITING_LOGIN is a lower severity state
+        }
+        appStatus = newStatus;
+        const indicator = document.getElementById('system-status-indicator');
+        const text = document.getElementById('system-status-text');
+        if (!indicator || !text) return;
+        
+        if (newStatus === 'RUNNING') {
+            indicator.className = 'w-2 h-2 rounded-full bg-primary pulse-primary';
+            text.textContent = 'RUNNING';
+            text.className = 'text-label-mono font-label-mono text-primary';
+        } else if (newStatus === 'WAITING_LOGIN') {
+            indicator.className = 'w-2 h-2 rounded-full bg-tertiary';
+            text.textContent = 'LOGIN REQUIRED';
+            text.className = 'text-label-mono font-label-mono text-tertiary';
+        } else if (newStatus === 'ERROR') {
+            indicator.className = 'w-2 h-2 rounded-full bg-error';
+            text.textContent = 'ERROR';
+            text.className = 'text-label-mono font-label-mono text-error';
+        } else { // READY
+            indicator.className = 'w-2 h-2 rounded-full bg-secondary';
+            text.textContent = 'SYSTEM READY';
+            text.className = 'text-label-mono font-label-mono text-secondary';
+        }
+    }
+
+    // Recompute global status from engineRunningCount, engineWaitingLoginCount, engineFatalError
+    function recomputeAppStatus() {
+        if (engineFatalError) {
+            setAppStatus('ERROR', 'fatal error');
+        } else if (engineRunningCount > 0 && engineWaitingLoginCount > 0) {
+            // Some are running, some waiting login → still RUNNING (not ERROR)
+            setAppStatus('RUNNING', 'mixed running + waiting');
+        } else if (engineWaitingLoginCount > 0) {
+            setAppStatus('WAITING_LOGIN', 'waiting login');
+        } else if (engineRunningCount > 0) {
+            setAppStatus('RUNNING', 'engine running');
+        } else {
+            // No engines active, no fatal error → READY
+            setAppStatus('READY', 'all idle');
+        }
+    }
+
+    // Helper to check if a message represents a fatal/unrecoverable error
+    function isFatalError(msg, prefix) {
+        // Fatal errors are engine crashes, exceptions, workflow aborts
+        // NOT recoverable states like login required, no submissions, timeouts
+        const fatalPatterns = [
+            'fatal', 'exception', 'traceback', 'workflow failed',
+            'could not launch', 'browser launch', 'crash',
+        ];
+        // Check prefix-specific fatal patterns
+        if (prefix) {
+            // e.g. "[OJS] ❌ Could not launch browser" → fatal
+            if (msg.includes(`${prefix} ❌`) && msg.includes('fatal')) return true;
+            if (msg.includes(`${prefix} ❌`) && msg.includes('exception')) return true;
+            if (msg.includes(`${prefix} ❌`) && msg.includes('traceback')) return true;
+        }
+        // General fatal patterns
+        for (const p of fatalPatterns) {
+            if (msg.includes(p)) return true;
+        }
+        return false;
+    }
+
+    // Helper to check if a message is a recoverable non-error
+    function isRecoverableState(msg) {
+        const recoverable = [
+            'login required', 'please login manually', 'waiting for login',
+            'no pending submissions', 'tiada row pending',
+            'timeout', 'stuck', 'already uploaded', 'skip',
+            'already berjaya', 'sudah berjaya',
+            'not logged in', 'wait login',
+            'manual login',
+        ];
+        for (const r of recoverable) {
+            if (msg.includes(r)) return true;
+        }
+        return false;
+    }
+
+    // Helper to check if a message means the engine completed successfully
+    function isEngineCompleted(msg, prefix) {
+        if (prefix) {
+            if (msg.includes(`${prefix} ✅`) && (msg.includes('complete') || msg.includes('finished') || msg.includes('done'))) return true;
+        }
+        // Generic completion patterns
+        if (msg.includes('✅ workflow completed') || msg.includes('successfully')) return true;
+        return false;
+    }
+
+    function updateSystemStatusFromLog(message) {
+        const msg = message.toLowerCase();
+        
+        // ── Per-engine status updates (unchanged) ──
+        if (msg.includes('starting ojs download engine') || msg.includes('launching browser with persistent ojs')) {
+            document.getElementById('status-ojs-text').textContent = 'Running';
+            document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-primary';
+            engineRunningCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('[ojs] please login manually')) {
+            document.getElementById('status-ojs-text').textContent = 'Waiting Login';
+            document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-tertiary';
+            engineWaitingLoginCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('already logged in') || msg.includes('[ok] login detected')) {
+            document.getElementById('status-ojs-text').textContent = 'Running';
+            document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-primary';
+            if (engineWaitingLoginCount > 0) engineWaitingLoginCount--;
+            recomputeAppStatus();
+        }
+        if (msg.includes('[ojs] ✅') && (msg.includes('complete') || msg.includes('finished') || msg.includes('done'))) {
+            document.getElementById('status-ojs-text').textContent = 'Completed';
+            document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-secondary';
+            if (engineRunningCount > 0) engineRunningCount--;
+            recomputeAppStatus();
+        }
+        if (msg.includes('[ojs] ❌') || (msg.includes('[ojs]') && msg.includes('error'))) {
+            if (isFatalError(msg, '[ojs]')) {
+                document.getElementById('status-ojs-text').textContent = 'Failed';
+                document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-error';
+                engineFatalError = true;
+                recomputeAppStatus();
+            } else if (!isRecoverableState(msg)) {
+                document.getElementById('status-ojs-text').textContent = 'Failed';
+                document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-error';
+                if (engineRunningCount > 0) engineRunningCount--;
+                recomputeAppStatus();
+            } else {
+                // Recoverable - keep running state
+                document.getElementById('status-ojs-text').textContent = 'Waiting';
+                document.getElementById('status-ojs-text').className = 'text-code-sm font-code-sm text-tertiary';
+            }
+        }
+        
+        if (msg.includes('starting turnitin upload engine') || msg.includes('[turnitin] starting')) {
+            document.getElementById('status-turnitin-text').textContent = 'Running';
+            document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-primary';
+            engineRunningCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('please login manually') && msg.includes('turnitin')) {
+            document.getElementById('status-turnitin-text').textContent = 'Waiting Login';
+            document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-tertiary';
+            engineWaitingLoginCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('opening all sources') || msg.includes('filter sources')) {
+            document.getElementById('status-turnitin-text').textContent = 'Filtering';
+            document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('download pdf') || msg.includes('downloading report')) {
+            document.getElementById('status-turnitin-text').textContent = 'Downloading';
+            document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('[turnitin] ✅') && (msg.includes('complete') || msg.includes('report:') || msg.includes('done'))) {
+            document.getElementById('status-turnitin-text').textContent = 'Completed';
+            document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-secondary';
+            if (engineRunningCount > 0) engineRunningCount--;
+            recomputeAppStatus();
+        }
+        if (msg.includes('[turnitin] ❌') || (msg.includes('[turnitin]') && msg.includes('error'))) {
+            if (isFatalError(msg, '[turnitin]')) {
+                document.getElementById('status-turnitin-text').textContent = 'Failed';
+                document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-error';
+                engineFatalError = true;
+                recomputeAppStatus();
+            } else if (!isRecoverableState(msg)) {
+                document.getElementById('status-turnitin-text').textContent = 'Failed';
+                document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-error';
+                if (engineRunningCount > 0) engineRunningCount--;
+                recomputeAppStatus();
+            } else {
+                // Recoverable - keep running state
+                document.getElementById('status-turnitin-text').textContent = 'Waiting';
+                document.getElementById('status-turnitin-text').className = 'text-code-sm font-code-sm text-tertiary';
+            }
+        }
+
+        if (msg.includes('upload report to ojs') || msg.includes('ojs report upload') ||
+            (msg.includes('[ojs upload]') && msg.includes('starting'))) {
+            document.getElementById('status-ojs-upload-text').textContent = 'Running';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-primary';
+            engineRunningCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('[ojs upload]') && msg.includes('waiting for ojs login')) {
+            document.getElementById('status-ojs-upload-text').textContent = 'Waiting Login';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-tertiary';
+            engineWaitingLoginCount++;
+            recomputeAppStatus();
+        }
+        if (msg.includes('searching submission') || msg.includes('search entered')) {
+            document.getElementById('status-ojs-upload-text').textContent = 'Searching...';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('clicked upload file') || msg.includes('selected turnitin reports')) {
+            document.getElementById('status-ojs-upload-text').textContent = 'Uploading...';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-primary';
+        }
+        if (msg.includes('berjaya upload ojs') || msg.includes('ojs upload completed') ||
+            msg.includes('done upload turnitin reports')) {
+            document.getElementById('status-ojs-upload-text').textContent = 'Completed';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-secondary';
+            if (engineRunningCount > 0) engineRunningCount--;
+            recomputeAppStatus();
+        }
+        if (msg.includes('no pending submissions') || msg.includes('tiada row pending')) {
+            document.getElementById('status-ojs-upload-text').textContent = 'No Pending';
+            document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-tertiary';
+            // This is NOT an error - it's a normal state
+        }
+        if (msg.includes('[ojs upload] ❌') || msg.includes('tak berjaya upload ojs') ||
+            msg.includes('upload failed')) {
+            if (isFatalError(msg, '[ojs upload]')) {
+                document.getElementById('status-ojs-upload-text').textContent = 'Failed';
+                document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-error';
+                engineFatalError = true;
+                recomputeAppStatus();
+            } else if (!isRecoverableState(msg)) {
+                document.getElementById('status-ojs-upload-text').textContent = 'Failed';
+                document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-error';
+                if (engineRunningCount > 0) engineRunningCount--;
+                recomputeAppStatus();
+            } else {
+                document.getElementById('status-ojs-upload-text').textContent = 'Waiting';
+                document.getElementById('status-ojs-upload-text').className = 'text-code-sm font-code-sm text-tertiary';
+            }
+        }
+        
+        if (msg.includes('[excel]') && msg.includes('reading')) {
+            document.getElementById('status-excel-text').textContent = 'data/master update.xlsx • Reading';
+            document.getElementById('status-excel-text').className = 'text-body-sm text-primary line-clamp-2';
+        }
+        if (msg.includes('sudah downloaded dalam excel') || msg.includes('logged to turnitin') ||
+            (msg.includes('[ojs upload excel]') && msg.includes('logged'))) {
+            document.getElementById('status-excel-text').textContent = 'data/master update.xlsx • Updated';
+            document.getElementById('status-excel-text').className = 'text-body-sm text-secondary line-clamp-2';
+        }
+        if (msg.includes('[excel]') && msg.includes('error')) {
+            document.getElementById('status-excel-text').textContent = 'data/master update.xlsx • Error';
+            document.getElementById('status-excel-text').className = 'text-body-sm text-error line-clamp-2';
+        }
+    }
+</script>
+
+</body></html>

@@ -1,0 +1,8 @@
+{
+  "name": "turnitin-assistant-web",
+  "version": "5.8.0",
+  "description": "Vercel-deployable frontend for Turnitin Assistant API",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,791 @@
+{
+  "submission_no": "26788",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.6/storage/ojs-downloads/26788/UmmuNajwa_UMPSA.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/UmmuNajwa_UMPSA.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 84,
+  "structure_score": 60,
+  "layout_score": 100,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.6854,
+        "y_max": 0.2028
+      },
+      "evidence_text": "Matched heading: \"PRIORITISING  SAFETY  FACTORS  AND  RISK  MITIGATION   STRATEGIES   IN   ROAD\" | Detection method: score_ranking",
+      "notes": "Title detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "PRIORITISING  SAFETY  FACTORS  AND  RISK  MITIGATION   STRATEGIES   IN   ROAD",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2733,
+        "x_max": 0.683,
+        "y_max": 0.3048
+      },
+      "evidence_text": "Matched heading: \"Ummu Najwa Nur Yusrizala, Noram Irwan Ramlia*, Putri Zulaiha Razia,  Ramadhansyah Putra Jayaa, Siti \" | Detection method: score_ranking",
+      "notes": "Authors detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Ummu Najwa Nur Yusrizala, Noram Irwan Ramlia*, Putri Zulaiha Razia,  Ramadhansyah Putra Jayaa, Siti ",
+          "score": 0.8
+        },
+        {
+          "text": "PRIORITISING  SAFETY  FACTORS  AND  RISK  MITIGATION   STRATEGIES   IN   ROAD",
+          "score": 0.55
+        },
+        {
+          "text": "CONSTRUCTION  PROJECTS  USING  THE  ANALYTICAL HIERARCHY PROCESS",
+          "score": 0.55
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.3212,
+        "x_max": 0.683,
+        "y_max": 0.3528
+      },
+      "evidence_text": "Matched heading: \"aFaculty of Civil Engineering Technology, Universiti Malaysia Pahang Al-  Sultan Abdullah, 26300, Pa\" | Detection method: score_ranking",
+      "notes": "Affiliations detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "aFaculty of Civil Engineering Technology, Universiti Malaysia Pahang Al-  Sultan Abdullah, 26300, Pa",
+          "score": 0.85
+        },
+        {
+          "text": "Ummu Najwa Nur Yusrizala, Noram Irwan Ramlia*, Putri Zulaiha Razia,  Ramadhansyah Putra Jayaa, Siti ",
+          "score": 0.5
+        },
+        {
+          "text": "noram@umpsa.edu.my",
+          "score": 0.45
+        },
+        {
+          "text": "CONSTRUCTION  PROJECTS  USING  THE  ANALYTICAL HIERARCHY PROCESS",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "noram@umpsa.edu.my",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1717,
+        "y_min": 0.3827,
+        "x_max": 0.502,
+        "y_max": 0.3982
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nInfrastructure  projects,  including  road  construction  projects,  inherently  operate  under  risky  and  hazardous  situations,  particularly  during  processes  involving  earthworks, temporary structures, heavy machinery and live traffic exposure. Such  situations will significantly increase the risk of occupational accidents and public  safety  incidents,  which  require  effective  safety  culture  and  risk  mitigation  strategies. This study aimed to identify and prioritise the critical factors influencing  safety culture in road construction projects and to evaluate suitable mitigation  strategies for reducing safety risks. A quantitative survey was conducted among  professionals involved in road construction projects in Malaysia, involving 36 valid  respondents  comprising  engineers,  contractors,  project  managers,  and  safety  practitioners. Relative weight of the safety criteria, sub-criteria, and the respective  mitigation strategies were established using the Analytic Hierarchy Process (AHP).  Results showed that the economic and financial aspects were the most important  criterion, with an importance weight of 25.77%. This was followed by project risk",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nPRIORITISING  SAFETY  FACTORS  AND  RISK  MITIGATION   STRATEGIES   IN   ROAD\nCONSTRUCTION  PROJECTS  USING  THE  ANALYTICAL HIERARCHY PROCESS\nUmmu Najwa Nur Yusrizala, Noram Irwan Ramlia*, Putri Zulaiha Razia,  Ramadhansyah Putra Jayaa, Siti Nurizzati Ismaila, Lee Kai Linga\naFaculty of Civil Engineering Technology, Universiti Malaysia Pahang Al-  Sultan Abdullah, 26300, Pahang, Malaysia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nnoram@umpsa.edu.my\nGraphical abstract Abstract\nInfrastructure  projects,  including  road  construction  projects,  inherently  operate  under  risky  and  hazardous  situations,  particularly  during  processes  involving  earthworks, temporary structures, h",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4292,
+        "y_min": 0.6891,
+        "x_max": 0.9145,
+        "y_max": 0.712
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Road construction, safety culture, risk mitigation, occupational safety  and health, Analytical Hierarchy Process, construction management",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.4292,
+        "y_min": 0.7268,
+        "x_max": 0.496,
+        "y_max": 0.7423
+      },
+      "evidence_text": "Matched heading: \"Abstrak\" | Detection method: source_docx_text",
+      "notes": "Abstrak confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstrak",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Projek infrastruktur, termasuk projek pembinaan jalan, sememangnya beroperasi  dalam keadaan yang berbahaya, terutamanya semasa kerja-kerja melibatkan kerja  tanah, struktur sementara, jentera berat dan kerja yang terdedah kepada aliran  trafik.  Situasi  berikut  secara  tidak  langsung  meningkatkan  risiko  kemalangan  pekerjaan dan keselamatan awam, di mana keberkesanan budaya keselamatan  dan strategi mitigasi risiko diperlukan. Kajian ini bertujuan untuk mengenal pasti  dan mengutamakan faktor-faktor kritikal yang mempengaruhi budaya keselamatan  dalam  projek  pembinaan  jalan  dan  untuk  menganalisis  strategi  mitigasi  yang  sesuai  untuk  mengurangkan  risiko  keselamatan.  Tinjauan  kuantitatif  dilakukan  dalam kalangan pakar yang terlibat dengan projek pembinaan jalan di Malaysia  yang melibatkan seramai 36 responden termasuklah jurutera, kontraktor, pengurus  projek dan pakar keselamatan. Pemberat relatif kriteria keselamatan, subkriteria  dan  strategi  mitigasi,  telah  diperoleh  dengan  menggunakan  Proses  Hierarki  Analitik (AHP). Hasil dapatan menunjukkan bahawa faktor ekonomi dan kewangan\n78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "PASS",
+      "page": "2",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": {
+        "x_min": 0.4292,
+        "y_min": 0.2313,
+        "x_max": 0.9144,
+        "y_max": 0.2542
+      },
+      "evidence_text": "Matched heading: \"Kata kunci\" | Detection method: source_docx_text",
+      "notes": "Kata_Kunci confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Kata kunci",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Pembinaan jalan, budaya keselamatan, mitigasi risiko, Keselamatan  dan Kesihatan Pekerjaan, Proses Hierarki Analitik, pengurusan pembinaan\n© 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION\nThe construction industry has always been considered\none  of  the  most  complicated  and  diversified  industries  because of the presence of several parties involved in the  process,  differences  in  contractual  relations,  transitory  project structures, and types of work such as buildings,  highways, bridges, tunnels, and infrastructure constructions  [1]. In the construction industry, road construction projects  contribute to mobility at the national level, improved logistics  performance, economic efficiency, connectivity of regions,  and  accessibility  of  public  utilities  [2].  With  growing  transportation demand, road construction remains a high- priority development activity for many countries, such as  Malaysia.\nRoad  construction  projects  are  highly  dynamic  and\noperationally  challenging.  Unlike  fixed-location  building  projects, road works commonly extend across long route  corridors  and  involve  simultaneous  activities  such  as  earthworks,  pavemen",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "5",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.5519,
+        "x_max": 0.3639,
+        "y_max": 0.5675
+      },
+      "evidence_text": "Matched heading: \"3.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "3.1 Prioritisation of Principal Criteria and Sub-Factors\nThe  AHP  analysis  demonstrated  that  economic  and\nfinancial factors were the most influential criterion affecting  safety culture in road construction projects, with an overall  weight of 25.77%. This was followed by project risk factors  (24.60%)  and  skills-related  factors  (17.20%).  The  remaining principal criteria were resource factors (17.06%)  and health factors (15.38%). These findings show that  financial  capability,  risk  exposure,  and  workforce  competency  are  the  major  factors  influencing  safety  performance in road construction environments.\nThe emphasis on economic and financial considerations\nimplies that the maintenance of a safety culture cannot be  achieved without adequate financial resources. In practical  terms,  construction  organisations  require  dedicated  budgets  for  training,  competent  supervision,  personal  protective equipment, inspections, traffic control systems,  and  emergency  preparedness.  In  many  infrastructure  projects, particularly under competitive tendering and cost- sensitive contracts, safety expenditure is often viewed as  an operational cost rather than a",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "7",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.6406,
+        "y_min": 0.0817,
+        "x_max": 0.7993,
+        "y_max": 0.0973
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The  authors  would  like  to  express  their  sincere  appreciation  to  Universiti  Malaysia  Pahang  Al-Sultan  Abdullah (UMPSA) for the support provided throughout  this study. The authors also acknowledge all respondents  and industry professionals involved in the questionnaire  survey for their valuable cooperation and contributions to  this research.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "7",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.2284,
+        "x_max": 0.6259,
+        "y_max": 0.2439
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] S. Winge, E. Albrechtsen, and J. Arnesen, “A comparative analysis\nof  safety  management  and  safety  performance  in  twelve  construction projects,”  Journal of Safety Research, vol. 71, pp.  139–152, 2019. https://doi.org/10.1016/j.jsr.2019.09.015\n[2] C. P. Ng, T. H. Law, F. M. Jakarni, and S. Kulanthayan, “Road\ninfrastructure  development  and  economic  growth,”  IOP\nConference Series: Materials Science and Engineering, vol. 512,  no. 1, 2019. https://doi.org/10.1088/1757-899X/512/1/012045\n[3] M. Riaz, A. R. Khan, and S. Ullah, “Safety risk identification and\nassessment in highway construction projects using multi-criteria  techniques,” International Journal of Construction Management,  vol.   23,   no.   5,   pp.   812–825,   2023.\nhttps://doi.org/10.1080/15623599.2021.1921703\n[4]  X.  Zhang,  S.  Huang,  S.  Yang,  R.  Tu,  and  L.  Jin,  “Safety\nassessment in road construction work system based on group  AHP-PCA,”  Mathematical Problems in Engineering, vol. 2020,  pp. 1–10, 2020. https://doi.org/10.1155/2020/8857947\n[5]  P.  T.  R.  S.  Sugathadasa,  R.  P.  H.  M.  A.  Herath,  and  A.\nThibbotuwawa, “Supply  chain risk  assessment  and  mitigation  approaches  for  s",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

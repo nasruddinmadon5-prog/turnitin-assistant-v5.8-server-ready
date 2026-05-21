@@ -1,0 +1,778 @@
+{
+  "submission_no": "26812",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.6.1/storage/ojs-downloads/26812/1. JT Fouzey Latest.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/1. JT Fouzey Latest.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 78,
+  "structure_score": 53,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.6491,
+        "y_max": 0.2261
+      },
+      "evidence_text": "Matched heading: \"GRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILT\" | Detection method: score_ranking",
+      "notes": "Title detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "GRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILT",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.25,
+        "x_max": 0.6467,
+        "y_max": 0.2815
+      },
+      "evidence_text": "Matched heading: \"Fouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Radzib, Muhammad Ammirrul Atiqi Mo\" | Detection method: score_ranking",
+      "notes": "Authors detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Fouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Radzib, Muhammad Ammirrul Atiqi Mo",
+          "score": 0.8
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2979,
+        "x_max": 0.6467,
+        "y_max": 0.3774
+      },
+      "evidence_text": "Matched heading: \"aDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering and Bui\" | Detection method: score_ranking",
+      "notes": "Affiliations detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "aDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering and Bui",
+          "score": 0.8
+        },
+        {
+          "text": "Fouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Radzib, Muhammad Ammirrul Atiqi Mo",
+          "score": 0.5
+        },
+        {
+          "text": "p109893@siswa.ukm.edu.my",
+          "score": 0.45
+        },
+        {
+          "text": "GRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILT",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "p109893@siswa.ukm.edu.my",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1753,
+        "y_min": 0.4073,
+        "x_max": 0.5094,
+        "y_max": 0.4228
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nThis  paper  presents  analysis  of  two-stage  grid-tied  Photovoltaic  (PV)  microinverter, confirming its designing, modelling and performance improvements  reducing Total Harmonic Distortion (THD) by IEEE power quality standards. The  study evaluates three various filter configurations integrated into microinverter,  each  designed  to  mitigate  THD  in  the  grid  current,  the  first  configuration  implement  LCL  filter,  obtaining  THD  of  approximately  11%,  the  second  configuration introduces hybrid filtering approach that combines the LCL filter with  hybrid Half Bridge (H-B) filter, demonstrating improvements and yielding THD  values between 6-7%, this combination efficient addresses high frequency noise,  enhancing output quality, the third configuration utilizes hybrid LCL and Passive  Damping (PD) filter, this developed arrangement results in the lowest THD levels,  reaching as low as 3-4%, the passive damping component stabilizes the system  by  mitigating  resonances  and  improving  performance  at  varying  operation  conditions, Experimental results reflect steady-state operation verification through  Hardware-in-the-Loop (HIL) testing using (PLE",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nGRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILTER\nFouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Radzib, Muhammad Ammirrul Atiqi Mohd Zainuria,\naDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering and Built Environment, UKM, 43600, Bangi,  Selangor, Malaysia bDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering, UPM, 43400, Serdang, Selangor, Malaysia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\np109893@siswa.ukm.edu.my\nGraphical abstract Abstract\nThis  paper  presents  analysis  of  two-stage  grid-tied  Photovoltaic  (PV)  microinverter",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4365,
+        "y_min": 0.7667,
+        "x_max": 0.9144,
+        "y_max": 0.7912
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Two-stage grid-tied PV-microinverter, Passive Damping (PD) filter,  Total Harmonic Distortion (THD).\n1.0 INTRODUCTION\nTraffic  management  and  accident  management  is  very  important for human in congestion city in order to provide\ncomfortable  lifestyle  and  safety.  By  having  this  system,  people will haved real-time information on traffic conditition  around the city, which can avoid from stuck on traffic jam. At  present, ground-based solution are widely used to monitor\n--:- (2026) 1–9 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"Jurnal Teknologi\nFull Paper\nGRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILTER\nFouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Rad\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nGRID CURRENT THD REDUCTION IN TWO- STAGE  GRID-TIED  PV-MICROINVERTER  USING PASSIVE DAMPING PD-FILTER\nFouzey Salem Aamaraa*, Yushaizad bin Yusofa, Mohd Amran bin  Mohd Radzib, Muhammad Ammirrul Atiqi Mohd Zainuria,\naDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering and Built Environment, UKM, 43600, Bangi,  Selangor, Malaysia bDepartment  of  electrical,  Electronics  and  System  Engineering,  Faculty of Engineering, UPM, 43400, Serdang, Selangor, Malaysia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\np109893@siswa.ukm.edu.my\nGraphical abstract Abstract\nThis  paper  presents  analysis  of  two-stage  grid-tied  Photovoltaic  (PV)  microinverter",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "PASS",
+      "page": "9",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.119,
+        "y_min": 0.4523,
+        "x_max": 0.4857,
+        "y_max": 0.4956
+      },
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [
+        {
+          "text": "methods",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "of  switching  ripple  filters  for  voltage  source  inverter:  comprehensive  review,”  Elsevier,  Renewable  and  Sustainable  Energy Reviews 62. (2016). 46-69.\n[13] V. Letsoin, F. A. S. A. E. U. S. “Three-Phase DC-AC Inverter with\nLow Power Dissipation Filter for Photovoltaic-Based Micro-Grid  Scale  Electric  Power  System,”  Electrical,  Electronics,\nCommunications.  Controls  and  Informatics  Seminar  (EECCIS).  (2018). 52-57.\n[14] Hanif, S. J. a. M. “Generalized LCL-Filter Design Algorithm for\nGrid-Connected Voltage-Source Inverter,”  IEEE Transactions on  Industrial Electronics 64. (2017). 1905-1915.\n[15] R. Peña-Alzola, M. L., F. Blaabjerg, R. Sebastián, J. Dannehl and\nF. W. Fuchs. “Analysis of the Passive Damping Losses in LCL- Filter-Based  Grid  Converters,”  IEEE  Transactions  on  Power  Electronics 28. (2013). 2642-2646.\n[16] Chen, W. Z. a. G. “Comparison of active and passive damping\nmethods for application in high power active power filter with LCL- filter,” International Conference on Sustainable Power Generation  and Supply. (2009). 1-6.\n[17] F. S. Aamara, M. A. A. M. Zainuri., Y. Yusof, Z. M. Alaas & M. M.\nR. Ahmed. “Improved Damping Filter for Grid Connecte",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "6",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5181,
+        "y_min": 0.4787,
+        "x_max": 0.7925,
+        "y_max": 0.4942
+      },
+      "evidence_text": "Matched heading: \"4.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "4.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Figure 4 HIL Experimental Setup: (a) PLECS RT-Box (b)\nRT-Box Launch Pad Interface (c) Texas Instruments Launch\nTMS320F28379D (d) Keysight Oscilloscope (e) Computer\nto program RT-Box and Microcontroller\nFigure  (4)  shows  HIL  experimental  setup  designed  to  analyze performance of two-stage grid-tied PV-microinverter  at various filter topologies aimed at reducing grid current  total  harmonic  distortion  THD,  the  system  consists  of  PLECS  hardware  instrument,  that  works  as  real-time  simulation platform for PV-microinverter’s power stage and  control algorithms, interfaced with computer running PLECS",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"5.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "5.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "8",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.6351,
+        "y_min": 0.6764,
+        "x_max": 0.7938,
+        "y_max": 0.6919
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "This research is fully supported Authors thank electrical and  system engineering  department at  National  University of  Malaysia  (UKM)  and  Libyan  cultural  attaché  in  Kuala  Lumpur Malaysia for supporting and funding this research,  Embassy of Libya (LP15341).",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "8",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5181,
+        "y_min": 0.7838,
+        "x_max": 0.615,
+        "y_max": 0.7993
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Zamathula Q. S. N., Valentine I. I., Emmanuel A. E., Olushola B.  A. “Renewable Energy Technologies in Engineering: A Review of  Current  Developments  and  Future  Prospects,”  Engineering  Science & Technology Journal Vol. 5. (2024). 367-384.\n[2] S. Harb, M. K., H. Zhang, and R. S. Balog “Microinverter and  string  inverter  grid-connected  photovoltaic  system:  A  comprehensive  study,”  IEEE  39th  Photovoltaic  Specialists  Conference (PVSC). (2013). 2885-2890.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

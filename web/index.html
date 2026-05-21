@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turnitin Assistant — Remote Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; color: #f1f5f9; }
+    .sub { color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+    .card {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 { font-size: 1rem; margin-bottom: 0.75rem; color: #38bdf8; }
+
+    label { display: block; font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.25rem; }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+    input:focus { outline: 2px solid #38bdf8; border-color: transparent; }
+
+    .row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: #334155;
+      color: #e2e8f0;
+      transition: background 0.15s;
+    }
+    button:hover { background: #475569; }
+    button.primary { background: #0284c7; }
+    button.primary:hover { background: #0369a1; }
+    button.danger { background: #dc2626; }
+    button.danger:hover { background: #b91c1c; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.success { background: #16a34a; }
+    button.success:hover { background: #15803d; }
+
+    pre {
+      background: #0f172a;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      color: #a5f3fc;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .status-idle { background: #334155; color: #94a3b8; }
+    .status-running { background: #d97706; color: #fef3c7; }
+    .status-completed { background: #16a34a; color: #f0fdf4; }
+    .status-failed { background: #dc2626; color: #fef2f2; }
+    .status-queued { background: #7c3aed; color: #f5f3ff; }
+
+    .wf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .wf-card {
+      background: #0f172a;
+      border-radius: 6px;
+      padding: 0.75rem;
+    }
+    .wf-card .wf-name { font-weight: 600; font-size: 0.85rem; }
+    .wf-card .wf-status { margin-top: 0.25rem; }
+    .wf-card .wf-msg { font-size: 0.75rem; color: #94a3b8; margin-top: 0.25rem; }
+
+    @media (max-width: 600px) {
+      .wf-grid { grid-template-columns: 1fr; }
+      body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Turnitin Assistant</h1>
+  <p class="sub">Remote dashboard — connects to your VPS backend</p>
+
+  <!-- Connection settings -->
+  <div class="card">
+    <h2>🔗 Connection</h2>
+    <label>API Base URL</label>
+    <input type="text" id="apiUrl" placeholder="https://your-vps:8000" />
+    <label>API Token (optional)</label>
+    <input type="password" id="apiToken" placeholder="Bearer token if set on server" />
+    <div class="row">
+      <button class="primary" onclick="checkHealth()">Connect & Check Health</button>
+      <button onclick="fetchStatus()">Fetch Status</button>
+    </div>
+    <div id="healthResult"></div>
+  </div>
+
+  <!-- Status -->
+  <div class="card" id="statusCard" style="display:none;">
+    <h2>📊 Server Status</h2>
+    <div id="statusContent"></div>
+  </div>
+
+  <!-- Workflow controls -->
+  <div class="card">
+    <h2>⚙️ Workflow Controls</h2>
+    <div class="wf-grid" id="wfGrid"></div>
+    <div class="row">
+      <button class="primary" onclick="startWorkflow('ojs-download')">⬇️ Start OJS Download</button>
+      <button class="primary" onclick="startWorkflow('turnitin-upload')">📤 Start Turnitin Upload</button>
+      <button class="primary" onclick="startWorkflow('template-screening')">🔍 Start Template Screening</button>
+      <button class="primary" onclick="startWorkflow('ojs-report-upload')">📎 Start Upload Report to OJS</button>
+      <button class="success" onclick="fetchLogs()">📜 Refresh Logs</button>
+    </div>
+  </div>
+
+  <!-- Logs -->
+  <div class="card">
+    <h2>📝 Logs</h2>
+    <button onclick="fetchLogs()" style="margin-bottom:0.5rem;">Refresh Logs</button>
+    <pre id="logOutput">No logs loaded yet.</pre>
+  </div>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

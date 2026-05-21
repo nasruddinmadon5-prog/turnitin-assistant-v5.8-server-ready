@@ -1,0 +1,784 @@
+{
+  "submission_no": "26799",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.2/storage/ojs-downloads/26799/JT-tukiran-utm2026.docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/JT-tukiran-utm2026.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 76,
+  "structure_score": 47,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.6882,
+        "y_max": 0.2758
+      },
+      "evidence_text": "Matched heading: \"VERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  \" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "VERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  ",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows the full title and author information clearly, while DOC snippet does not contain the title section at all.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract the title, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows the full title and author information clearly, while DOC snippet does not contain the title section at all."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.6882,
+        "y_max": 0.2758
+      },
+      "evidence_text": "Matched heading: \"VERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  \" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "VERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  ",
+          "score": 0.7
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet shows a full authors section with multiple authors and affiliations; DOC snippet does not contain any authors section, only other manuscript metadata.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The authors section is clearly present and well-structured in the PDF snippet but completely missing in the DOC snippet, indicating a failure in DOC extraction.",
+      "ai_evidence_summary": "PDF snippet shows a full authors section with multiple authors and affiliations; DOC snippet does not contain any authors section, only other manuscript metadata."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.3023,
+        "x_max": 0.685,
+        "y_max": 0.3412
+      },
+      "evidence_text": "Matched heading: \"Nuclear Energy, National Research and Innovation Agency (BRIN), KST BJ Habiebi,  Serpong Gd. 80, Tan\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Nuclear Energy, National Research and Innovation Agency (BRIN), KST BJ Habiebi,  Serpong Gd. 80, Tan",
+          "score": 0.7
+        },
+        {
+          "text": "1) Research  Center for  Technology of Nuclear Reactor, Research Organization for",
+          "score": 0.65
+        },
+        {
+          "text": "National Research and Innovation Agency (BRIN), KST BJ Habiebi,  Serpong Gd. 80,  Tangerang Selatan,",
+          "score": 0.6
+        },
+        {
+          "text": "VERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  ",
+          "score": 0.5
+        },
+        {
+          "text": "tukiran@brin.go.id",
+          "score": 0.45
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet shows full Affiliations section with author names and institutional addresses. DOC snippet does not contain the Affiliations section, only partial metadata and author names without affilia",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete Affiliations section, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows full Affiliations section with author names and institutional addresses. DOC snippet does not contain the Affiliations section, only partial metadata and author names without affiliations."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7212,
+        "y_min": 0.2745,
+        "x_max": 0.902,
+        "y_max": 0.29
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "tukiran@brin.go.id",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1756,
+        "y_min": 0.3841,
+        "x_max": 0.3332,
+        "y_max": 0.3996
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ".",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": {
+        "x_min": 0.4281,
+        "y_min": 0.3841,
+        "x_max": 0.501,
+        "y_max": 0.3996
+      },
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ".",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4281,
+        "y_min": 0.6445,
+        "x_max": 0.848,
+        "y_max": 0.6684
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ":  Verification,  Excess  Reactivity,  RSG-GAS  Reactor,  WIMSD-5B, Batan- FUEL\n© 2026 Penerbit UTM Press. All rights reserved\n1.0. INTRODUCTION\nCurrently,  the  Multipurpose  Reactor  (RSG-GAS),  the  National Research and Innovation Agency (BRIN), as the\nNuclear Installation Operator (NIO) operating the RSG- GAS reactor, will submit a revised Safety Analysis Report  (SAR) document to the Nuclear Energy Regulatory Agency  (BAPETEN) regarding the reactor's operating permit. In line",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nVERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  35  YEA\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nVERIFICATION  SHUTDOWN  MARGIN  AND  EXCESS REACTIVITY VALUES ON GAS-RSG  EQUILIBRIUM  CORE  AFTER  35  YEARS  OF  OPERATIONS Tukiran Surbakti1), Endih Pujihastuti1), Abdul Aziz Rohman Hakim1), Aslina Ginting2), Muksin  Setiawan1).\n1) Research  Center for  Technology of Nuclear Reactor, Research Organization for\nNuclear Energy, National Research and Innovation Agency (BRIN), KST BJ Habiebi,  Serpong Gd. 80, Tangerang Selatan, Banten 15314, Indonesia. 2) Research Center for Fuel Fabrication,  Research Organization for Nuclear Energy,\nNational Research and Innovation Agency (BRIN), KST BJ Habiebi,  Serpong Gd. 80,  Tangerang Selatan, Banten 15314, Indonesia.\nArticle history\nReceived\nX Month 202Y\nRece",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.7,
+      "ai_evidence": "PDF snippet shows manuscript metadata and partial content consistent with presence of Abstrak; DOC snippet is missing this content entirely.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction shows presence of the manuscript content including title, authors, affiliations, and article history, indicating the manuscript likely contains the Abstrak section, but the DOC extraction failed to capture it.",
+      "ai_evidence_summary": "PDF snippet shows manuscript metadata and partial content consistent with presence of Abstrak; DOC snippet is missing this content entirely."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet includes title, authors, affiliations, and article history but no keywords. PDF snippet similarly includes title, authors, affiliations, and article history but no keywords. Both sources l",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC snippet includes title, authors, affiliations, and article history but no keywords. PDF snippet similarly includes title, authors, affiliations, and article history but no keywords. Both sources lack any Kata Kunci section."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0. INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0. INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides detailed introduction content about the reactor, regulatory context, and study objectives. PDF snippet lacks Introduction content and only shows article metadata and header.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong and coherent Introduction section snippet describing the research problem, context, and objectives, while the PDF detector did not find the Introduction section likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides detailed introduction content about the reactor, regulatory context, and study objectives. PDF snippet lacks Introduction content and only shows article metadata and header."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"3.0. METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "3.0. METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet includes detailed methodology content about core calculations and modeling using the WIMSD-5B program. PDF snippet only contains header and metadata information without methodological deta",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC source contains a detailed and coherent Methodology section snippet, while the PDF source does not contain any relevant extracted text for the Methodology section, likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet includes detailed methodology content about core calculations and modeling using the WIMSD-5B program. PDF snippet only contains header and metadata information without methodological details."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.9183,
+        "x_max": 0.8204,
+        "y_max": 0.9338
+      },
+      "evidence_text": "Matched heading: \"4.0. RESULTS AND DISCUSSIONS\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "4.0. RESULTS AND DISCUSSIONS",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0. CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0. CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet includes a detailed Conclusion discussing verification calculations, safety parameters, and operational limits. PDF snippet lacks any Conclusion content, indicating a probable extraction f",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a coherent and detailed Conclusion section, while the PDF detector did not find any Conclusion content, likely due to extraction or layout issues in the PDF source.",
+      "ai_evidence_summary": "DOC snippet includes a detailed Conclusion discussing verification calculations, safety parameters, and operational limits. PDF snippet lacks any Conclusion content, indicating a probable extraction failure."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "9",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.206,
+        "y_min": 0.4509,
+        "x_max": 0.3548,
+        "y_max": 0.4664
+      },
+      "evidence_text": "Matched heading: \"Acknowledgment\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgment",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "This work is supported by HITN-PRTRN Project 2026 from  the  Ministry  for  Research  and  Technology  and  Higher  Education.  The authors wish to thank the Head of PRTRN- ORTN-BRIN and also the head of the DFRN Division for  their kind help and useful discussions when doing the  research.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "9",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.5743,
+        "x_max": 0.1864,
+        "y_max": 0.5898
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1]  T. SURBAKTI, S. PINEM, T. M. SEMBIRING, “Analisis Pengaruh\nDensitas Bahan Bakar Silisida Terhadap Parameter Kinetik Teras  Reaktor RSG-GAS”, Jurnal Penelitian Fisika dan Aplikasinya. Vol.  3 no. 1, pp. 19-30. 2013.\n[2]     S.  PINEM,  S.  JATI,  T.  SURBAKTI,  ,  T,  M.  SEMBIRING,\n“Optimization of Radioisotope Production at RSG-GAS Reactor  Using Deterministic Method”, Teknologi Indonesia, Vol. 35, pp. 37 –45, 2016.\n[3]   S. Pinem, Sembiring T.M., Surbakti T. Core conversion design\nstudy of TRIGA Mark 2000 Bandung using MTR plate type fuel  element. Int. J. Nucl. Energy Sci. Technol. Vol. 12, no. 3, pp. 222 –238. 2018.\n[4]  S. PINEM, P. H. LIEM, T. M. SEMBIRING, T. SURBAKTI, “Fuel\nelement burn-up measurements for the equilibrium LEU silicide  RSG  GAS  (MPR-30)  core  under  a  new  fuel  management  strategy”, Ann. Nucl. Energy, Vol. 98, 2016.\n[5]    L. SUPARLINA L, T. SURBAKTI, “Analisis Pola Manajemen Bahan\nBakar Desain Teras Reaktor Riset Tipe MTR”, Jurnal Tri Dasa  Mega. Vol. 14. no. 3, pp. 89-99. 2014.\n[6]  T. SURBAKTI T, S. PINEM, T. M. SEMBIRING, L. SUPARLINA, J.\nSUSILO,  “Desain  Konseptual  Teras  Reaktor  Riset  Inovatif  Berbahan  Bakar  Uranium-molibdenum  dari",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

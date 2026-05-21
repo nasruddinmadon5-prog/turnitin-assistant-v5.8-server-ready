@@ -1,0 +1,2322 @@
+"""
+Template Screening Engine v2.0
+Improved candidate ranking with false positive rejection and confidence scoring.
+Checks whether downloaded manuscript/article files follow the required
+journal template structure, layout coordinate, and formatting.
+
+Part of Turnitin Assistant v5.6.3
+Merges screening report + original article PDF into a single combined PDF.
+"""
+
+import json
+import re
+import subprocess
+import sys
+import os
+import shutil
+from pathlib import Path
+from datetime import datetime
+
+try:
+    import fitz  # PyMuPDF
+except ImportError:
+    fitz = None
+
+
+# ─── Global Exclusion Labels ──────────────────────────────────────────────────
+# These are template/header labels that should never be accepted as manuscript
+# metadata (title, authors, affiliations, etc.)
+EXCLUSION_LABELS = [
+    "jurnal teknologi",
+    "full paper",
+    "article history",
+    "received",
+    "accepted",
+    "corresponding author",
+    "graphical abstract",
+    "abstract",
+    "keywords",
+    "abstrak",
+    "kata kunci",
+    "eissn",
+    "penerbit utm press",
+    "utm press",
+    "www.jurnalteknologi.utm.my",
+    "jurnalteknologi",
+]
+
+
+def is_false_positive(text):
+    """
+    Check if a candidate text matches or mostly matches known exclusion labels.
+    Returns True if the text should be rejected as a false positive.
+    """
+    if not text:
+        return True
+
+    text_clean = text.strip().lower()
+    if not text_clean:
+        return True
+
+    # Direct match
+    for label in EXCLUSION_LABELS:
+        if text_clean == label:
+            return True
+
+    # Check if text is mostly (>=70%) comprised of exclusion label words
+    # This catches cases like "Full Paper\nJurnal Teknologi"
+    text_words = set(text_clean.split())
+    if len(text_words) <= 3:
+        for label in EXCLUSION_LABELS:
+            label_words = set(label.split())
+            overlap = text_words & label_words
+            if len(overlap) >= min(len(text_words), len(label_words)):
+                return True
+
+    return False
+
+
+# ─── Helper: PDF Parsing ─────────────────────────────────────────────────────
+
+def extract_pdf_layout(pdf_path):
+    """
+    Extract full layout information from a PDF using PyMuPDF.
+    Returns a list of page dicts, each containing:
+      - page_num (int)
+      - page_width, page_height (float)
+      - text (str): full page text
+      - blocks (list): text blocks with bbox, lines, spans
+      - images (list): image blocks with bbox
+      - drawings (list): vector drawing regions
+      - image_info (list): detailed image info
+    """
+    if fitz is None:
+        raise ImportError("PyMuPDF (fitz) is required. Install with: pip install pymupdf")
+
+    doc = fitz.open(pdf_path)
+    pages = []
+    for page_num in range(len(doc)):
+        page = doc[page_num]
+        pw = page.rect.width
+        ph = page.rect.height
+        blocks = page.get_text("dict", flags=fitz.TEXT_PRESERVE_WHITESPACE)["blocks"]
+
+        text_blocks = []
+        image_blocks = []
+        full_text_parts = []
+
+        for block in blocks:
+            if block["type"] == 0:  # text block
+                bbox = block["bbox"]
+                lines = []
+                for line in block["lines"]:
+                    spans = []
+                    for span in line["spans"]:
+                        spans.append({
+                            "text": span["text"],
+                            "font": span.get("font", ""),
+                            "size": span.get("size", 0),
+                            "flags": span.get("flags", 0),
+                            "color": span.get("color", 0),
+                            "bbox": span.get("bbox", line["bbox"]),
+                        })
+                    lines.append({
+                        "bbox": line["bbox"],
+                        "spans": spans,
+                        "text": "".join(s["text"] for s in spans),
+                    })
+                line_text = " ".join(l["text"] for l in lines).strip()
+                if line_text:
+                    full_text_parts.append(line_text)
+                text_blocks.append({
+                    "bbox": bbox,
+                    "lines": lines,
+                    "text": line_text,
+                })
+            elif block["type"] == 1:  # image block
+                image_blocks.append({
+                    "bbox": block["bbox"],
+                })
+
+        # Get drawings (vector graphics, rectangles, lines)
+        drawings = page.get_drawings()
+        drawing_regions = []
+        for d in drawings:
+            drawing_regions.append({
+                "bbox": d.get("rect", d.get("bbox", (0, 0, 0, 0))),
+            })
+
+        # Get detailed image info
+        image_info = page.get_images(full=True) if hasattr(page, 'get_images') else []
+        image_info_blocks = []
+        for img in image_info:
+            try:
+                img_rect = page.get_image_rect(img[0]) if hasattr(page, 'get_image_rect') else None
+                if img_rect:
+                    image_info_blocks.append({
+                        "bbox": (img_rect.x0, img_rect.y0, img_rect.x1, img_rect.y1),
+                        "width": img[2] if len(img) > 2 else 0,
+                        "height": img[3] if len(img) > 3 else 0,
+                    })
+            except Exception:
+                pass
+
+        pages.append({
+            "page_num": page_num + 1,
+            "page_width": pw,
+            "page_height": ph,
+            "text": "\n".join(full_text_parts),
+            "blocks": text_blocks,
+            "images": image_blocks,
+            "drawings": drawing_regions,
+            "image_info": image_info_blocks,
+        })
+
+    doc.close()
+    return pages
+
+
+def normalize_bbox(bbox, page_width, page_height):
+    """
+    Convert pixel/point bbox to normalized coordinates 0.0 to 1.0.
+    bbox: (x0, y0, x1, y1) in points/pixels.
+    Returns (x_min, y_min, x_max, y_max) all 0.0–1.0.
+    """
+    if page_width <= 0 or page_height <= 0:
+        return (0, 0, 0, 0)
+    x0, y0, x1, y1 = bbox
+    return (
+        max(0.0, min(1.0, x0 / page_width)),
+        max(0.0, min(1.0, y0 / page_height)),
+        max(0.0, min(1.0, x1 / page_width)),
+        max(0.0, min(1.0, y1 / page_height)),
+    )
+
+
+def bbox_in_region(norm_bbox, expected_region):
+    """
+    Check if a normalized bbox overlaps with the expected region at all.
+    Returns True if there is any overlap.
+    """
+    if norm_bbox is None:
+        return False
+    fx0, fy0, fx1, fy1 = norm_bbox
+    ex0 = expected_region.get("x_min", 0)
+    ex1 = expected_region.get("x_max", 1)
+    ey0 = expected_region.get("y_min", 0)
+    ey1 = expected_region.get("y_max", 1)
+    h_overlap = min(fx1, ex1) - max(fx0, ex0)
+    v_overlap = min(fy1, ey1) - max(fy0, ey0)
+    return h_overlap > 0 and v_overlap > 0
+
+
+def find_text_matches(layout, pattern):
+    """
+    Search for regex pattern in the full text of all pages.
+    Returns list of matches with page number and context info.
+    """
+    matches = []
+    try:
+        compiled = re.compile(pattern, re.IGNORECASE)
+    except re.error:
+        return matches
+
+    for page_data in layout:
+        page_text = page_data["text"]
+        for match in compiled.finditer(page_text):
+            # Find which block/span contains this match
+            found_bbox = None
+            found_span = None
+            found_block = None
+            matched_text = match.group()
+
+            for block in page_data["blocks"]:
+                if matched_text in block["text"]:
+                    bbox = block["bbox"]
+                    found_bbox = normalize_bbox(
+                        bbox,
+                        page_data["page_width"],
+                        page_data["page_height"],
+                    )
+                    found_block = block
+                    # Get first span for formatting check
+                    if block["lines"] and block["lines"][0]["spans"]:
+                        found_span = block["lines"][0]["spans"][0]
+                    break
+
+            matches.append({
+                "page": page_data["page_num"],
+                "page_width": page_data["page_width"],
+                "page_height": page_data["page_height"],
+                "matched_text": matched_text,
+                "bbox_raw": found_bbox,
+                "span": found_span,
+                "block": found_block,
+                "page_data": page_data,
+            })
+
+    return matches
+
+
+def check_region(found_bbox, expected_region, tolerance):
+    """
+    Check if found bbox is within expected region ± tolerance.
+    found_bbox: (x_min, y_min, x_max, y_max) normalized 0-1.
+    expected_region: dict with x_min, x_max, y_min, y_max.
+    tolerance: float 0.0–1.0 margin of error.
+
+    Returns (passed, deviation) where deviation is how far outside.
+    """
+    if found_bbox is None:
+        return False, 1.0
+
+    fx0, fy0, fx1, fy1 = found_bbox
+    ex0 = expected_region.get("x_min", 0)
+    ex1 = expected_region.get("x_max", 1)
+    ey0 = expected_region.get("y_min", 0)
+    ey1 = expected_region.get("y_max", 1)
+
+    # Check horizontal overlap
+    h_overlap = min(fx1, ex1) - max(fx0, ex0)
+    h_ok = h_overlap >= 0  # any overlap at all
+
+    # Check vertical overlap
+    v_overlap = min(fy1, ey1) - max(fy0, ey0)
+    v_ok = v_overlap >= 0
+
+    # Calculate deviation
+    h_dev = 0.0
+    if fx0 < ex0 - tolerance:
+        h_dev = max(h_dev, ex0 - tolerance - fx0)
+    if fx1 > ex1 + tolerance:
+        h_dev = max(h_dev, fx1 - (ex1 + tolerance))
+
+    v_dev = 0.0
+    if fy0 < ey0 - tolerance:
+        v_dev = max(v_dev, ey0 - tolerance - fy0)
+    if fy1 > ey1 + tolerance:
+        v_dev = max(v_dev, fy1 - (ey1 + tolerance))
+
+    deviation = max(h_dev, v_dev)
+    passed = h_ok and v_ok
+
+    return passed, deviation
+
+
+def check_formatting(found_span, format_rules):
+    """
+    Check formatting of a text span against expected rules.
+    Returns (passed, details dict).
+    """
+    if found_span is None or format_rules is None:
+        return True, {}
+
+    issues = []
+    all_ok = True
+
+    if format_rules.get("uppercase_preferred"):
+        text = found_span.get("text", "")
+        # Check if first few words are uppercase
+        words = text.split()[:5]
+        upper_count = sum(1 for w in words if w.isupper() and len(w) > 1)
+        if upper_count < len(words) // 2:
+            issues.append("text is not predominantly uppercase")
+            all_ok = False
+
+    if format_rules.get("bold_preferred"):
+        flags = found_span.get("flags", 0)
+        is_bold = bool(flags & 2)  # font flag bit 1 = bold
+        if not is_bold:
+            issues.append("text is not bold")
+
+    if format_rules.get("image_required"):
+        # This is checked at page level (image bbox presence)
+        pass
+
+    return all_ok, {"issues": issues, "all_ok": all_ok}
+
+
+def score_results(results):
+    """
+    Score the screening results based on item statuses.
+    Returns (final_score, structure_score, layout_score, formatting_score).
+    """
+    scoring_config = {
+        "structure": 40,
+        "layout": 30,
+        "formatting": 30,
+    }
+
+    total_items = len(results)
+    if total_items == 0:
+        return 0, 0, 0, 0
+
+    passed = sum(1 for r in results if r.get("status") == "PASS")
+    warnings = sum(1 for r in results if r.get("status") == "WARNING")
+    failed = sum(1 for r in results if r.get("status") == "FAILED")
+
+    # Structure items (required content presence)
+    structure_items = [
+        "title", "authors", "affiliations", "corresponding_author",
+        "graphical_abstract", "abstract", "keywords", "abstrak", "kata_kunci",
+        "introduction", "methodology", "results_discussion", "conclusion",
+        "acknowledgement", "references",
+    ]
+    struct_results = [r for r in results if r.get("id") in structure_items]
+    struct_score = 0
+    if struct_results:
+        struct_passed = sum(1 for r in struct_results if r.get("status") == "PASS")
+        struct_score = round((struct_passed / len(struct_results)) * 100)
+
+    # Layout items (coordinate checks)
+    layout_items = [
+        "title", "authors", "affiliations", "corresponding_author",
+        "graphical_abstract", "abstract", "keywords", "abstrak", "kata_kunci",
+    ]
+    layout_results = [r for r in results if r.get("id") in layout_items]
+    layout_score = 0
+    if layout_results:
+        layout_ok = sum(1 for r in layout_results if r.get("status") in ("PASS", "WARNING"))
+        layout_score = round((layout_ok / len(layout_results)) * 100)
+
+    # Formatting items
+    fmt_results = [r for r in results if r.get("formatting_ok") is not None]
+    fmt_score = 0
+    if fmt_results:
+        fmt_ok = sum(1 for r in fmt_results if r.get("formatting_ok"))
+        fmt_score = round((fmt_ok / len(fmt_results)) * 100)
+
+    # Weighted final score
+    w_struct = scoring_config["structure"]
+    w_layout = scoring_config["layout"]
+    w_format = scoring_config["formatting"]
+
+    final_score = round(
+        (struct_score * w_struct + layout_score * w_layout + fmt_score * w_format) / 100
+    )
+
+    return final_score, struct_score, layout_score, fmt_score
+
+
+# ─── DOCX to PDF Conversion ──────────────────────────────────────────────────
+
+def convert_docx_to_pdf(docx_path, output_dir=None):
+    """
+    Convert a DOCX file to PDF using LibreOffice CLI.
+    Returns path to generated PDF, or None on failure.
+    """
+    docx_path = Path(docx_path)
+    if not docx_path.exists():
+        return None
+
+    if output_dir is None:
+        output_dir = docx_path.parent
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    pdf_path = output_dir / f"{docx_path.stem}.pdf"
+
+    # If PDF already exists, return it
+    if pdf_path.exists():
+        return str(pdf_path)
+
+    try:
+        # Try soffice command
+        cmd = [
+            "soffice",
+            "--headless",
+            "--convert-to", "pdf",
+            "--outdir", str(output_dir),
+            str(docx_path),
+        ]
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+
+        if result.returncode != 0:
+            print(f"[CONVERT] LibreOffice stderr: {result.stderr}")
+
+        # Check if PDF was created
+        if pdf_path.exists():
+            return str(pdf_path)
+        else:
+            # Try alternate paths
+            possible = sorted(output_dir.glob("*.pdf"))
+            if possible:
+                return str(possible[-1])
+            return None
+
+    except subprocess.TimeoutExpired:
+        print(f"[CONVERT] LibreOffice timed out for {docx_path}")
+        return None
+    except FileNotFoundError:
+        print(f"[CONVERT] LibreOffice (soffice) not found. Install LibreOffice.")
+        return None
+    except Exception as e:
+        print(f"[CONVERT] Unexpected error: {e}")
+        return None
+
+
+# ─── Candidate Ranking System ────────────────────────────────────────────────
+
+def score_text_block_as_title(block, page_data, expected_region):
+    """
+    Score a text block as a potential manuscript title candidate.
+    Returns a score 0.0–1.0.
+    """
+    text = block.get("text", "").strip()
+    if not text or is_false_positive(text):
+        return 0.0
+
+    norm_bbox = normalize_bbox(block["bbox"], page_data["page_width"], page_data["page_height"])
+
+    score = 0.0
+
+    # Length check: title should be substantial (more than ~25 chars)
+    if len(text) > 25:
+        score += 0.25
+    elif len(text) > 15:
+        score += 0.15
+    else:
+        score += 0.05
+
+    # Should be on page 1
+    if page_data["page_num"] == 1:
+        score += 0.15
+
+    # In expected region (upper portion of page)
+    if norm_bbox and bbox_in_region(norm_bbox, expected_region):
+        score += 0.20
+
+    # Font size check - title is typically larger
+    max_font_size = 0
+    for line in block.get("lines", []):
+        for span in line.get("spans", []):
+            max_font_size = max(max_font_size, span.get("size", 0))
+    if max_font_size >= 12:
+        score += 0.10
+    if max_font_size >= 14:
+        score += 0.05
+
+    # Uppercase ratio - titles are often in title case or uppercase
+    words = text.split()
+    if len(words) > 2:
+        upper_words = sum(1 for w in words if w[0].isupper() and len(w) > 1)
+        upper_ratio = upper_words / len(words)
+        if upper_ratio > 0.5:
+            score += 0.10
+
+    # Not starting with a number/section (bad for title)
+    if text[0].isalpha():
+        score += 0.05
+
+    # Does not contain common section words
+    section_indicators = ["introduction", "methodology", "result", "conclusion",
+                          "acknowledgement", "reference", "abstract", "keyword"]
+    text_lower = text.lower()
+    if not any(indicator in text_lower for indicator in section_indicators):
+        score += 0.10
+
+    return min(score, 1.0)
+
+
+def score_text_block_as_author(block, page_data, expected_region):
+    """
+    Score a text block as a potential authors candidate.
+    Returns a score 0.0–1.0.
+    """
+    text = block.get("text", "").strip()
+    if not text or is_false_positive(text):
+        return 0.0
+
+    norm_bbox = normalize_bbox(block["bbox"], page_data["page_width"], page_data["page_height"])
+
+    score = 0.0
+
+    # Should be on page 1
+    if page_data["page_num"] == 1:
+        score += 0.10
+
+    # In expected region (below title)
+    if norm_bbox and bbox_in_region(norm_bbox, expected_region):
+        score += 0.15
+
+    # Authors typically contain commas separating names
+    # Pattern: Name1, Name2, Name3 or Name1¹, Name2²
+    comma_count = text.count(",")
+    if 1 <= comma_count <= 10:
+        score += 0.20
+
+    # Contains superscript indicators (¹²³⁴ or [1][2] or 1,2,3)
+    has_superscript = bool(re.search(r'[¹²³⁴⁵⁶⁷⁸⁹⁰]|\[\d+\]|\d+(?:,\d+)*$', text))
+    if has_superscript:
+        score += 0.10
+
+    # Should have multiple words (names)
+    words = text.split()
+    if 2 <= len(words) <= 20:
+        score += 0.10
+
+    # Should contain person-name-like patterns
+    # Pattern: "Ahmad Ali", "Siti Aminah", etc.
+    name_pattern = bool(re.search(r'[A-Z][a-zà-ü]+(?:\s+[A-Z][a-zà-ü]+)+', text))
+    if name_pattern:
+        score += 0.15
+
+    # Should not be too long (affiliations are longer)
+    if len(text) < 100:
+        score += 0.10
+
+    # Should not contain institution words
+    institution_words = ["university", "universiti", "faculty", "school of",
+                         "department", "institute", "centre", "center",
+                         "college", "malaysia", "campus", "utm"]
+    text_lower = text.lower()
+    if not any(word in text_lower for word in institution_words):
+        score += 0.10
+
+    # Should not be a journal header
+    if not is_false_positive(text):
+        score += 0.10
+
+    return min(score, 1.0)
+
+
+def score_text_block_as_affiliation(block, page_data, expected_region):
+    """
+    Score a text block as a potential affiliations candidate.
+    Returns a score 0.0–1.0.
+    """
+    text = block.get("text", "").strip()
+    if not text or is_false_positive(text):
+        return 0.0
+
+    norm_bbox = normalize_bbox(block["bbox"], page_data["page_width"], page_data["page_height"])
+
+    score = 0.0
+
+    # Should be on page 1
+    if page_data["page_num"] == 1:
+        score += 0.10
+
+    # In expected region (below authors)
+    if norm_bbox and bbox_in_region(norm_bbox, expected_region):
+        score += 0.15
+
+    # Contains institution indicators (strong signal)
+    institution_words = [
+        "university", "universiti", "faculty", "school", "department",
+        "institute", "centre", "center", "college", "malaysia",
+        "campus", "utm", "utm", "penerbit", "press", "jalan",
+        "skudai", "johor", "kuala lumpur", "pulau pinang",
+    ]
+    text_lower = text.lower()
+    institution_matches = sum(1 for word in institution_words if word in text_lower)
+    if institution_matches >= 2:
+        score += 0.25
+    elif institution_matches == 1:
+        score += 0.15
+
+    # Contains email (strong signal)
+    if re.search(r'[\w.+-]+@[\w-]+\.[\w.-]+', text):
+        score += 0.15
+
+    # Contains postal code
+    if re.search(r'\b\d{5}\b', text):
+        score += 0.10
+
+    # Contains comma-separated parts (address format)
+    if text.count(",") >= 1:
+        score += 0.10
+
+    # Should be reasonably long (addresses are usually 50+ chars)
+    if len(text) > 50:
+        score += 0.10
+
+    # Should not look like an author list (few commas, no superscript affiliation markers)
+    # Affiliation text typically has more "content" per segment
+    if text.count(",") <= 6:
+        score += 0.05
+
+    # Not a false positive
+    if not is_false_positive(text):
+        score += 0.10
+
+    return min(score, 1.0)
+
+
+def find_text_blocks_in_region(page_data, expected_region):
+    """
+    Find all text blocks on a page that overlap with the expected region.
+    Returns list of blocks with normalized bbox.
+    """
+    matching_blocks = []
+    for block in page_data["blocks"]:
+        norm_bbox = normalize_bbox(
+            block["bbox"],
+            page_data["page_width"],
+            page_data["page_height"],
+        )
+        if bbox_in_region(norm_bbox, expected_region):
+            matching_blocks.append({
+                "block": block,
+                "norm_bbox": norm_bbox,
+                "page": page_data["page_num"],
+            })
+    return matching_blocks
+
+
+def find_best_candidate_for_rule(rule, layout):
+    """
+    Find the best candidate text block for a rule.
+    Uses intelligent scoring to pick the most likely correct match.
+
+    For rules with text_pattern ".+", looks for text blocks in the expected region
+    and scores them. For rules with specific patterns, uses regex matching.
+
+    Returns dict with:
+      - candidate_text: str
+      - confidence: float 0.0–1.0
+      - bbox: normalized bbox tuple or None
+      - page: int
+      - block: text block dict or None
+      - span: span dict or None
+      - rejected_false_positives: list of rejected texts
+      - all_candidates: list of all candidate scores
+    """
+    item_id = rule["id"]
+    text_pattern = rule.get("text_pattern", "")
+    expected_region = rule.get("expected_region", {})
+    is_generic_pattern = (text_pattern == ".+")
+    rejected_false_positives = []
+    all_candidates = []
+
+    if is_generic_pattern:
+        # For generic patterns, collect all text blocks in the expected region
+        # across relevant pages and score each one
+        target_page = expected_region.get("page", 1)
+        page_min = expected_region.get("page_min", target_page)
+        page_max = expected_region.get("page_max", page_min)
+
+        for page_data in layout:
+            if page_min <= page_data["page_num"] <= page_max:
+                blocks_in_region = find_text_blocks_in_region(page_data, expected_region)
+                for item in blocks_in_region:
+                    block = item["block"]
+                    text = block.get("text", "").strip()
+                    if not text:
+                        continue
+
+                    # Check false positives
+                    if is_false_positive(text):
+                        rejected_false_positives.append(text)
+                        continue
+
+                    # Score based on item type
+                    if item_id == "title":
+                        score_val = score_text_block_as_title(block, page_data, expected_region)
+                    elif item_id == "authors":
+                        score_val = score_text_block_as_author(block, page_data, expected_region)
+                    elif item_id == "affiliations":
+                        score_val = score_text_block_as_affiliation(block, page_data, expected_region)
+                    else:
+                        # Generic scoring: prefer longer text in expected region
+                        score_val = 0.5
+                        if bbox_in_region(item["norm_bbox"], expected_region):
+                            score_val += 0.2
+                        if len(text) > 30:
+                            score_val += 0.2
+                        if not is_false_positive(text):
+                            score_val += 0.1
+
+                    span = None
+                    if block["lines"] and block["lines"][0]["spans"]:
+                        span = block["lines"][0]["spans"][0]
+
+                    all_candidates.append({
+                        "text": text,
+                        "score": min(score_val, 1.0),
+                        "bbox": item["norm_bbox"],
+                        "page": page_data["page_num"],
+                        "block": block,
+                        "span": span,
+                    })
+
+        # Sort by score descending, pick best
+        all_candidates.sort(key=lambda c: c["score"], reverse=True)
+
+        if all_candidates:
+            best = all_candidates[0]
+            # Re-fetch span from block
+            best_span = None
+            if best["block"]["lines"] and best["block"]["lines"][0]["spans"]:
+                best_span = best["block"]["lines"][0]["spans"][0]
+            return {
+                "candidate_text": best["text"],
+                "confidence": best["score"],
+                "bbox": best["bbox"],
+                "page": best["page"],
+                "block": best["block"],
+                "span": best_span,
+                "rejected_false_positives": rejected_false_positives,
+                "all_candidates": all_candidates[:5],  # top 5
+            }
+        else:
+            return {
+                "candidate_text": "",
+                "confidence": 0.0,
+                "bbox": None,
+                "page": 0,
+                "block": None,
+                "span": None,
+                "rejected_false_positives": rejected_false_positives,
+                "all_candidates": [],
+            }
+    else:
+        # For specific patterns (e.g. "Abstract", "Keywords"), use regex matching
+        matches = find_text_matches(layout, text_pattern)
+
+        # Filter out false positives
+        valid_matches = []
+        for m in matches:
+            if not is_false_positive(m["matched_text"]):
+                valid_matches.append(m)
+
+        if not valid_matches:
+            return {
+                "candidate_text": "",
+                "confidence": 0.0,
+                "bbox": None,
+                "page": 0,
+                "block": None,
+                "span": None,
+                "rejected_false_positives": [m["matched_text"] for m in matches if is_false_positive(m["matched_text"])],
+                "all_candidates": [],
+            }
+
+        # Pick best match by region proximity
+        best_match = None
+        best_deviation = 999
+        best_confidence = 0.5
+
+        for match in valid_matches:
+            found_bbox = match.get("bbox_raw")
+            if found_bbox:
+                passed, deviation = check_region(found_bbox, expected_region, rule.get("tolerance", 0.15))
+                conf = 0.7 if passed else 0.5
+                if deviation < best_deviation:
+                    best_deviation = deviation
+                    best_match = match
+                    best_confidence = conf
+
+        if best_match is None and valid_matches:
+            best_match = valid_matches[0]
+            best_confidence = 0.4
+
+        if best_match:
+            return {
+                "candidate_text": best_match.get("matched_text", ""),
+                "confidence": best_confidence,
+                "bbox": best_match.get("bbox_raw"),
+                "page": best_match.get("page", 0),
+                "block": best_match.get("block"),
+                "span": best_match.get("span"),
+                "rejected_false_positives": [m["matched_text"] for m in matches if is_false_positive(m["matched_text"])],
+                "all_candidates": [
+                    {"text": m["matched_text"], "score": 0.5, "page": m.get("page", 0)}
+                    for m in valid_matches[:3]
+                ],
+            }
+
+        return {
+            "candidate_text": "",
+            "confidence": 0.0,
+            "bbox": None,
+            "page": 0,
+            "block": None,
+            "span": None,
+            "rejected_false_positives": [],
+            "all_candidates": [],
+        }
+
+
+def extract_following_paragraph(blocks, heading_text, page_data):
+    """
+    Find the paragraph text that comes immediately after a heading.
+    Returns the paragraph text or empty string.
+    """
+    heading_block = None
+    for block in blocks:
+        if heading_text.lower() in block.get("text", "").lower():
+            heading_block = block
+            break
+
+    if not heading_block:
+        return ""
+
+    # Get all blocks sorted by vertical position
+    sorted_blocks = sorted(
+        [b for b in page_data["blocks"] if b.get("text", "").strip()],
+        key=lambda b: b["bbox"][1]  # sort by y0
+    )
+
+    # Find heading block index
+    heading_idx = -1
+    for i, b in enumerate(sorted_blocks):
+        if id(b) == id(heading_block):
+            heading_idx = i
+            break
+
+    if heading_idx == -1 or heading_idx + 1 >= len(sorted_blocks):
+        return ""
+
+    # Collect paragraphs after heading until next heading
+    paragraphs = []
+    for i in range(heading_idx + 1, len(sorted_blocks)):
+        block_text = sorted_blocks[i].get("text", "").strip()
+        if not block_text:
+            continue
+        # Stop if we hit another heading-like block
+        if re.match(r'^[A-Z][A-Za-z\s]+$', block_text) and len(block_text) < 50:
+            break
+        if re.match(r'^\d+\.\d+\s+[A-Z]', block_text):
+            break
+        paragraphs.append(block_text)
+
+    return " ".join(paragraphs)
+
+
+def detect_graphical_region(page_data, region_bbox):
+    """
+    Detect if there is a graphical/image region in the expected area.
+    Returns (detected, method, confidence).
+    Uses multi-level detection:
+    1. Direct image blocks
+    2. Detailed image info
+    3. Drawing/vector regions
+    4. Large blank/non-text regions
+    """
+    pw = page_data["page_width"]
+    ph = page_data["page_height"]
+
+    # Normalize region bbox
+    rx0, ry0, rx1, ry1 = region_bbox
+
+    # Method 1: Check image blocks
+    for img in page_data.get("images", []):
+        img_norm = normalize_bbox(img["bbox"], pw, ph)
+        if bbox_in_region(img_norm, {"x_min": rx0, "x_max": rx1, "y_min": ry0, "y_max": ry1}):
+            return True, "image_block", 0.95
+
+    # Method 2: Check detailed image info
+    for img_info in page_data.get("image_info", []):
+        img_norm = normalize_bbox(
+            (img_info["bbox"][0], img_info["bbox"][1],
+             img_info["bbox"][2], img_info["bbox"][3]),
+            pw, ph
+        )
+        if bbox_in_region(img_norm, {"x_min": rx0, "x_max": rx1, "y_min": ry0, "y_max": ry1}):
+            # Check if image is large enough (>10% of expected region area)
+            expected_area = (rx1 - rx0) * (ry1 - ry0)
+            img_area = (img_norm[2] - img_norm[0]) * (img_norm[3] - img_norm[1])
+            if img_area > expected_area * 0.1:
+                return True, "image_info", 0.90
+
+    # Method 3: Check drawing/vector regions
+    for dwg in page_data.get("drawings", []):
+        dwg_norm = normalize_bbox(dwg["bbox"], pw, ph)
+        if bbox_in_region(dwg_norm, {"x_min": rx0, "x_max": rx1, "y_min": ry0, "y_max": ry1}):
+            # Must be reasonably sized (not just a tiny line)
+            dwg_width = dwg_norm[2] - dwg_norm[0]
+            dwg_height = dwg_norm[3] - dwg_norm[1]
+            region_width = rx1 - rx0
+            region_height = ry1 - ry0
+            if dwg_width * dwg_height > (region_width * region_height) * 0.05:
+                return True, "drawing", 0.75
+
+    # Method 4: Check for large blank/non-text region
+    # Find text blocks in the graphical region area
+    text_blocks_in_region = find_text_blocks_in_region(
+        page_data,
+        {"x_min": rx0, "x_max": rx1, "y_min": ry0, "y_max": ry1}
+    )
+
+    if not text_blocks_in_region:
+        # No text in graphical region - likely contains an image
+        return True, "no_text_region", 0.60
+
+    # If there's very little text compared to region size, likely has image
+    total_text_area = 0
+    for item in text_blocks_in_region:
+        b = item["norm_bbox"]
+        total_text_area += (b[2] - b[0]) * (b[3] - b[1])
+
+    region_area = (rx1 - rx0) * (ry1 - ry0)
+    if region_area > 0 and (total_text_area / region_area) < 0.3:
+        return True, "sparse_text_region", 0.55
+
+    return False, "no_detection", 0.0
+
+
+# ─── Screening Engine Core ───────────────────────────────────────────────────
+
+def load_template_rules(rules_path):
+    """Load template rules from JSON file."""
+    with open(rules_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def detect_path_column(headers):
+    """
+    Detect which column header contains the file path.
+    Returns the column name or None.
+    """
+    possible_names = [
+        "download_path",
+        "download location",
+        "download_location",
+        "file_path",
+        "article_file_path",
+        "manuscript_path",
+        "downloaded_file",
+    ]
+    for h in headers:
+        if h is not None:
+            h_stripped = str(h).strip().lower()
+            for name in possible_names:
+                if h_stripped == name.lower():
+                    return str(h).strip()
+    return None
+
+
+def detect_column_index(headers, possible_names):
+    """Find the first matching column index for given names."""
+    for name in possible_names:
+        for i, h in enumerate(headers):
+            if h is not None and str(h).strip().lower() == name.lower():
+                return i
+    return None
+
+
+def count_references(text):
+    """Count number of reference entries in text."""
+    patterns = [
+        r"^\[?\d+\]?\s",  # [1] or 1. at start of line
+        r"^\d+\.\s",       # 1. at start
+        r"^[A-Z][a-zà-ü]+.*\(?\d{4}\)?\.",  # Author (Year).
+    ]
+    count = 0
+    lines = text.split("\n")
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        for pat in patterns:
+            if re.match(pat, line):
+                count += 1
+                break
+    return max(count, 0)
+
+
+def count_keywords(text):
+    """Count number of keywords (comma/semicolon separated)."""
+    # Find the line containing Keywords/Kata kunci and count items after it
+    kw_pattern = re.compile(
+        r"(Keywords|Kata kunci|Kata Kunci)\s*[:\-–]?\s*(.+)", re.IGNORECASE
+    )
+    match = kw_pattern.search(text)
+    if not match:
+        return 0
+
+    kw_text = match.group(2)
+    # Split by comma, semicolon, or bullet
+    parts = re.split(r"[;,•·\-•]+", kw_text)
+    parts = [p.strip() for p in parts if p.strip() and len(p.strip()) > 1]
+    return len(parts)
+
+
+def count_keyword_terms(text, label):
+    """
+    Count keyword terms after a specific label (Keywords / Kata kunci).
+    Returns the count.
+    """
+    patterns = [
+        re.compile(rf"{re.escape(label)}\s*[:\-–]?\s*(.+)", re.IGNORECASE),
+    ]
+    for pat in patterns:
+        match = pat.search(text)
+        if match:
+            kw_text = match.group(1)
+            parts = re.split(r"[;,•·\-•]+", kw_text)
+            parts = [p.strip() for p in parts if p.strip() and len(p.strip()) > 1]
+            return len(parts)
+    return 0
+
+
+def run_single_screening(pdf_path, rules, log_callback=None):
+    """
+    Run template screening on a single PDF file.
+    Returns dict with screening results.
+    """
+    def log(msg):
+        if log_callback:
+            log_callback(msg)
+
+    # Parse PDF
+    layout = extract_pdf_layout(pdf_path)
+    if not layout:
+        return {"error": "Failed to parse PDF"}
+
+    results = []
+    total_pages = len(layout)
+
+    for rule in rules:
+        item_id = rule["id"]
+        label = rule["label"]
+        required = rule.get("required", False)
+        text_pattern = rule.get("text_pattern", "")
+        expected_region = rule.get("expected_region", {})
+        tolerance = rule.get("tolerance", 0.15)
+        format_rules = rule.get("format_rules")
+        min_ref_count = rule.get("min_reference_count", 0)
+        min_kw_count = rule.get("min_keyword_count", 0)
+
+        is_generic_text = (text_pattern == ".+")
+
+        item_result = {
+            "id": item_id,
+            "label": label,
+            "status": "FAILED",
+            "page": "",
+            "expected_region": expected_region,
+            "found_region": None,
+            "evidence_text": "",
+            "notes": "",
+            "formatting_ok": None,
+            "confidence": 0.0,
+            "candidate_confidence": 0.0,
+            "rejected_false_positives": [],
+            "all_candidates": [],
+            "structure_status": "FAILED",
+            "layout_status": "FAILED",
+            "formatting_status": "N/A",
+        }
+
+        # ── Find best candidate using candidate ranking system ──
+        candidate = find_best_candidate_for_rule(rule, layout)
+        confidence = candidate.get("confidence", 0.0)
+        item_result["candidate_confidence"] = round(confidence, 2)
+        item_result["rejected_false_positives"] = candidate.get("rejected_false_positives", [])
+        all_cands = candidate.get("all_candidates", [])
+        item_result["all_candidates"] = [
+            {"text": c.get("text", "")[:100], "score": round(c.get("score", 0), 2)}
+            for c in all_cands
+        ]
+
+        candidate_text = candidate.get("candidate_text", "")
+        found_bbox = candidate.get("bbox")
+        page = candidate.get("page", 0)
+        found_block = candidate.get("block")
+        found_span = candidate.get("span")
+
+        # ── STRUCTURE EVALUATION ──
+        # Structure = does the component exist?
+        structure_found = bool(candidate_text) and confidence > 0.0
+        if is_generic_text:
+            # For generic patterns, structure found means we found a valid candidate
+            structure_ok = confidence >= 0.45
+        else:
+            # For specific patterns, structure found means the heading text was found
+            structure_ok = structure_found
+
+        # Special handling for certain item types
+        if item_id == "abstract":
+            # Check if "Graphical abstract" was detected but "Abstract" was not
+            full_text = " ".join(p["text"] for p in layout)
+            has_graphical = "graphical abstract" in full_text.lower()
+            has_abstract = "abstract" in full_text.lower() and not has_graphical
+            # If we found "Graphical abstract" but not "Abstract", that's a problem
+            if has_graphical and not has_abstract:
+                # Try to find just "Abstract" (standalone)
+                abstract_match = re.search(r'(?<!Graphical )(?<!graphical )^Abstract$|(?<!Graphical )(?<!graphical )^Abstract\b', full_text, re.MULTILINE)
+                structure_ok = abstract_match is not None
+
+        if item_id == "graphical_abstract":
+            # Graphical abstract is a special case
+            structure_ok = structure_found
+
+        if structure_ok:
+            item_result["structure_status"] = "PASS"
+        else:
+            item_result["structure_status"] = "FAILED"
+
+        # ── LAYOUT / REGION EVALUATION ──
+        if found_bbox and expected_region:
+            passed, deviation = check_region(found_bbox, expected_region, tolerance)
+            item_result["layout_status"] = "PASS" if passed and deviation <= tolerance else "WARNING"
+            item_result["found_region"] = {
+                "x_min": round(found_bbox[0], 4),
+                "y_min": round(found_bbox[1], 4),
+                "x_max": round(found_bbox[2], 4),
+                "y_max": round(found_bbox[3], 4),
+            }
+        else:
+            passed = False
+            deviation = 1.0
+            item_result["layout_status"] = "FAILED"
+
+        # ── FORMATTING EVALUATION ──
+        fmt_ok, fmt_details = check_formatting(found_span, format_rules)
+        item_result["formatting_ok"] = fmt_ok
+        item_result["formatting_status"] = "PASS" if fmt_ok else ("WARNING" if fmt_ok is False else "N/A")
+
+        # ── OVERALL ITEM STATUS ──
+        # Structure should be the primary determinant
+        if structure_ok and confidence >= 0.75:
+            item_result["status"] = "PASS"
+            item_result["notes"] = f"Found with high confidence ({confidence:.2f})."
+        elif structure_ok and confidence >= 0.45:
+            item_result["status"] = "WARNING"
+            item_result["notes"] = f"Found but with low confidence ({confidence:.2f})."
+        elif structure_found and confidence < 0.45:
+            item_result["status"] = "FAILED"
+            item_result["notes"] = f"Potential match rejected due to low confidence ({confidence:.2f})."
+        else:
+            item_result["status"] = "FAILED"
+            item_result["notes"] = f"Required item '{label}' not found in PDF."
+
+        # Set evidence text
+        if candidate_text:
+            item_result["evidence_text"] = candidate_text[:200]
+            item_result["page"] = str(page)
+
+        # If rejected some false positives, mention that
+        rejected = candidate.get("rejected_false_positives", [])
+        if rejected:
+            rejection_note = f" Rejected template labels: {', '.join(rejected[:3])}"
+            if item_result["notes"]:
+                item_result["notes"] += rejection_note
+            else:
+                item_result["notes"] = rejection_note.strip()
+
+        # ── SPECIAL HANDLING: ABSTRACT ──
+        if item_id == "abstract":
+            # Check for "Graphical abstract" confusion
+            full_text = " ".join(p["text"] for p in layout)
+            has_graphical = "graphical abstract" in full_text.lower()
+            has_standalone_abstract = bool(re.search(
+                r'(?<![Gg]raphical )(?:^|\n)\s*Abstract\b',
+                full_text,
+                re.MULTILINE
+            ))
+
+            if has_graphical and not has_standalone_abstract:
+                item_result["status"] = "FAILED"
+                item_result["structure_status"] = "FAILED"
+                item_result["notes"] = ("Only 'Graphical abstract' heading found, "
+                                        "not standalone 'Abstract'. Note: 'Graphical abstract' "
+                                        "is a separate component and does not fulfill the "
+                                        "English Abstract requirement.")
+            elif structure_ok:
+                # Check that there is actual abstract content after the heading
+                for page_data in layout:
+                    if "abstract" in page_data["text"].lower():
+                        paragraph = extract_following_paragraph(
+                            page_data["blocks"], "Abstract", page_data
+                        )
+                        if paragraph and len(paragraph) > 50:
+                            pass  # Good, abstract has content
+                            item_result["evidence_text"] = paragraph[:200]
+                        else:
+                            item_result["status"] = "WARNING"
+                            item_result["notes"] = "Abstract heading found but paragraph content is short or missing."
+
+        # ── SPECIAL HANDLING: GRAPHICAL ABSTRACT ──
+        if item_id == "graphical_abstract":
+            if structure_ok and expected_region:
+                # Check for image in the graphical abstract region
+                page_data = layout[0]  # Page 1
+                # Normalize the expected region
+                re_bbox = (
+                    expected_region.get("x_min", 0),
+                    expected_region.get("y_min", 0),
+                    expected_region.get("x_max", 1),
+                    expected_region.get("y_max", 1),
+                )
+                img_detected, img_method, img_confidence = detect_graphical_region(
+                    page_data, re_bbox
+                )
+
+                if img_detected:
+                    item_result["status"] = "PASS"
+                    item_result["notes"] = (
+                        f"Graphical abstract heading found and image/region "
+                        f"detected via {img_method} (confidence: {img_confidence:.2f})."
+                    )
+                elif img_confidence >= 0.55:
+                    item_result["status"] = "WARNING"
+                    item_result["notes"] = (
+                        "Graphical abstract heading found but no clear image "
+                        "detected. Layout suggests graphical region may exist."
+                    )
+                else:
+                    item_result["status"] = "WARNING"
+                    item_result["notes"] = (
+                        "Graphical abstract heading found but no image/object "
+                        "detected in expected region. Treating as WARNING since "
+                        "heading exists but image extraction may have failed."
+                    )
+
+        # ── SPECIAL HANDLING: KEYWORDS ──
+        if item_id == "keywords" and structure_ok:
+            full_text = " ".join(p["text"] for p in layout)
+            kw_count = count_keyword_terms(full_text, "Keywords")
+            item_result["evidence_text"] += f" | Keywords found: {kw_count}"
+            if min_kw_count > 0 and kw_count < min_kw_count:
+                item_result["status"] = "FAILED"
+                item_result["structure_status"] = "FAILED"
+                item_result["notes"] = (
+                    f"Keywords heading found but only {kw_count} keyword terms "
+                    f"detected (minimum {min_kw_count} required)."
+                )
+            else:
+                item_result["notes"] = f"Keywords found: {kw_count} terms."
+
+        # ── SPECIAL HANDLING: KATA KUNCI ──
+        if item_id == "kata_kunci" and structure_ok:
+            full_text = " ".join(p["text"] for p in layout)
+            kk_count = count_keyword_terms(full_text, "Kata kunci")
+            item_result["evidence_text"] += f" | Kata kunci found: {kk_count}"
+            if min_kw_count > 0 and kk_count < min_kw_count:
+                item_result["status"] = "FAILED"
+                item_result["structure_status"] = "FAILED"
+                item_result["notes"] = (
+                    f"Kata kunci heading found but only {kk_count} terms "
+                    f"detected (minimum {min_kw_count} required)."
+                )
+            else:
+                item_result["notes"] = f"Kata kunci found: {kk_count} terms."
+
+        # ── SPECIAL HANDLING: ABSTRAK ──
+        if item_id == "abstrak":
+            # Check for "Abstrak" standalone (not confused with Abstract)
+            full_text = " ".join(p["text"] for p in layout)
+            has_abstrak = bool(re.search(r'(?:^|\n)\s*Abstrak\b', full_text, re.MULTILINE | re.IGNORECASE))
+            if not has_abstrak:
+                item_result["status"] = "FAILED"
+                item_result["structure_status"] = "FAILED"
+                item_result["notes"] = "Malay Abstract (Abstrak) heading not found in PDF."
+            elif structure_ok:
+                # Check for content
+                for page_data in layout:
+                    if "abstrak" in page_data["text"].lower():
+                        paragraph = extract_following_paragraph(
+                            page_data["blocks"], "Abstrak", page_data
+                        )
+                        if paragraph and len(paragraph) > 50:
+                            item_result["evidence_text"] = paragraph[:200]
+                            pass
+                        else:
+                            item_result["status"] = "WARNING"
+                            if "notes" not in item_result or not item_result["notes"]:
+                                item_result["notes"] = "Abstrak heading found but paragraph content is short or missing."
+                        break
+
+        # ── SPECIAL HANDLING: REFERENCES ──
+        if item_id == "references" and structure_ok and min_ref_count > 0:
+            full_text = " ".join(p["text"] for p in layout)
+            ref_count = count_references(full_text)
+            item_result["evidence_text"] += f" | Reference entries found: {ref_count}"
+            if ref_count < min_ref_count:
+                item_result["status"] = "FAILED"
+                item_result["structure_status"] = "FAILED"
+                item_result["notes"] = (
+                    f"Only {ref_count} references found (minimum {min_ref_count} required)."
+                )
+
+        # ── STRUCTURE STATUS OVERRIDE ──
+        # Structure should only evaluate existence, NOT layout/formatting
+        # If the component exists (confidence >= 0.45), structure is PASS
+        if item_result["structure_status"] == "PASS":
+            pass  # Already set
+        elif confidence >= 0.45:
+            item_result["structure_status"] = "PASS"
+        elif candidate_text and confidence > 0:
+            item_result["structure_status"] = "WARNING"
+
+        results.append(item_result)
+
+    return results
+
+
+def _describe_region(region):
+    """Convert normalized region dict to human-readable description."""
+    if not region:
+        return "Not detected"
+    x_min = region.get("x_min", 0)
+    y_min = region.get("y_min", 0)
+    x_max = region.get("x_max", 1)
+    y_max = region.get("y_max", 1)
+
+    # Horizontal position
+    if x_min < 0.15:
+        h_pos = "left column"
+    elif x_min < 0.45:
+        h_pos = "left-center area"
+    elif x_min < 0.65:
+        h_pos = "center area"
+    elif x_min < 0.85:
+        h_pos = "right-center area"
+    else:
+        h_pos = "right column"
+
+    # Vertical position
+    if y_min < 0.15:
+        v_pos = "top area"
+    elif y_min < 0.35:
+        v_pos = "upper area"
+    elif y_min < 0.55:
+        v_pos = "upper-middle area"
+    elif y_min < 0.75:
+        v_pos = "lower-middle area"
+    else:
+        v_pos = "lower area"
+
+    return f"Page 1, {h_pos}, {v_pos}"
+
+
+def generate_screening_pdf_report(report_data, excel_row_data, output_dir, log_callback=None):
+    """
+    Generate a human-readable PDF screening report using reportlab.
+    Then MERGES the original article PDF at the end of the report.
+    Result is a SINGLE combined PDF: [screening report pages] + [original article pages].
+
+    Args:
+        report_data: dict with screening results (from JSON)
+        excel_row_data: dict with metadata (submission_no, author_name, title, etc.)
+        output_dir: directory to save PDF
+        log_callback: optional log function
+
+    Returns:
+        Path to combined PDF, or None on failure
+    """
+    def log(msg):
+        if log_callback:
+            log_callback(msg)
+
+    try:
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import mm, cm
+        from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT
+        from reportlab.platypus import (
+            SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
+            PageBreak, Frame, PageTemplate, BaseDocTemplate
+        )
+        from reportlab.platypus.flowables import HRFlowable
+    except ImportError:
+        log("[SCREENING] ❌ reportlab not installed. Cannot generate PDF report.")
+        return None
+
+    sub_no = report_data.get("submission_no", excel_row_data.get("submission_no", "N/A"))
+    timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    pdf_filename = f"template_screening_combined_{sub_no}_{timestamp_str}.pdf"
+
+    pdf_path = Path(output_dir) / "pdf"
+    pdf_path.mkdir(parents=True, exist_ok=True)
+    output_file = pdf_path / pdf_filename
+
+    # ── Step 1: Generate temporary report PDF (screening analysis only) ──
+    temp_report_file = pdf_path / f"_temp_report_{sub_no}_{timestamp_str}.pdf"
+
+    doc = SimpleDocTemplate(
+        str(temp_report_file),
+        pagesize=A4,
+        topMargin=2*cm,
+        bottomMargin=2*cm,
+        leftMargin=2*cm,
+        rightMargin=2*cm,
+    )
+
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle(
+        'CustomTitle', parent=styles['Heading1'],
+        fontSize=20, leading=24, spaceAfter=12,
+        textColor=colors.HexColor("#003399"),
+    )
+    heading2 = ParagraphStyle(
+        'H2', parent=styles['Heading2'],
+        fontSize=14, leading=18, spaceBefore=16, spaceAfter=8,
+        textColor=colors.HexColor("#003399"),
+    )
+    heading3 = ParagraphStyle(
+        'H3', parent=styles['Heading3'],
+        fontSize=11, leading=14, spaceBefore=10, spaceAfter=4,
+        textColor=colors.HexColor("#0055aa"),
+    )
+    normal = ParagraphStyle(
+        'CustomNormal', parent=styles['Normal'],
+        fontSize=9, leading=13, spaceAfter=4,
+    )
+    small = ParagraphStyle(
+        'Small', parent=styles['Normal'],
+        fontSize=8, leading=10, spaceAfter=2,
+    )
+    bold_style = ParagraphStyle(
+        'Bold', parent=normal, fontName='Helvetica-Bold',
+    )
+
+    elements = []
+
+    # ───── 1. REPORT HEADER ─────
+    elements.append(Paragraph("Template Screening Report", title_style))
+    elements.append(Paragraph(f"Journal Template: Jurnal Teknologi", normal))
+    elements.append(Spacer(1, 4))
+    elements.append(Paragraph(f"<b>Submission No:</b> {sub_no}", normal))
+    elements.append(Paragraph(f"<b>Author Name:</b> {excel_row_data.get('author_name', 'N/A')}", normal))
+    elements.append(Paragraph(f"<b>Article Title:</b> {excel_row_data.get('title', 'N/A')}", normal))
+    elements.append(Paragraph(f"<b>Source File:</b> {Path(report_data.get('source_file', 'N/A')).name}", normal))
+    elements.append(Paragraph(f"<b>Screened PDF:</b> {Path(report_data.get('pdf_file', 'N/A')).name}", normal))
+    elements.append(Paragraph(f"<b>Screening Date:</b> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", normal))
+    elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#003399")))
+    elements.append(Spacer(1, 8))
+
+    # ───── 2. EXECUTIVE SUMMARY ─────
+    final_status = report_data.get("final_status", "N/A")
+    final_score = report_data.get("final_score", 0)
+    struct_score = report_data.get("structure_score", 0)
+    layout_score = report_data.get("layout_score", 0)
+    fmt_score = report_data.get("formatting_score", 0)
+    items = report_data.get("items", [])
+
+    # Build critical/warning lists
+    critical_failed_names = [
+        r.get("label", r.get("id", "")) for r in items
+        if r.get("status") == "FAILED" and r.get("id") in [
+            "title", "abstract", "introduction", "methodology",
+            "results_discussion", "conclusion", "references",
+            "graphical_abstract"
+        ]
+    ]
+    warning_names = [
+        r.get("label", r.get("id", "")) for r in items
+        if r.get("status") == "WARNING"
+    ]
+
+    status_colors_map = {
+        "SCREENING PASS": colors.HexColor("#00aa00"),
+        "SCREENING WARNING": colors.HexColor("#cc8800"),
+        "SCREENING FAILED": colors.HexColor("#cc0000"),
+        "SCREENING ERROR": colors.HexColor("#cc0000"),
+    }
+    status_color = status_colors_map.get(final_status, colors.black)
+
+    elements.append(Paragraph("Executive Summary", heading2))
+    elements.append(Paragraph(f"<b>Overall Decision:</b> <font color='{status_color.hexval()}'>{final_status}</font>", normal))
+
+    if final_status == "SCREENING PASS":
+        main_reason = "The manuscript follows the main Jurnal Teknologi template structure, layout, and formatting."
+        suggestion = "Proceed with the manuscript to the next workflow stage."
+    elif final_status == "SCREENING WARNING":
+        main_reason = "The manuscript generally follows the template but contains layout or formatting issues that should be reviewed."
+        suggestion = "Author should review the highlighted issues before proceeding."
+    else:
+        main_reason = "The manuscript is missing required template components or critically mismatched."
+        suggestion = "Author should revise the manuscript using the official Jurnal Teknologi template before proceeding."
+
+    elements.append(Paragraph(f"<b>Main Reason:</b> {main_reason}", normal))
+
+    if critical_failed_names:
+        elements.append(Paragraph("<b>Critical Failed Items:</b>", normal))
+        for name in critical_failed_names:
+            elements.append(Paragraph(f"&bull; {name}", normal))
+    else:
+        elements.append(Paragraph("<b>Critical Failed Items:</b> None", normal))
+
+    if warning_names:
+        elements.append(Paragraph("<b>Warning Items:</b>", normal))
+        for name in warning_names[:5]:
+            elements.append(Paragraph(f"&bull; {name}", normal))
+    else:
+        elements.append(Paragraph("<b>Warning Items:</b> None", normal))
+
+    elements.append(Paragraph(f"<b>Suggested Action:</b> {suggestion}", normal))
+    elements.append(Spacer(1, 8))
+
+    # ───── 3. OVERALL RESULT ─────
+    elements.append(Paragraph("Overall Result", heading2))
+
+    result_data = [
+        ["Metric", "Score / Value"],
+        ["Final Status", final_status],
+        ["Final Score", f"{final_score}/100"],
+        ["Structure Score", f"{struct_score}%"],
+        ["Layout Score", f"{layout_score}%"],
+        ["Formatting Score", f"{fmt_score}%"],
+        ["Decision", "ACCEPT" if final_status == "SCREENING PASS" else "REJECT"],
+    ]
+    result_table = Table(result_data, colWidths=[180, 200])
+    result_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#003399")),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+        ('BACKGROUND', (0, 1), (-1, -1), colors.HexColor("#f0f0f5")),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor("#f0f0f5"), colors.white]),
+    ]))
+    elements.append(result_table)
+    elements.append(Spacer(1, 8))
+
+    # ───── 4. HOW SCORE WAS CALCULATED ─────
+    elements.append(Paragraph("How the Score Was Calculated", heading2))
+
+    weight_data = [
+        ["Component", "Weight", "Description", "Score"],
+        ["Structure", "40%", "Required template components existence", f"{struct_score}%"],
+        ["Layout", "30%", "Component position matching template regions", f"{layout_score}%"],
+        ["Formatting", "30%", "Font, style, and pattern compliance", f"{fmt_score}%"],
+        ["Final Score", "100%", "Weighted combination", f"{final_score}/100"],
+    ]
+    weight_table = Table(weight_data, colWidths=[80, 60, 220, 60])
+    weight_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#003399")),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, -1), 8),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor("#f0f0f5"), colors.white]),
+    ]))
+    elements.append(weight_table)
+    elements.append(Spacer(1, 4))
+    elements.append(Paragraph(f"<b>Reason:</b> {main_reason}", normal))
+    elements.append(Spacer(1, 8))
+
+    # ───── 5. STATUS EXPLANATION ─────
+    elements.append(Paragraph("Status Explanation", heading2))
+    elements.append(Paragraph("<b>PASS</b> &mdash; Item follows the template structure, position, and formatting.", normal))
+    elements.append(Paragraph("<b>WARNING</b> &mdash; Item found but layout position or formatting may differ from template.", normal))
+    elements.append(Paragraph("<b>FAILED</b> &mdash; Required item missing or critical rule violated.", normal))
+    elements.append(Spacer(1, 8))
+
+    # ───── 6. SUMMARY TABLE ─────
+    elements.append(Paragraph("Summary Table", heading2))
+
+    summary_data = [["Item", "Structure", "Layout", "Formatting", "Status", "Notes"]]
+    for item in items:
+        sid = item.get("id", "")
+        label = item.get("label", sid)
+        status = item.get("status", "")
+        notes = item.get("notes", "")[:40]
+        fmt_ok = item.get("formatting_ok")
+        fmt_status = "PASS" if fmt_ok else ("WARNING" if fmt_ok is False else "N/A")
+        summary_data.append([label, status, status, fmt_status, status, notes])
+
+    # Limit to first 20 rows
+    if len(summary_data) > 21:
+        summary_data = summary_data[:21]
+
+    summary_table = Table(summary_data, colWidths=[70, 50, 50, 55, 55, 120])
+    summary_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#003399")),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, -1), 7),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor("#f0f0f5"), colors.white]),
+    ]))
+    elements.append(summary_table)
+    elements.append(Spacer(1, 12))
+    elements.append(PageBreak())
+
+    # ───── 7. DETAILED FINDINGS ─────
+    elements.append(Paragraph("Detailed Findings", heading2))
+
+    # Load rules for context
+    from config import TEMPLATE_RULES_DIR
+    rules_path = Path(TEMPLATE_RULES_DIR) / "jurnal_teknologi_rules.json"
+    rules = []
+    if rules_path.exists():
+        try:
+            with open(rules_path) as f:
+                rule_config = json.load(f)
+                rules = rule_config.get("rules", [])
+        except Exception:
+            pass
+
+    rule_map = {r.get("id"): r for r in rules}
+
+    for item in items:
+        item_id = item.get("id", "")
+        label = item.get("label", item_id)
+        status = item.get("status", "")
+        page_found = item.get("page", "")
+        evidence = item.get("evidence_text", "")
+        notes = item.get("notes", "")
+        found_region = item.get("found_region", {})
+        expected_region = item.get("expected_region", {})
+        span_info = item.get("span", {})
+        formatting_ok = item.get("formatting_ok")
+        confidence = item.get("candidate_confidence", 0.0)
+        rejected_fps = item.get("rejected_false_positives", [])
+        all_cands = item.get("all_candidates", [])
+
+        # Color for status
+        status_color_item = {
+            "PASS": colors.HexColor("#00aa00"),
+            "WARNING": colors.HexColor("#cc8800"),
+            "FAILED": colors.HexColor("#cc0000"),
+        }.get(status, colors.black)
+
+        # Find rule for human-readable expected location
+        rule = rule_map.get(item_id, {})
+        expected_text = _describe_region(expected_region) if expected_region else "Not specified"
+        found_text = _describe_region(found_region) if found_region else "Not detected"
+
+        # Item header
+        elements.append(Paragraph(f"<b>{label} [{item_id}]</b>", heading3))
+
+        # A. Structure Evaluation
+        elements.append(Paragraph("<b>A. Structure Evaluation</b>", normal))
+        if rule.get("required", True):
+            expected_struct = f"The '{label}' {'section' if item_id != 'graphical_abstract' else 'component'} must exist."
+        else:
+            expected_struct = f"The '{label}' component is recommended."
+        elements.append(Paragraph(f"<b>Expected:</b> {expected_struct}", small))
+        if evidence:
+            elements.append(Paragraph(f"<b>Found:</b> {evidence[:150]}", small))
+        else:
+            elements.append(Paragraph(f"<b>Found:</b> {'Detected on page ' + page_found if page_found else 'Not detected'}", small))
+        elements.append(Paragraph(f"<b>Confidence:</b> {confidence:.2f}", small))
+        if rejected_fps:
+            elements.append(Paragraph(f"<b>Rejected false positives:</b> {', '.join(rejected_fps[:3])}", small))
+        elements.append(Paragraph(f"<b>Status:</b> <font color='{status_color_item.hexval()}'>{status}</font>", small))
+
+        if status == "PASS":
+            reason = f"The required component '{label}' exists."
+        elif status == "WARNING":
+            reason = f"Component found but position or formatting differs from template."
+        elif status == "FAILED":
+            if "not found" in notes.lower():
+                reason = f"Required component '{label}' was not found in the PDF."
+            else:
+                reason = notes if notes else f"Component '{label}' failed validation."
+        else:
+            reason = notes
+        elements.append(Paragraph(f"<b>Reason:</b> {reason}", small))
+
+        # B. Layout / Coordinate Evaluation
+        elements.append(Paragraph("<b>B. Layout / Coordinate Evaluation</b>", normal))
+        e_page = expected_region.get("page", expected_region.get("page_min", "N/A"))
+        tolerance = rule.get("tolerance", 0.10)
+
+        elements.append(Paragraph(f"<b>Expected:</b> {expected_text}", small))
+        elements.append(Paragraph(f"<b>Found:</b> {found_text}", small))
+        if found_region and expected_region:
+            fx0 = found_region.get("x_min", 0)
+            fy0 = found_region.get("y_min", 0)
+            ex0 = expected_region.get("x_min", 0)
+            ey0 = expected_region.get("y_min", 0)
+            if abs(fx0 - ex0) <= tolerance and abs(fy0 - ey0) <= tolerance:
+                pos_status = "PASS"
+                pos_reason = "Position matches expected template region."
+            else:
+                pos_status = "WARNING"
+                pos_reason = f"Position deviates from expected region (tolerance: {tolerance:.2f})."
+            elements.append(Paragraph(f"<b>Position Check:</b> <font color='{status_color_item.hexval()}'>{pos_status}</font>", small))
+            elements.append(Paragraph(f"<b>Reason:</b> {pos_reason}", small))
+            elements.append(Paragraph(f"<i>Expected region: x=({ex0:.2f}–{expected_region.get('x_max',1):.2f}), y=({ey0:.2f}–{expected_region.get('y_max',1):.2f})</i>", small))
+            elements.append(Paragraph(f"<i>Found region: x=({found_region.get('x_min',0):.2f}–{found_region.get('x_max',0):.2f}), y=({found_region.get('y_min',0):.2f}–{found_region.get('y_max',0):.2f})</i>", small))
+
+        # C. Formatting Evaluation
+        elements.append(Paragraph("<b>C. Formatting Evaluation</b>", normal))
+        format_rules = rule.get("format_rules", {})
+        if format_rules:
+            if format_rules.get("uppercase_preferred"):
+                elements.append(Paragraph("<b>Expected:</b> Heading should be in uppercase style.", small))
+            if format_rules.get("bold_preferred"):
+                elements.append(Paragraph("<b>Expected:</b> Heading should use bold font.", small))
+            if format_rules.get("image_required"):
+                elements.append(Paragraph("<b>Expected:</b> Image should be present.", small))
+        else:
+            elements.append(Paragraph("<b>Expected:</b> Standard paragraph formatting.", small))
+
+        if formatting_ok is True:
+            elements.append(Paragraph(f"<b>Formatting Check:</b> <font color='{colors.HexColor('#00aa00').hexval()}'>PASS</font>", small))
+            elements.append(Paragraph("<b>Reason:</b> Formatting matches template expectations.", small))
+        elif formatting_ok is False:
+            elements.append(Paragraph(f"<b>Formatting Check:</b> <font color='{colors.HexColor('#cc8800').hexval()}'>WARNING</font>", small))
+            elements.append(Paragraph("<b>Reason:</b> Formatting differs from template expectations.", small))
+        else:
+            elements.append(Paragraph("<b>Formatting Check:</b> N/A", small))
+
+        elements.append(Paragraph(f"<b>Overall Item Status:</b> <font color='{status_color_item.hexval()}'>{status}</font>", normal))
+        elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.lightgrey))
+        elements.append(Spacer(1, 4))
+
+    # ───── 8. EDITOR CONCLUSION ─────
+    elements.append(PageBreak())
+    elements.append(Paragraph("Editor Conclusion", heading2))
+
+    if final_status == "SCREENING PASS":
+        conclusion = (
+            "The manuscript appears to follow the main Jurnal Teknologi template "
+            "structure, layout, and formatting. No critical issues were detected. "
+            "The manuscript is recommended to proceed."
+        )
+    elif final_status == "SCREENING WARNING":
+        conclusion = (
+            "The manuscript generally follows the template but contains layout or "
+            "formatting issues that should be reviewed by the editor or author. "
+            "Please address the warning items before final acceptance."
+        )
+    else:
+        conclusion = (
+            "The manuscript does not fully comply with the template because one or "
+            "more required items are missing or critically mismatched. The author "
+            "should revise the manuscript using the official Jurnal Teknologi template."
+        )
+
+    elements.append(Paragraph(conclusion, normal))
+    elements.append(Spacer(1, 8))
+
+    # Score breakdown
+    elements.append(Paragraph(f"<b>Structure Score:</b> {struct_score}% (Weight: 40%)", normal))
+    elements.append(Paragraph(f"<b>Layout Score:</b> {layout_score}% (Weight: 30%)", normal))
+    elements.append(Paragraph(f"<b>Formatting Score:</b> {fmt_score}% (Weight: 30%)", normal))
+    elements.append(Paragraph(f"<b>Final Score:</b> {final_score}/100", normal))
+    elements.append(Spacer(1, 4))
+
+    if critical_failed_names:
+        elements.append(Paragraph("<b>Critical Items Failed:</b>", normal))
+        for name in critical_failed_names:
+            elements.append(Paragraph(f"&bull; {name} &mdash; <font color='#cc0000'>FAILED</font>", small))
+    if warning_names:
+        elements.append(Paragraph("<b>Warning Items:</b>", normal))
+        for name in warning_names[:5]:
+            elements.append(Paragraph(f"&bull; {name} &mdash; <font color='#cc8800'>WARNING</font>", small))
+
+    elements.append(Spacer(1, 10))
+    elements.append(Paragraph(
+        "<i>This report was automatically generated by Turnitin Assistant v5.6.3 "
+        "Template Screening Engine.</i>", small
+    ))
+
+    # ── Step 2: Build the temporary report PDF ──
+    try:
+        doc.build(elements)
+    except Exception as e:
+        log(f"[SCREENING] Failed to generate report PDF: {e}")
+        return None
+
+    # ── Step 3: Merge report PDF + original article PDF into single file ──
+    try:
+        if fitz is None:
+            log("[SCREENING] ⚠️ PyMuPDF not available. Outputting report-only PDF.")
+            # Rename temp file to final name
+            temp_report_file.rename(output_file)
+        else:
+            # Open the temp report PDF
+            report_doc = fitz.open(str(temp_report_file))
+
+            # Open the original article PDF
+            article_pdf_path = report_data.get("pdf_file", "")
+            if not article_pdf_path or not Path(article_pdf_path).exists():
+                log(f"[SCREENING] ⚠️ Article PDF not found: {article_pdf_path}. Outputting report-only PDF.")
+                temp_report_file.rename(output_file)
+            else:
+                article_doc = fitz.open(article_pdf_path)
+
+                # Append all article pages to the report document
+                report_doc.insert_pdf(article_doc)
+
+                # Save the combined PDF
+                report_doc.save(str(output_file))
+                article_doc.close()
+
+            report_doc.close()
+
+        # Remove temp file
+        if temp_report_file.exists():
+            temp_report_file.unlink()
+
+        log(f"[SCREENING] Combined screening report + article PDF saved: {output_file.name} "
+            f"(report pages + article pages)")
+        return str(output_file)
+
+    except Exception as e:
+        log(f"[SCREENING] Failed to merge article PDF: {e}")
+        # Fall back: rename temp file
+        if temp_report_file.exists():
+            temp_report_file.rename(output_file)
+        return str(output_file)
+
+
+def run_template_screening_workflow(log_callback=None):
+    """
+    Main callable entry point for Template Screening workflow.
+
+    Steps:
+    1. Read existing Excel data from 'download' sheet
+    2. Find rows with downloaded files not yet screened
+    3. Copy metadata (submission_no, author, title) to 'screening' sheet
+    4. Convert DOCX to PDF if needed
+    5. Run template screening on PDF
+    6. Update 'screening' sheet with results
+    7. Save screening report to storage/template_screening_reports/
+    """
+    import openpyxl
+    from config import TEMPLATE_SCREENING_CONFIG, OJS_DOWNLOADS_DIR
+
+    def log(msg):
+        if log_callback:
+            log_callback(msg)
+        else:
+            print(msg)
+
+    log("[SCREENING] Starting template screening...")
+
+    # Load rules
+    rules_path = TEMPLATE_SCREENING_CONFIG["rules_file"]
+    if not Path(rules_path).exists():
+        log(f"[SCREENING] Rules file not found: {rules_path}")
+        return {"status": "error", "message": f"Rules file not found: {rules_path}"}
+
+    rules_config = load_template_rules(rules_path)
+    rules = rules_config.get("rules", [])
+    log(f"[SCREENING] Loaded {len(rules)} rules from {rules_config.get('template_name', 'unknown')}")
+
+    # Read Excel
+    excel_path = TEMPLATE_SCREENING_CONFIG["master_excel"]
+    if not Path(excel_path).exists():
+        log(f"[SCREENING] Excel not found: {excel_path}")
+        return {"status": "error", "message": "Excel file not found"}
+
+    log(f"[SCREENING] Reading Excel: {excel_path}")
+
+    wb = openpyxl.load_workbook(excel_path)
+
+    download_sheet_name = TEMPLATE_SCREENING_CONFIG.get("download_sheet", "download")
+    screening_sheet_name = TEMPLATE_SCREENING_CONFIG.get("screening_sheet", "screening")
+
+    # Ensure screening sheet exists
+    if screening_sheet_name not in wb.sheetnames:
+        wb.create_sheet(screening_sheet_name)
+    ws_screening = wb[screening_sheet_name]
+
+    # Ensure download sheet exists
+    if download_sheet_name not in wb.sheetnames:
+        log(f"[SCREENING] Download sheet '{download_sheet_name}' not found.")
+        wb.close()
+        return {"status": "error", "message": "Download sheet not found"}
+
+    ws_download = wb[download_sheet_name]
+    download_headers = [cell.value for cell in ws_download[1]]
+
+    # Detect key columns in download sheet
+    sub_col_idx = detect_column_index(download_headers, ["submission no", "submission_no", "submissionno"])
+    author_col_idx = detect_column_index(download_headers, ["author name", "author_name", "author"])
+    title_col_idx = detect_column_index(download_headers, ["title", "article title", "article_title"])
+    ts_col_idx = detect_column_index(download_headers, ["timestamp", "date", "download timestamp"])
+
+    # Detect path column
+    path_col = detect_path_column(download_headers)
+    if path_col is None:
+        log("[SCREENING] No download path column detected in Excel.")
+        possible_indices = [4, 5, 6, 7, 8]
+        path_col_idx = None
+        for idx in possible_indices:
+            if idx < len(download_headers) and download_headers[idx]:
+                h_val = str(download_headers[idx]).strip().lower()
+                for name in ["download_path", "download location", "file_path", "path"]:
+                    if h_val == name.lower():
+                        path_col_idx = idx
+                        break
+                if path_col_idx is not None:
+                    break
+        if path_col_idx is None:
+            log("[SCREENING] Cannot determine download path column.")
+            wb.close()
+            return {"status": "error", "message": "Cannot determine download path column"}
+        path_col = download_headers[path_col_idx]
+    else:
+        path_col_idx = download_headers.index(path_col)
+
+    log(f"[SCREENING] Path column detected: '{path_col}' (index {path_col_idx})")
+
+    # === SET UP SCREENING SHEET HEADERS ===
+    screening_base_columns = [
+        "timestamp",
+        "submission_no",
+        "author_name",
+        "title",
+        "download_location",
+    ]
+
+    screening_result_columns = [
+        "template_screening_status",
+        "template_screening_score",
+        "template_screening_decision",
+        "template_structure_status",
+        "template_layout_status",
+        "template_formatting_status",
+        "template_screening_notes",
+        "template_screening_date",
+        "template_pdf_path",
+        "template_screening_report_pdf",
+    ]
+
+    all_screening_columns = screening_base_columns + screening_result_columns
+
+    # Build header row on screening sheet
+    screening_headers = [cell.value for cell in ws_screening[1]]
+    if not any(screening_headers):
+        # Empty sheet, write headers
+        for col_idx, col_name in enumerate(all_screening_columns, 1):
+            ws_screening.cell(row=1, column=col_idx, value=col_name)
+        screening_headers = all_screening_columns
+    else:
+        # Ensure all result columns exist
+        existing = set(h for h in screening_headers if h)
+        next_col = len(screening_headers) + 1
+        for col_name in all_screening_columns:
+            if col_name not in existing:
+                ws_screening.cell(row=1, column=next_col, value=col_name)
+                next_col += 1
+                existing.add(col_name)
+        screening_headers = [cell.value for cell in ws_screening[1]]
+
+    # Build col index map for screening sheet
+    scr_col_map = {}
+    for idx, h in enumerate(screening_headers, 1):
+        if h:
+            scr_col_map[str(h)] = idx
+
+    # Reports directory
+    reports_dir = Path(TEMPLATE_SCREENING_CONFIG["reports_dir"])
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    convert_dir = reports_dir / "converted"
+    convert_dir.mkdir(parents=True, exist_ok=True)
+
+    # === SCAN DOWNLOAD SHEET FOR PENDING ROWS ===
+    # Build a set of already-screened submission numbers from screening sheet
+    screened_subs = set()
+    if ws_screening.max_row >= 1:
+        sub_col_index = scr_col_map.get("submission_no")
+        if sub_col_index:
+            for r in range(2, ws_screening.max_row + 1):
+                sub_val = ws_screening.cell(row=r, column=sub_col_index).value
+                if sub_val:
+                    screened_subs.add(str(sub_val).strip())
+
+    pending_rows = []
+    for row_num in range(2, ws_download.max_row + 1):
+        sub_val = None
+        if sub_col_idx is not None:
+            sub_val = ws_download.cell(row=row_num, column=sub_col_idx + 1).value
+        sub_str = str(sub_val).strip() if sub_val else ""
+
+        # Skip if already screened
+        if sub_str in screened_subs:
+            continue
+
+        # Get file path
+        file_path_cell = ws_download.cell(row=row_num, column=path_col_idx + 1)
+        file_path = file_path_cell.value
+
+        if not file_path:
+            continue
+
+        # Get metadata
+        metadata = {
+            "download_row": row_num,
+            "submission_no": sub_str,
+            "author_name": str(ws_download.cell(row=row_num, column=author_col_idx + 1).value or "").strip() if author_col_idx is not None else "",
+            "title": str(ws_download.cell(row=row_num, column=title_col_idx + 1).value or "").strip() if title_col_idx is not None else "",
+            "timestamp": str(ws_download.cell(row=row_num, column=ts_col_idx + 1).value or "").strip() if ts_col_idx is not None else "",
+            "file_path": str(file_path),
+        }
+        pending_rows.append(metadata)
+
+    log(f"[SCREENING] Found {len(pending_rows)} downloaded file(s) not yet screened.")
+
+    if not pending_rows:
+        log("[SCREENING] No pending files to screen.")
+        wb.save(excel_path)
+        wb.close()
+        return {
+            "status": "success",
+            "message": "No pending files to screen.",
+            "screened_count": 0,
+        }
+
+    # Track the next empty row in screening sheet
+    next_screening_row = ws_screening.max_row + 1
+    if next_screening_row < 2:
+        next_screening_row = 2
+
+    # === PROCESS EACH PENDING FILE ===
+    screened_count = 0
+    error_count = 0
+    download_file_map = {}  # key: submission_no, value: resolved file path
+
+    for item in pending_rows:
+        row_num = item["download_row"]
+        sub_no = item["submission_no"]
+        file_path_str = item["file_path"]
+        file_path = Path(file_path_str)
+
+        # Resolve file path (handle older v5.x paths)
+        if not file_path.exists():
+            # Try to find by submission_no folder in OJS_DOWNLOADS_DIR
+            found = False
+            if OJS_DOWNLOADS_DIR.exists():
+                for sub_dir in sorted(OJS_DOWNLOADS_DIR.iterdir(), reverse=True):
+                    if sub_dir.is_dir() and sub_no in sub_dir.name:
+                        manuscripts = list(sub_dir.iterdir())
+                        if manuscripts:
+                            file_path = manuscripts[0]
+                            found = True
+                            break
+                if not found:
+                    # Search recursively by filename
+                    for sub_dir in OJS_DOWNLOADS_DIR.iterdir():
+                        if sub_dir.is_dir():
+                            for f in sub_dir.iterdir():
+                                if f.is_file() and f.suffix.lower() in (".docx", ".doc", ".pdf"):
+                                    # Check if this file matches (by submission_no)
+                                    if sub_no in f.parent.name or sub_no in f.stem:
+                                        file_path = f
+                                        found = True
+                                        break
+                        if found:
+                            break
+
+            if not found:
+                log(f"[SCREENING] {sub_no}: file not found: {file_path_str}")
+                # Write error to screening sheet
+                screening_row = next_screening_row
+                next_screening_row += 1
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=file_path_str)
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value="SCREENING ERROR")
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value=f"File not found: {file_path_str}")
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                error_count += 1
+                continue
+
+        download_file_map[sub_no] = file_path
+
+        # Determine PDF path
+        pdf_path = None
+        ext = file_path.suffix.lower()
+
+        if ext == ".pdf":
+            pdf_path = str(file_path)
+            log(f"[SCREENING] {sub_no}: source is PDF: {file_path.name}")
+        elif ext in (".docx", ".doc"):
+            log(f"[SCREENING] {sub_no}: converting DOCX to PDF...")
+            pdf_path = convert_docx_to_pdf(file_path, output_dir=convert_dir)
+            if pdf_path is None:
+                log(f"[SCREENING] {sub_no}: DOCX to PDF conversion failed.")
+                screening_row = next_screening_row
+                next_screening_row += 1
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=str(file_path))
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value="SCREENING ERROR")
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value="DOCX to PDF conversion failed.")
+                ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                error_count += 1
+                continue
+            log(f"[SCREENING] {sub_no}: converted to PDF: {Path(pdf_path).name}")
+        else:
+            log(f"[SCREENING] {sub_no}: unsupported file format: {ext}")
+            screening_row = next_screening_row
+            next_screening_row += 1
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=str(file_path))
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value="SCREENING ERROR")
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value=f"Unsupported file format: {ext}")
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            error_count += 1
+            continue
+
+        # Run screening
+        log(f"[SCREENING] {sub_no}: running template screening...")
+        try:
+            results = run_single_screening(pdf_path, rules, log_callback=log_callback)
+        except Exception as e:
+            log(f"[SCREENING] {sub_no}: screening error: {e}")
+            screening_row = next_screening_row
+            next_screening_row += 1
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=str(file_path))
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value="SCREENING ERROR")
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value=f"Screening engine error: {str(e)}")
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            error_count += 1
+            continue
+
+        if isinstance(results, dict) and "error" in results:
+            log(f"[SCREENING] {sub_no}: screening failed: {results['error']}")
+            screening_row = next_screening_row
+            next_screening_row += 1
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=str(file_path))
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value="SCREENING ERROR")
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value=results["error"])
+            ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            error_count += 1
+            continue
+
+        # Score results
+        final_score, struct_score, layout_score, fmt_score = score_results(results)
+
+        # Determine final status
+        critical_failed = [
+            r for r in results
+            if r.get("status") == "FAILED" and r.get("id") in [
+                "title", "abstract", "introduction", "methodology",
+                "results_discussion", "conclusion", "references",
+                "graphical_abstract"
+            ]
+        ]
+        has_critical_fail = len(critical_failed) > 0
+        ref_item = next((r for r in results if r.get("id") == "references"), None)
+        ref_failed = ref_item and ref_item.get("status") == "FAILED"
+        kw_item = next((r for r in results if r.get("id") == "keywords"), None)
+        kw_failed = kw_item and kw_item.get("status") == "FAILED"
+        ga_item = next((r for r in results if r.get("id") == "graphical_abstract"), None)
+        ga_failed = ga_item and ga_item.get("status") == "FAILED"
+
+        if final_score >= 80 and not has_critical_fail and not ref_failed and not kw_failed and not ga_failed:
+            final_status = "SCREENING PASS"
+        elif final_score >= 50 and not has_critical_fail:
+            final_status = "SCREENING WARNING"
+        else:
+            final_status = "SCREENING FAILED"
+
+        # Build notes
+        passed_items = [r["label"] for r in results if r.get("status") == "PASS"]
+        failed_items = [r["label"] for r in results if r.get("status") == "FAILED"]
+        warning_items = [r["label"] for r in results if r.get("status") == "WARNING"]
+        notes_parts = []
+        if passed_items:
+            notes_parts.append(f"Passed: {', '.join(passed_items[:5])}")
+        if warning_items:
+            notes_parts.append(f"Warnings: {', '.join(warning_items[:3])}")
+        if failed_items:
+            notes_parts.append(f"Failed: {', '.join(failed_items[:3])}")
+        notes = " | ".join(notes_parts)
+
+        # IMPORTANT: This is a PAPER EVALUATION RESULT, not an engine failure.
+        # The workflow completed successfully; the paper simply failed to meet template requirements.
+        log(f"[SCREENING] {sub_no}: {final_status} (Score: {final_score})")
+
+        # Write to screening sheet
+        screening_row = next_screening_row
+        next_screening_row += 1
+
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("timestamp", 1), value=item["timestamp"])
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("submission_no", 2), value=sub_no)
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("author_name", 3), value=item["author_name"])
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("title", 4), value=item["title"])
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("download_location", 5), value=str(file_path))
+        # Determine ACCEPT/REJECT decision
+        if final_status == "SCREENING PASS":
+            decision = "ACCEPT"
+        elif final_status in ("SCREENING WARNING", "SCREENING FAILED"):
+            decision = "REJECT"
+        else:
+            decision = "PENDING"
+
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_status", 6), value=final_status)
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_score", 7), value=final_score)
+        if scr_col_map.get("template_screening_decision"):
+            ws_screening.cell(row=screening_row, column=scr_col_map["template_screening_decision"], value=decision)
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_structure_status", 8), value="PASS" if struct_score >= 70 else "FAILED")
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_layout_status", 9), value="PASS" if layout_score >= 60 else "WARNING" if layout_score >= 40 else "FAILED")
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_formatting_status", 10), value="PASS" if fmt_score >= 60 else "WARNING" if fmt_score >= 40 else "FAILED")
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_notes", 12), value=notes)
+        ws_screening.cell(row=screening_row, column=scr_col_map.get("template_screening_date", 13), value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        if scr_col_map.get("template_pdf_path"):
+            ws_screening.cell(row=screening_row, column=scr_col_map["template_pdf_path"], value=pdf_path)
+
+        # Save screening report
+        timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+        report_filename = f"template_screening_{sub_no}_{timestamp_str}.json"
+        report_path = reports_dir / report_filename
+
+        report_data = {
+            "submission_no": sub_no,
+            "source_file": str(file_path),
+            "pdf_file": pdf_path,
+            "final_status": final_status,
+            "final_score": final_score,
+            "structure_score": struct_score,
+            "layout_score": layout_score,
+            "formatting_score": fmt_score,
+            "items": results,
+        }
+        with open(report_path, "w", encoding="utf-8") as f:
+            json.dump(report_data, f, indent=2, ensure_ascii=False)
+
+        log(f"[SCREENING] Report saved: {report_filename}")
+
+        # Generate combined PDF (screening report + original article in one file)
+        try:
+            pdf_report_path = generate_screening_pdf_report(
+                report_data,
+                item,
+                str(reports_dir),
+                log_callback=log_callback,
+            )
+            if pdf_report_path:
+                if scr_col_map.get("template_screening_report_pdf"):
+                    ws_screening.cell(row=screening_row, column=scr_col_map["template_screening_report_pdf"], value=pdf_report_path)
+                log(f"[SCREENING] Combined PDF report saved: {Path(pdf_report_path).name}")
+        except Exception as e:
+            log(f"[SCREENING] Combined PDF report generation skipped: {e}")
+
+        screened_count += 1
+
+    # Save Excel
+    wb.save(excel_path)
+    wb.close()
+
+    log(f"[SCREENING] Excel updated (screening sheet).")
+    log(f"[SCREENING] Screened: {screened_count}, Errors: {error_count}.")
+    log("[SCREENING] Done.")
+
+    return {
+        "status": "success",
+        "message": f"Template screening completed. Screened: {screened_count}, Errors: {error_count}.",
+        "screened_count": screened_count,
+        "error_count": error_count,
+    }

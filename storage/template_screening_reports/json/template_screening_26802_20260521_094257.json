@@ -1,0 +1,781 @@
+{
+  "submission_no": "26802",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.5.1/storage/ojs-downloads/26802/1. JT Template Latest.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/1. JT Template Latest.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 81,
+  "structure_score": 60,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.114,
+        "y_min": 0.1645,
+        "x_max": 0.6006,
+        "y_max": 0.187
+      },
+      "evidence_text": "Matched heading: \"EXPERIMENTAL INVESTIGATION AND\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "EXPERIMENTAL INVESTIGATION AND",
+          "score": 1.0
+        },
+        {
+          "text": "TAGUCHI-BASED OPTIMIZATION OF",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows a full title section with all expected elements; DOC snippet is missing the title section entirely despite containing other manuscript metadata.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract the title, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a full title section with all expected elements; DOC snippet is missing the title section entirely despite containing other manuscript metadata."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.114,
+        "y_min": 0.1645,
+        "x_max": 0.6006,
+        "y_max": 0.187
+      },
+      "evidence_text": "Matched heading: \"EXPERIMENTAL INVESTIGATION AND\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.55,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "EXPERIMENTAL INVESTIGATION AND",
+          "score": 0.55
+        },
+        {
+          "text": "TAGUCHI-BASED OPTIMIZATION OF",
+          "score": 0.55
+        },
+        {
+          "text": "CHATTER CHARACTERISTICS AND",
+          "score": 0.55
+        },
+        {
+          "text": "MATERIAL REMOVAL RATE IN THIN-",
+          "score": 0.55
+        },
+        {
+          "text": "WALLED MILLING USING TIME–",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.75,
+      "ai_evidence": "PDF snippet shows authors names and affiliations clearly; DOC snippet does not contain authors information, likely due to extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear authors section with names and affiliations, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows authors names and affiliations clearly; DOC snippet does not contain authors information, likely due to extraction failure."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.6658,
+        "y_min": 0.289,
+        "x_max": 0.9108,
+        "y_max": 0.3045
+      },
+      "evidence_text": "Matched heading: \"dslengare.auto@gcoeara.ac.in\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.45,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "dslengare.auto@gcoeara.ac.in",
+          "score": 0.45
+        },
+        {
+          "text": "CHATTER CHARACTERISTICS AND",
+          "score": 0.3
+        },
+        {
+          "text": "MATERIAL REMOVAL RATE IN THIN-",
+          "score": 0.3
+        },
+        {
+          "text": "WALLED MILLING USING TIME–",
+          "score": 0.3
+        },
+        {
+          "text": "FREQUENCY ANALYSIS",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.75,
+      "ai_evidence": "PDF snippet includes author names and affiliations (Amrutvahini College of Engineering, Sangamner, Maharashtra, India). DOC snippet does not contain this information, only showing article metadata and",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction detected the affiliations section with author names and institutional details, while the DOC extraction failed to locate it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet includes author names and affiliations (Amrutvahini College of Engineering, Sangamner, Maharashtra, India). DOC snippet does not contain this information, only showing article metadata and partial text."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "dslengare.auto@gcoeara.ac.in\n=r\nGraphical abstract Abstract High strength aluminium alloys are used in thin-walled applications in the aerospace,  automotive  and  lightweight  structure  manufacturing  industries  because  of  their  important strength to weight ratio. Lower structural rigidity of thin wall part produces  chatter  vibration  during  thin  wall  milling,  which  leads  to  poor  surface  integrity,  dimensional  error,  and  endangering  milling  process.  Proposed  research  aims  to  perform an experimental analysis and understand the chatter nature and material  removal characteristics in thin-walled milling of AA7075-T6 aluminium alloy based on  Taguchi L27 orthogonal array design. Material removal rate (MRR), kurtosis index and  chatter frequency were tested with spindle speed, feed rate and radial depth of cut on  the systematic effects and were analysed from time domain and frequency domain.  Vibration signals obtained in manufacturing operations were processed to grasp the  value of kurtosis as an indicator of higher order of statistical chatter, and the chatter  frequency response was processed to find the dynamic instability trend with different  machini",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1605,
+        "y_min": 0.4997,
+        "x_max": 0.9145,
+        "y_max": 0.8406
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract High strength aluminium alloys are used in thin-walled applications in the aerospace,  automotive  and  lightweight  structure  manufacturing  industries  because  of  their  important strength to weight ratio. Lower structural rigidity of thin wall part produces  chatter  vibration  during  thin  wall  milling,  which  leads  to  poor  surface  integrity,  dimensional  error,  and  endangering  milling  process.  Proposed  research  aims  to  perform an experimental analysis and understand the chatter nature and material  removal characteristics in thin-walled milling of AA7075-T6 aluminium alloy based on  Taguchi L27 orthogonal array design. Material removal rate (MRR), kurtosis index and  chatter frequency were tested with spindle speed, feed rate and radial depth of cut on  the systematic effects and were analysed from time domain and frequency domain.  Vibration signals obtained in manufacturing operations were processed to grasp the  value of kurtosis as an indicator of higher order of statistical chatter, and the chatter  frequency response was processed to find the dynamic instability trend with different  machining conditions. Optimization of MRR subject to machi",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nEXPERIMENTAL INVESTIGATION AND\nTAGUCHI-BASED OPTIMIZATION OF\nCHATTER CHARACTERISTICS AND\nMATERIAL REMOVAL RATE IN THIN-\nWALLED MILLING USING TIME–\nFREQUENCY ANALYSIS\nDheeraj Shahaji Lengarea*, Dr. Dilip Pangavhaneb,\naAmrutvahini  College  of  Engineering,  Sangamner,  Ahilyanagar,  Maharashtra, India bAmrutvahini  College  of  Engineering,  Sangamner,  Ahilyanagar,  Maharashtra, India\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\ndslengare.auto@gcoeara.ac.in\n=r\nGraphical abstract Abstract High strength aluminium alloys are used in thin-walled applications in the aerospace,  automotive  and  lightweight  structure  manufacturing  industries  because  of  their  important strength to weigh",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.1605,
+        "y_min": 0.4997,
+        "x_max": 0.9145,
+        "y_max": 0.8406
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Thin-walled milling, Al7075-T6, Chatter vibration, Kurtosis index, Taguchi  optimization, Material removal rate (MRR). © 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION One of the  most  widely  used high-strength  alloys in\naerospace, automotive, and defence industries due to its  high-strength-to-weight  ratio, good  fatigue  behaviour  and\n78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"Jurnal Teknologi\nFull Paper\nEXPERIMENTAL INVESTIGATION AND\nTAGUCHI-BASED OPTIMIZATION OF\nCHATTER CHARACTERISTICS AND\nMATERIAL REMOVAL RATE IN THIN-\nWALLED MILLING USING TIME–\nFREQUENCY ANALYSIS\nDheera\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nEXPERIMENTAL INVESTIGATION AND\nTAGUCHI-BASED OPTIMIZATION OF\nCHATTER CHARACTERISTICS AND\nMATERIAL REMOVAL RATE IN THIN-\nWALLED MILLING USING TIME–\nFREQUENCY ANALYSIS\nDheeraj Shahaji Lengarea*, Dr. Dilip Pangavhaneb,\naAmrutvahini  College  of  Engineering,  Sangamner,  Ahilyanagar,  Maharashtra, India bAmrutvahini  College  of  Engineering,  Sangamner,  Ahilyanagar,  Maharashtra, India\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\ndslengare.auto@gcoeara.ac.in\n=r\nGraphical abstract Abstract High strength aluminium alloys are used in thin-walled applications in the aerospace,  automotive  and  lightweight  structure  manufacturing  industries  because  of  their  important strength to weigh",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.7,
+      "ai_evidence": "PDF snippet includes a clear abstract text related to the manuscript topic, whereas DOC snippet does not contain any abstract content, only metadata and partial English abstract text.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction shows a partial abstract section in Malay language context, while the DOC extraction completely misses the Abstrak section, likely due to extraction failure.",
+      "ai_evidence_summary": "PDF snippet includes a clear abstract text related to the manuscript topic, whereas DOC snippet does not contain any abstract content, only metadata and partial English abstract text."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet shows metadata and abstract without Kata Kunci; PDF snippet similarly lacks any Kata Kunci section. Both are consistent in absence.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC snippet shows metadata and abstract without Kata Kunci; PDF snippet similarly lacks any Kata Kunci section. Both are consistent in absence."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a detailed Introduction about aluminium alloy AA7075-T6 and its relevance, indicating the presence of the Introduction section. PDF snippet lacks this content, showing only title,",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a strong, coherent Introduction snippet describing the research problem, context, and objectives, while PDF detector failed to find the component likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides a detailed Introduction about aluminium alloy AA7075-T6 and its relevance, indicating the presence of the Introduction section. PDF snippet lacks this content, showing only title, authors, and partial abstract, indicating a probable extraction failure."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1361,
+        "x_max": 0.3767,
+        "y_max": 0.1714
+      },
+      "evidence_text": "Matched heading: \"2.0 MATERIALS AND METHODS\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "2.0 MATERIALS AND METHODS",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "2.1 Material and Tool Specifications\nThe  experimental  research  studies  were  conducted\nusing AA7075-T6 aluminium alloy thin plates. Workpieces  were made up of aluminium sheets of 40 x 80 x 3 mm  thickness, in a cantilever-like configuration used to machine  the  thin-wall.  Chemical  composition  of  the  material  was  determined with the help of spectrometric analysis, which  confirmed  that  the  major  alloying  elements  include  Zn  (~5.58%), Mg (~2.53%), Cu (~1.68%), and Cr (~0.22%),  which  provide  the  necessary  mechanical  strength  and  machining  characteristics.  The  milling  experiments  were  performed on a Vertical Machining Center (AMS MCV 300)  with  a  high-precision  spindle  and  guideways  with  linear  motion allowing the stable machining conditions and the  accurate vibration analysis.\nTable 1. Machine, Tool, and Material Specifications\nWorkpiece Material AA7075-T6",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "6",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.519,
+        "y_min": 0.0687,
+        "x_max": 0.7791,
+        "y_max": 0.0842
+      },
+      "evidence_text": "Matched heading: \"3. RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3. RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "3.1 Morphology and Elemental Analysis Before\nMachining",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "PASS",
+      "page": "14",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2008,
+        "x_max": 0.2073,
+        "y_max": 0.2163
+      },
+      "evidence_text": "Matched heading: \"7. Conclusions\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "7. Conclusions",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The present study covers the experimental investigation of  the chatter characteristics and material removal behaviour  in  thin-walled  milling  of  aluminium  alloy  AA7075  using  Taguchi orthogonal array L27 design. Time- and frequency- domain vibration characterization was used to investigate  material removal rate (MRR), the kurtosis index and chatter  frequency for different spindle speeds, feed rates and radial  depth of cut. Based on the Taguchi optimization results,  analysis of the S/N ratio and ANOVA results, this showed  that the radial depth of cut is the most influence parameter  on  MRR  followed  by  feed  rate  and  spindle  speed  parameter.  The  optimum  machining  parameters  for  the  maximum  MRR  were  determined  at  1500  rpm,  1.5  mm  radial  depth  of  cut  and  150  mm/min  feed  rate  and  regression coefficient was found to be very close to the  experimental responses showing good agreement between  the  predicted  and  experimental  responses  whereas  the  confirmation  experiment  showed  that  there  is  very  little  prediction  error  made  with  the  optimization  model  so  developed making it adequate and reliable.  Since  the  cutting  co",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Acknowledgement not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "14",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.7555,
+        "x_max": 0.4855,
+        "y_max": 0.7842
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "1. Denkena, B., Bergmann, B., & Grove, T. (2020).\nInfluence of cutting parameters on the surface integrity in  milling  of  aluminum  alloy  AA7075.  CIRP  Journal  of  Manufacturing  Science  and  Technology,  31,  1–10.  https://doi.org/10.3390/ma11091751. 2. Teti, R. & Jemielniak, Krzysztof & O’Donnell, G.E.\n&  Dornfeld,  David.  (2010).  Advanced  monitoring  of  machining  operations.  CIRP  Annals  -  Manufacturing  Technology. 59. 717-739. 10.1016/j.cirp.2010.05.010.  3. Natarajan, E., Ramasamy, M., Anbuchezhiyan, G.,\nSekar,  S.  M.,  &  Vignesh,  M.  (2025).  Enriching  grain  refinement  on  improving  mechanical  and  corrosion\nproperties of graphene reinforced magnesium composites.  Results   in   Materials,   26,   100689.\nhttps://doi.org/10.1016/j.rinma.2025.100689. 4. Antony Jose, S., Tonner, A., Feliciano, M., Roy, T.,\nShackleford,  A.,  &  Menezes,  P.  L.  (2025).  Smart  Manufacturing for High-Performance Materials: Advances,  Challenges, and Future Directions. Materials, 18(10), 2255.  https://doi.org/10.3390/ma18102255. 5. Navarro-Devia, John & Chen, Yun & Dao, Dzung\nViet & Li, Huaizhong. (2023). Chatter detection in milling  processes—a review on signal proce",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

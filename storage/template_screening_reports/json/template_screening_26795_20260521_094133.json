@@ -1,0 +1,774 @@
+{
+  "submission_no": "26795",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.42/storage/ojs-downloads/26795/A COMPARATIVE ANALYSIS OF STEP FUNCTION AND SUPPORT VECTOR REGRESSION-X (SVRX) INTERVENTIONS IN FORECASTING THE STOCK PRICE OF PT VALE INDONESIA TBK.docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/A COMPARATIVE ANALYSIS OF STEP FUNCTION AND SUPPORT VECTOR REGRESSION-X (SVRX) INTERVENTIONS IN FORECASTING THE STOCK PRICE OF PT VALE INDONESIA TBK.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 76,
+  "structure_score": 47,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.6209,
+        "y_max": 0.2727
+      },
+      "evidence_text": "Matched heading: \"A COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN F\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "A COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN F",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows a full title section with title, authors, affiliations, and article history. DOC snippet lacks the title section but contains related metadata, indicating the title is present in the",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract the title section, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a full title section with title, authors, affiliations, and article history. DOC snippet lacks the title section but contains related metadata, indicating the title is present in the manuscript but was not extracted in DOC."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.797,
+        "y_min": 0.1859,
+        "x_max": 0.9005,
+        "y_max": 0.2
+      },
+      "evidence_text": "Matched heading: \"X Month 202Y\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.55,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "*Corresponding author",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.75,
+      "ai_evidence": "PDF snippet clearly shows the authors section with three authors and affiliation details. DOC snippet lacks this section entirely, suggesting extraction failure in DOC source.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear authors section with names and affiliations, while the DOC detector failed to extract this component, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet clearly shows the authors section with three authors and affiliation details. DOC snippet lacks this section entirely, suggesting extraction failure in DOC source."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.323,
+        "x_max": 0.6329,
+        "y_max": 0.3704
+      },
+      "evidence_text": "Matched heading: \"Department of Mathematics, Airlangga University, Jl. Soekarno,  Mulyorejo,  Mulyorejo  District,  Su\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Department of Mathematics, Airlangga University, Jl. Soekarno,  Mulyorejo,  Mulyorejo  District,  Su",
+          "score": 0.8
+        },
+        {
+          "text": "Elly Pusporani*, Salman Syaugi Sungkar, Farhan Aldan Khairian",
+          "score": 0.5
+        },
+        {
+          "text": "elly.pusporani@fst.unair.ac.id",
+          "score": 0.45
+        },
+        {
+          "text": "A COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN F",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet shows author names followed by affiliation details including location 'Java, 60115, Indonesia'. DOC snippet includes author names but no clear affiliation details, only partial location in",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear affiliations section with location details, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows author names followed by affiliation details including location 'Java, 60115, Indonesia'. DOC snippet includes author names but no clear affiliation details, only partial location info without structure."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7212,
+        "y_min": 0.2745,
+        "x_max": 0.902,
+        "y_max": 0.29
+      },
+      "evidence_text": "Matched heading: \"*, Salman Syaugi Sungkar, Farhan Aldan Khairian\nDepartment of Mathematics, Airlangga University, Jl.\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "elly.pusporani@fst.unair.ac.id",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.169,
+        "y_min": 0.3844,
+        "x_max": 0.4681,
+        "y_max": 0.3999
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nThis study analyzes the forecasting of PT Vale Indonesia Tbk (INCO) stock prices,  which are influenced by global nickel price dynamics and Indonesia’s nickel export  ban policy, which triggers structural changes in the time series data. The main issue  lies in the limitations of linear models such as ARIMA in capturing the nonlinearity and  heteroscedasticity commonly found in stock market  data. Therefore,  this study  compares the performance of the ARIMA model with step function intervention and  Support Vector Regression with an intervention dummy variable (SVRX) within an  out-of-sample evaluation framework using MAE, RMSE, and MAPE metrics. The  results show that the ARIMA intervention model (0,2,1) with r=2 yields a MAPE of  22.2% (low accuracy), while the SVRX model with a sigmoid kernel achieves an  RMSE of 271.494 and a MAPE of 3.327% (highly accurate), indicating an accuracy  improvement of over 80% compared to the ARIMA model. These findings suggest  that SVRX is more effective at capturing nonlinear patterns and shifts in patterns  caused by policy interventions. Therefore, a Support Vector Regression-based model  incorporating interventions is recommended f",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nA COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN FORECASTING THE STOCK PRICE OF  PT VALE INDONESIA TBK\nElly Pusporani*, Salman Syaugi Sungkar, Farhan Aldan Khairian\nDepartment of Mathematics, Airlangga University, Jl. Soekarno,  Mulyorejo,  Mulyorejo  District,  Surabaya,  East  Java,  60115,  Indonesia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nelly.pusporani@fst.unair.ac.id\nGraphical abstract Abstract\nThis study analyzes the forecasting of PT Vale Indonesia Tbk (INCO) stock prices,  which are influenced by global nickel price dynamics and Indonesia’s nickel export  ban ",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4151,
+        "y_min": 0.6289,
+        "x_max": 0.9056,
+        "y_max": 0.6518
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ":  Time Series Forecasting; ARIMA Intervention Model; Support Vector  Regression-X (SVRX); INCO; Nickle Stocks\n© 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION\nNickel (Ni) was designated a critical metal in 2022 due to its  widespread use in the metals industry, particularly in clean  energy technologies that play a vital role in climate change\nmitigation efforts  [1]. The demand for nickel in  battery  precursors is projected to increase significantly, from 7% of  the total market in 2021 to 41% by 2040  [2]. This indicates  that  nickel  plays  a  strategic  role  in  the  global  energy  transition and faces long-term rising demand.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nA COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN FORECAST\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nA COMPARATIVE ANALYSIS OF STEP  FUNCTION AND SUPPORT VECTOR  REGRESSION-X (SVRX) INTERVENTIONS  IN FORECASTING THE STOCK PRICE OF  PT VALE INDONESIA TBK\nElly Pusporani*, Salman Syaugi Sungkar, Farhan Aldan Khairian\nDepartment of Mathematics, Airlangga University, Jl. Soekarno,  Mulyorejo,  Mulyorejo  District,  Surabaya,  East  Java,  60115,  Indonesia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nelly.pusporani@fst.unair.ac.id\nGraphical abstract Abstract\nThis study analyzes the forecasting of PT Vale Indonesia Tbk (INCO) stock prices,  which are influenced by global nickel price dynamics and Indonesia’s nickel export  ban ",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.7,
+      "ai_evidence": "PDF snippet shows a clear abstract section with relevant content. DOC snippet does not contain the abstract, only metadata and partial text, indicating extraction failure in DOC.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction detected the abstract section, while the DOC extraction failed to find it, likely due to extraction issues with the DOC source.",
+      "ai_evidence_summary": "PDF snippet shows a clear abstract section with relevant content. DOC snippet does not contain the abstract, only metadata and partial text, indicating extraction failure in DOC."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC and PDF snippets contain title, author, affiliation, article history, and abstract information but no keywords or Kata Kunci section.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC and PDF snippets contain title, author, affiliation, article history, and abstract information but no keywords or Kata Kunci section."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides detailed Introduction content about nickel's importance and market context. PDF snippet contains only metadata and abstract-related text without Introduction content.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a strong, coherent Introduction section snippet, while PDF detector did not find the component, likely due to extraction or layout issues in the PDF source.",
+      "ai_evidence_summary": "DOC snippet provides detailed Introduction content about nickel's importance and market context. PDF snippet contains only metadata and abstract-related text without Introduction content."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet includes detailed description of data and ARIMA intervention model used in the study. PDF snippet only shows title, authors, affiliations, and abstract without Methodology content.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a detailed Methodology section snippet describing data sources, modeling approach, and intervention modeling, while PDF detector failed to extract any Methodology content, likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet includes detailed description of data and ARIMA intervention model used in the study. PDF snippet only shows title, authors, affiliations, and abstract without Methodology content."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "5",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.4704,
+        "x_max": 0.8084,
+        "y_max": 0.4859
+      },
+      "evidence_text": "Matched heading: \"3.0  RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0  RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "3.1  Data Description\nThis  dataset  consists  of  163  daily closing  price  observations for PT Vale Indonesia Tbk (INCO) on the  Indonesia  Stock  Exchange,  expressed  in  Indonesian  Rupiah (IDR). This complete dataset spans two structurally  distinct price periods, separated by the implementation of a  nickel  ore  export  ban  in  Indonesia.  Table  3  presents  descriptive statistics for the complete data set, the two sub- periods defined by this intervention, and the training and  testing partitions used in the model evaluation. The data is  divided into two sections: 143 training data points and 20  testing data points.\nTable 3. Descriptive statistics of INCO daily closing prices across evaluation periods.\nStatistic Full Series Pre-Intervention Post-Intervention Training Set Testing Set\nN 163 121 42 142 20\nMinimum (IDR) 3,31 3,31 4,11 3,31 5,925\nMaximum (IDR) 7,35 4,75 7,35 6,825 7,35\nMean (IDR) 4,557 3,978 6,223 4,488 6,664\nMedian (IDR) 3,96 3,92 6,4 3,92 6,725\nStd. Dev. (IDR) 1,068 308 644 1,004 371",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0  CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0  CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a comprehensive Conclusion discussing ARIMA and SVRX model comparisons, diagnostic tests, and forecasting accuracy. PDF snippet only includes front matter and abstract-related con",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a detailed and coherent Conclusion section with specific model comparisons and results, while the PDF detector did not find any Conclusion section, likely due to extraction or layout issues in the PDF.",
+      "ai_evidence_summary": "DOC snippet provides a comprehensive Conclusion discussing ARIMA and SVRX model comparisons, diagnostic tests, and forecasting accuracy. PDF snippet only includes front matter and abstract-related content without Conclusion."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "12",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.2011,
+        "y_min": 0.7636,
+        "x_max": 0.3597,
+        "y_max": 0.7791
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The  authors  thank  the  Department  of  Mathematics  at  Universitas Airlangga for providing the academic support  and research facilities required to complete this study.  Investing.com granted access to the historical stock price  data for PT Vale Indonesia Tbk (INCO).",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "12",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.871,
+        "x_max": 0.1864,
+        "y_max": 0.8865
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] P. Dilshara et al., “The role of nickel (Ni) as a critical  metal  in  clean  energy  transition:  applications,\nglobal  distribution  and  occurrences,  production- demand and phytomining,” J. Asian Earth Sci., vol.  259,  no.  February  2023,  2024,  doi:  10.1016/j.jseaes.2023.105912.\n[2] A. Mitchell, “Nickel and copper: building blocks for  a   greener   future,”\nHttps://Www.Woodmac.Com/News/Opinion/Nickel -and-Copper-Building-Blocks-for-a-Greener- Future/,   2022,   [Online].   Available:\nhttps://www.woodmac.com/news/opinion/nickel- and-copper-building-blocks-for-a-greener-future/\n[3] A.  Agus,  “Pemilik  cadangan  nikel  dan  bauksit  terbesar di dunia, ini yang dilakukan Indonesia.  Kementerian  Energi  dan  Sumber  Daya  Mineral  Republik  Indonesia.,”  KEMENTERIAN  ENERGI  DAN  SUMBER  DAYA  MINERAL.  [Online].  Available:   https://www.esdm.go.id/id/media-\ncenter/arsip-berita/pemilik-cadangan-nikel-dan- bauksit-terbesar-di-dunia-ini-yang-dilakukan- indonesia\n[4] K. Sihotang and G. Ishak, “Pengaruh Harga Nikel,  PDB, Inflasi, Kurs, FDI terhadap Harga Saham  Perusahaan  Tambang  Nikel,”  COSTINGJournal  Econ. Bus. Account., vol. Volume 7 n, 2024.\n[5] R.  Biantoro,  “ST",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

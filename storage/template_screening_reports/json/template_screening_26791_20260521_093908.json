@@ -1,0 +1,760 @@
+{
+  "submission_no": "26791",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.1/storage/ojs-downloads/26791/PAPAR FINAL.docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/PAPAR FINAL.pdf",
+  "final_status": "REJECT",
+  "final_score": 73,
+  "structure_score": 40,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.63,
+        "y_max": 0.1724
+      },
+      "evidence_text": "Matched heading: \"DESULFURIZATION   OF   HEAVY   NAPHTHA   WITH\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "DESULFURIZATION   OF   HEAVY   NAPHTHA   WITH",
+          "score": 0.85
+        },
+        {
+          "text": "SYNTHESIZED ACTIVE CARBON (PDAC) AND IMPREGNATED  (CU₂CL): OPTIMIZATION, KINETIC, AND ISOTHERM STUDI",
+          "score": 0.85
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet shows a complete and formatted title section with all expected elements. DOC snippet does not contain the title section, only partial metadata and abstract start, indicating extraction fai",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with author names and affiliations, while the DOC detector failed to extract the title section, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a complete and formatted title section with all expected elements. DOC snippet does not contain the title section, only partial metadata and abstract start, indicating extraction failure in DOC."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.63,
+        "y_max": 0.1724
+      },
+      "evidence_text": "Matched heading: \"DESULFURIZATION   OF   HEAVY   NAPHTHA   WITH\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.55,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "DESULFURIZATION   OF   HEAVY   NAPHTHA   WITH",
+          "score": 0.55
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.75,
+      "ai_evidence": "PDF snippet shows authors section with names (Fatima K.Hamza, Abbas K.Mohammad), affiliations (College of Engineering, Department of Chemistry, University of Al-Qadisiyah), and corresponding author de",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The DOC extraction failed to locate the authors section despite the PDF extraction showing a clear authors section with names, affiliations, and corresponding author details.",
+      "ai_evidence_summary": "PDF snippet shows authors section with names (Fatima K.Hamza, Abbas K.Mohammad), affiliations (College of Engineering, Department of Chemistry, University of Al-Qadisiyah), and corresponding author details. DOC snippet does not contain this information, only partial metadata and article history."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1728,
+        "x_max": 0.63,
+        "y_max": 0.2848
+      },
+      "evidence_text": "Matched heading: \"SYNTHESIZED ACTIVE CARBON (PDAC) AND IMPREGNATED  (CU₂CL): OPTIMIZATION, KINETIC, AND ISOTHERM STUDI\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "SYNTHESIZED ACTIVE CARBON (PDAC) AND IMPREGNATED  (CU₂CL): OPTIMIZATION, KINETIC, AND ISOTHERM STUDI",
+          "score": 0.7
+        },
+        {
+          "text": "fatima.kadum.humza@qu.edu.iq",
+          "score": 0.45
+        },
+        {
+          "text": "Co-author: abbas.shuaab@qu.edu.iq",
+          "score": 0.45
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet includes author names, locations, and institutional affiliations (College of Engineering, Department of Chemistry, University of Al-Qadisiyah, Al-Diwaniyah, Iraq). DOC snippet shows author",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF snippet clearly contains a detailed affiliations section including institution and department information, while the DOC snippet lacks this section entirely, indicating a failure in DOC extraction.",
+      "ai_evidence_summary": "PDF snippet includes author names, locations, and institutional affiliations (College of Engineering, Department of Chemistry, University of Al-Qadisiyah, Al-Diwaniyah, Iraq). DOC snippet shows author names and locations but no institutional affiliation, indicating missing data in DOC extraction."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7212,
+        "y_min": 0.2745,
+        "x_max": 0.902,
+        "y_max": 0.29
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        },
+        {
+          "text": "corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "fatima.kadum.humza@qu.edu.iq\nCo-author: abbas.shuaab@qu.edu.iq",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1905,
+        "y_min": 0.3563,
+        "x_max": 0.376,
+        "y_max": 0.376
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "0 0.5 1 1.5 2 2.5 3 3.5\n0\n0.05\n0.1\n0.15\n0.2\n0.25 Pseudo-Second order model\n20 Time\nt/qt\n300 350 400 450 500 550 600\n15 16 17 18 19 20 Langmuir isotherm H3PO4\n20\nCe\nce/qe",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": {
+        "x_min": 0.4859,
+        "y_min": 0.3562,
+        "x_max": 0.5588,
+        "y_max": 0.3718
+      },
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "0 0.5 1 1.5 2 2.5 3 3.5\n0\n0.05\n0.1\n0.15\n0.2\n0.25 Pseudo-Second order model\n20 Time\nt/qt\n300 350 400 450 500 550 600\n15 16 17 18 19 20 Langmuir isotherm H3PO4\n20\nCe\nce/qe",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4859,
+        "y_min": 0.3838,
+        "x_max": 0.9058,
+        "y_max": 0.5935
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Heavy naphtha; Adsorptive desulfurization; PDAC; Response  Surface Methodology; Kinetics; Isotherm models.\n© 202@ Penerbit UTM Press. All rights reserved",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nDESULFURIZATION   OF   HEAVY   NAPHTHA   WITH\nSYNTHESIZED ACTIVE CARBON (PDAC) AND IMPREGNATED  (CU₂CL): OP\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nDESULFURIZATION   OF   HEAVY   NAPHTHA   WITH\nSYNTHESIZED ACTIVE CARBON (PDAC) AND IMPREGNATED  (CU₂CL): OPTIMIZATION, KINETIC, AND ISOTHERM STUDIES Fatima K.Hamza, Abbas K.Mohammad Fatima K.Hamza, Al-Diwaniyah, Iraq Abbas K.Mohammad, Al-Diwaniyah, Iraq College of Engineering, Department of Chemistry, University of Al- Qadisiyah, Al-Diwaniyah, Iraq\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nfatima.kadum.humza@qu.edu.iq\nCo-author: abbas.shuaab@qu.edu.iq\nPlease provide an official organisation\nemail of the corresponding author\nGraphical abstract\n0 0.5 1 1.5 2 2.5 3 3.5\n0\n0.05\n0.1\n0.15\n0.2\n0.25 Pseudo-Second order model\n20 ",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.7,
+      "ai_evidence": "DOC extraction did not find the abstract section, showing only metadata and partial title information. PDF extraction found partial abstract content and related metadata, supporting the presence of th",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction shows presence of the abstract section, while the DOC extraction failed to capture it, likely due to extraction issues.",
+      "ai_evidence_summary": "DOC extraction did not find the abstract section, showing only metadata and partial title information. PDF extraction found partial abstract content and related metadata, supporting the presence of the Abstrak section."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet contains title, authors, affiliations, article history, and abstract start but no keywords. PDF snippet similarly contains title, authors, affiliations, article history, and graphical abst",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section and no semantic or structural evidence suggests its presence.",
+      "ai_evidence_summary": "DOC snippet contains title, authors, affiliations, article history, and abstract start but no keywords. PDF snippet similarly contains title, authors, affiliations, article history, and graphical abstract data but no keywords or Kata Kunci section."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a detailed Introduction about sulfur compounds in petroleum fractions, environmental impact, and desulfurization methods. PDF snippet lacks any Introduction content, showing only ",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a strong, coherent Introduction section snippet, while PDF detector failed to find any Introduction content likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides a detailed Introduction about sulfur compounds in petroleum fractions, environmental impact, and desulfurization methods. PDF snippet lacks any Introduction content, showing only article metadata and graphical abstract."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "PASS",
+      "page": "2",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.1591,
+        "y_min": 0.8968,
+        "x_max": 0.3698,
+        "y_max": 0.9095
+      },
+      "evidence_text": "Matched heading: \"Materials and Methods\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "4.1 Materials and Methods",
+          "score": 0.5
+        },
+        {
+          "text": "methodology",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The date pits used in this research were sourced from\nthe date palm (Phoenix dactylifera L. cv. Zahidi) located on\nlocal  farms  in  Diwaniyah,  Iraq.  The  samples  were  thoroughly  washed  with  distilled  water  to  remove  any  remaining  impurities,  then  sun-dried  for  three  days,  followed by oven-baking at 110°C for three hours. The dried  material was then ground and sieved to obtain particles  ranging in size from 150 to 300 micrometers.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Results_Discussion not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet includes title, authors, affiliations, article history, and partial abstract only; PDF snippet includes similar metadata and partial graphical abstract or figure data but no Results and Di",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Results and Discussion section; no conflicting evidence present.",
+      "ai_evidence_summary": "DOC snippet includes title, authors, affiliations, article history, and partial abstract only; PDF snippet includes similar metadata and partial graphical abstract or figure data but no Results and Discussion text."
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Conclusion not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet contains title, authors, affiliations, and abstract start but no conclusion. PDF snippet contains title, authors, affiliations, article history, and partial graphical abstract or figure da",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Conclusion section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC snippet contains title, authors, affiliations, and abstract start but no conclusion. PDF snippet contains title, authors, affiliations, article history, and partial graphical abstract or figure data but no conclusion."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Acknowledgement not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "References not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

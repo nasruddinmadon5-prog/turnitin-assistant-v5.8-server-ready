@@ -1,0 +1,783 @@
+{
+  "submission_no": "26807",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.6.1/storage/ojs-downloads/26807/JT_CONVEYOR.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/JT_CONVEYOR.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 78,
+  "structure_score": 53,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.6476,
+        "y_max": 0.2261
+      },
+      "evidence_text": "Matched heading: \"SMART CONVEYOR BELT MONITORING: AN IOT- BASED APPROACH FOR ANOMALY DETECTION  AND PREDICTIVE ANALYTI\" | Detection method: score_ranking",
+      "notes": "Title detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "SMART CONVEYOR BELT MONITORING: AN IOT- BASED APPROACH FOR ANOMALY DETECTION  AND PREDICTIVE ANALYTI",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.25,
+        "x_max": 0.6454,
+        "y_max": 0.2975
+      },
+      "evidence_text": "Matched heading: \"P.V.S Anusha  a, K. Saujanya  b*, G. Ashok  c, P. Pavani Lakshmi  a,  Yaddanapudi Venkata Bhaskara L\" | Detection method: score_ranking",
+      "notes": "Authors detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "P.V.S Anusha  a, K. Saujanya  b*, G. Ashok  c, P. Pavani Lakshmi  a,  Yaddanapudi Venkata Bhaskara L",
+          "score": 0.7
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.3139,
+        "x_max": 0.6453,
+        "y_max": 0.3614
+      },
+      "evidence_text": "Matched heading: \"a Raghu  Engineering  College,  Visakhapatnam,  Andhra  Pradesh,  INIDA. b  Vignan’s  Institute  of \" | Detection method: score_ranking",
+      "notes": "Affiliations detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.75,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "a Raghu  Engineering  College,  Visakhapatnam,  Andhra  Pradesh,  INIDA. b  Vignan’s  Institute  of ",
+          "score": 0.75
+        },
+        {
+          "text": "P.V.S Anusha  a, K. Saujanya  b*, G. Ashok  c, P. Pavani Lakshmi  a,  Yaddanapudi Venkata Bhaskara L",
+          "score": 0.5
+        },
+        {
+          "text": "saujanya@vignaniit.edu.in",
+          "score": 0.45
+        },
+        {
+          "text": "SMART CONVEYOR BELT MONITORING: AN IOT- BASED APPROACH FOR ANOMALY DETECTION  AND PREDICTIVE ANALYTI",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        },
+        {
+          "text": "corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "saujanya@vignaniit.edu.in",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1627,
+        "y_min": 0.5031,
+        "x_max": 0.3203,
+        "y_max": 0.5187
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        },
+        {
+          "text": "graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "a.   Graphical   Abstract   is   a",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.7225,
+        "x_max": 0.3981,
+        "y_max": 0.7366
+      },
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "a.   Graphical   Abstract   is   a",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4111,
+        "y_min": 0.5308,
+        "x_max": 0.9145,
+        "y_max": 0.8324
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": IoT, Conveyor Belt, Vibration sensing, Azure IoT Hub.\n78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"Jurnal Teknologi\nFull Paper\nSMART CONVEYOR BELT MONITORING: AN IOT- BASED APPROACH FOR ANOMALY DETECTION  AND PREDICTIVE ANALYTICS\nP.V.S Anusha  a, K. Saujanya  b*, G. Ashok  c, P. Pavani Lakshmi  a, \" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nSMART CONVEYOR BELT MONITORING: AN IOT- BASED APPROACH FOR ANOMALY DETECTION  AND PREDICTIVE ANALYTICS\nP.V.S Anusha  a, K. Saujanya  b*, G. Ashok  c, P. Pavani Lakshmi  a,  Yaddanapudi Venkata Bhaskara Lakshmi d, M.V.S. Roja Ramani e,  Kolla H S Naga Vani a\na Raghu  Engineering  College,  Visakhapatnam,  Andhra  Pradesh,  INIDA. b  Vignan’s  Institute  of  Information  Technology,  Visakhapatnam,\nAndhra Pradesh, INIDA. c  Aditya Institute of Technology and Management, Tekkali, Andhra  Pradesh, INIDA  d  Baba  Institute  of  Technology  and  Sciences,  Visakhapatnam,\nAndhra Pradesh, INIDA e NS Raju Institute of Technology, Visakhapatnam, Andhra Pradesh,  INIDA\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Cor",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "PASS",
+      "page": "8",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.1748,
+        "y_min": 0.7448,
+        "x_max": 0.2638,
+        "y_max": 0.7575
+      },
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [
+        {
+          "text": "methodology",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ")",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5296,
+        "y_min": 0.549,
+        "x_max": 0.9161,
+        "y_max": 0.7215
+      },
+      "evidence_text": "Matched heading: \"3.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The development of the vibrational analysis dashboard  using Power BI is illustrated in Figure 5.This dashboard  provides a clear and concise representation of the key  insights obtained from the conveyor belt system analysis.  During  a  40-second  runtime,  the  average  acceleration  along the x-axis was found to be 25 m/s² in the absence of  any motor bearing fault, and this value increased to 69.2  m/s² in the presence of a bearing fault. It is noteworthy  that the bearing fault exhibited a higher sensitivity along  the x-axis than along the y- and z-axes. Similarly, the  average current showed only a minimal change, from 1.57  to 1.58 amps, under the same conditions.\nFigure 5 Conveyor Belt Vibration Analysis Dashboard  Upon  visual  analysis  of  the  acceleration  in  the  time\ndomain, significant spikes were observed when a bearing  fault  was  present.  Moreover,  the  vibration  magnitude  spectrum  highlights  specific  frequencies  with  higher  accelerations in the presence of a bearing fault. These  findings  suggest  that  there  may  be  an  issue  with  the  motor-bearing system that needs to be addressed.\n3.1 Time Domain Analysis\nWhen  utilized  in  the  time  do",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Acknowledgement not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "9",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.8109,
+        "x_max": 0.1864,
+        "y_max": 0.8264
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Ms. Sayali Todkar and Prof. Milind Ramgir, “Design of Belt  Conveyor  System,”  International  Journal  of  Science,  Engineering and Technology Research (IJSETR), vol. 7, no. 7,  2018.\n[2] M.  A.  Alspaugh,  “Latest  Developments  in  Belt  Conveyor  Technology,” 2004.\n[3] G. Fedorko, “Implementation of Industry 4.0 in the belt conveyor  transport,” MATEC Web of Conferences, vol. 263, p. 01001,  2019, doi: 10.1051/matecconf/201926301001.\n[4] V. Gupta, R. Mitra, F. Koenig, M. Kumar, and M. K. Tiwari,  “Predictive maintenance of baggage handling conveyors using  IoT,” Comput Ind Eng, vol. 177, p. 109033, Mar. 2023, doi:  10.1016/j.cie.2023.109033.\n[5] K.  S.  Kiangala  and  Z.  Wang,  “An  Effective  Predictive  Maintenance  Framework  for  Conveyor  Motors  Using  Dual  Time-Series Imaging and Convolutional Neural Network in an  Industry 4.0 Environment,” IEEE Access, vol. 8, pp. 121033– 121049, 2020, doi: 10.1109/ACCESS.2020.3006788.\n[6] M. Wang, K. Shen, C. Tai, Q. Zhang, Z. Yang, and C. Guo,  “Research on fault diagnosis system for belt conveyor based on  internet of things and the LightGBM model,” PLoS One, vol. 18,  no. 3 March, Mar. 2023, doi: 10.1371/journal.pone.027735",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

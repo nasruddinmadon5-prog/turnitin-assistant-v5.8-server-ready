@@ -1,0 +1,761 @@
+{
+  "submission_no": "26798",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.42/storage/ojs-downloads/26798/1. JT An Overview of Previous Studies.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/1. JT An Overview of Previous Studies.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 73,
+  "structure_score": 40,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.5995,
+        "y_max": 0.2261
+      },
+      "evidence_text": "Matched heading: \"AN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VA\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "AN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VA",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows a full title section with title, authors, and affiliations. DOC snippet lacks the title section entirely, indicating extraction failure in DOC.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract the title, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a full title section with title, authors, and affiliations. DOC snippet lacks the title section entirely, indicating extraction failure in DOC."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2746,
+        "x_max": 0.5972,
+        "y_max": 0.3062
+      },
+      "evidence_text": "Matched heading: \"a Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "a Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq",
+          "score": 0.8
+        },
+        {
+          "text": "Amina A. Khalil a*, Moataz A. Al-Obaydi a",
+          "score": 0.75
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet includes authors' names, affiliation, and corresponding author info with good clarity. DOC snippet lacks explicit authors section, likely due to extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction contains a clear and strong authors section, while the DOC extraction failed to locate it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet includes authors' names, affiliation, and corresponding author info with good clarity. DOC snippet lacks explicit authors section, likely due to extraction failure."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2746,
+        "x_max": 0.5972,
+        "y_max": 0.3062
+      },
+      "evidence_text": "Matched heading: \"a Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.75,
+      "rejected_false_positives": [
+        "Accepted",
+        "Graphical abstract Abstract"
+      ],
+      "all_candidates": [
+        {
+          "text": "a Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq",
+          "score": 0.75
+        },
+        {
+          "text": "amina.alshumam@uomosul.edu.iq",
+          "score": 0.45
+        },
+        {
+          "text": "AN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VA",
+          "score": 0.4
+        },
+        {
+          "text": "Amina A. Khalil a*, Moataz A. Al-Obaydi a",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.75,
+      "ai_evidence": "PDF snippet includes author names and detailed affiliation (Department of Civil Engineering, College of Engineering, University of Mosul, Mosul, Iraq). DOC snippet lacks this information, indicating m",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and strong Affiliations section, while the DOC detector did not find it, likely due to extraction failure from the DOC source.",
+      "ai_evidence_summary": "PDF snippet includes author names and detailed affiliation (Department of Civil Engineering, College of Engineering, University of Mosul, Mosul, Iraq). DOC snippet lacks this information, indicating missing extraction rather than missing content."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "amina.alshumam@uomosul.edu.iq",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.2406,
+        "y_min": 0.3301,
+        "x_max": 0.6399,
+        "y_max": 0.3456
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nDynamic  performance  of  machine  foundations  under  various excitation load is one of the important problems in  engineering.  Machine  foundations  dynamic  response  affected by several parameters including machine and soil  properties, loading magnitudes and geometries, foundation  geometry,  shape,  and  embedded  depth.  A  systematic  methodology  was  adopted  to  collect  and  analyze  significant  studies.  Through  an  extensive  review  of  the  literature, the discussed papers illustrate the contributions  and effects of soil properties, improvement, techniques,  foundation  types,  and  load  conditions  on  performance.  Several studies have confirmed that the foundation shape  and  embedment  depth  are  among  parameters  which  extensively  affect  its  dynamic  behavior.  Investigation  regarding  the  effect  of  both  dynamic  loading  and  soil  conditions  is  needed.  While  numerical  Modeling  simulations are considered as an effective tool for studying  and determining foundation dynamic response, they should  be supported by experimental studies to obtain a clear  understanding. These outcomes offer useful inputs for the  machine foundation d",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nAN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VARIABLES\nAmina A. Khalil a*, Moataz A. Al-Obaydi a\na Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\namina.alshumam@uomosul.edu.iq\nGraphical abstract Abstract\nDynamic  performance  of  machine  foundations  under  various excitation load is one of the important problems in  engineering.  Machine  foundations  dynamic  response  affected by several parameters including machine and soil  properties, loading magnitudes and geometries, foundation  geometry,  shape,  and  embedded  depth.  A  systemati",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.5671,
+        "y_min": 0.6946,
+        "x_max": 0.9104,
+        "y_max": 0.7175
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        },
+        {
+          "text": "keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Machine foundations, Dynamic response, Soil– structure interaction, Vibration analysis, Embedment depth.\n© 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION\nMachine are considered a key part in factories, power\nplants and others industry activities. The machine should  be supported by adequate foundation to withstand  the  vibration forces and transform them to the soil without any  risk. Experimental and theoretical techniques can be used  to make a great deal of contribution to this knowledge.  Therefore, general computational numerical modeling has\nmostly  been  used  in  simulation  the  responses  of  foundations to dynamic loads. In using the finite element  method, the material properties and geometries can be  simulated  accurately,  it  is  suitable  for  analyzing  the  machine foundation behavior  under exposure of  loads.  The numerical simulation methods provide worthy valued  information on the behavior of soil, and the response of  the foundation under the dynamic loads. Moreover, the  experimental  and  numerical  approach  provides  the\n78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"Jurnal Teknologi\nFull Paper\nAN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VARIABLES\nAmina A. Khalil a*, Moataz A. Al-Obaydi a\na Department  of  Civi\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nAN OVERVIEW OF PREVIOUS STUDIES ON THE  PERFORMANCE OF MACHINE FOUNDATION  UNDER NUMEROUS DYNAMIC VARIABLES\nAmina A. Khalil a*, Moataz A. Al-Obaydi a\na Department  of  Civil  Engineering,  College  of  Engineering,  University of Mosul, Mosul, Iraq\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\namina.alshumam@uomosul.edu.iq\nGraphical abstract Abstract\nDynamic  performance  of  machine  foundations  under  various excitation load is one of the important problems in  engineering.  Machine  foundations  dynamic  response  affected by several parameters including machine and soil  properties, loading magnitudes and geometries, foundation  geometry,  shape,  and  embedded  depth.  A  systemati",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet shows a well-formed abstract discussing dynamic performance of machine foundations, while DOC snippet does not contain the abstract, indicating extraction failure in DOC.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found the abstract section with a coherent and relevant snippet, while the DOC detector failed to locate it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a well-formed abstract discussing dynamic performance of machine foundations, while DOC snippet does not contain the abstract, indicating extraction failure in DOC."
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC snippet contains article metadata and abstract but no Kata Kunci section. PDF snippet similarly lacks any keywords section. Both are consistent in not containing the component.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Kata Kunci section; no evidence of its presence in either source.",
+      "ai_evidence_summary": "DOC snippet contains article metadata and abstract but no Kata Kunci section. PDF snippet similarly lacks any keywords section. Both are consistent in not containing the component."
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a clear introduction discussing machine foundations and numerical simulation methods. PDF snippet includes metadata and abstract-related text but no introduction content.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a strong introduction snippet describing the research problem, context, and objectives, while PDF detector did not find the introduction likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides a clear introduction discussing machine foundations and numerical simulation methods. PDF snippet includes metadata and abstract-related text but no introduction content."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet contains a systematic review methodology with explicit inclusion and exclusion criteria. PDF snippet lacks methodology content and only shows article metadata and partial abstract.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a clear Methodology section snippet describing research methods and criteria, while PDF detector did not find the section likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet contains a systematic review methodology with explicit inclusion and exclusion criteria. PDF snippet lacks methodology content and only shows article metadata and partial abstract."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Results_Discussion not found by DOC, PDF, or AI. [AI: weak_evidence, preferred=NONE]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "NO",
+      "ai_confidence": 0.0,
+      "ai_evidence": "DOC and PDF snippets only include title, author info, article history, and abstract; no content related to results or discussion is present.",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "weak_evidence",
+      "ai_conflict_reason": "Both DOC and PDF detectors did not find the Results and Discussion section; no conflicting evidence present.",
+      "ai_evidence_summary": "DOC and PDF snippets only include title, author info, article history, and abstract; no content related to results or discussion is present."
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Conclusion not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "10",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.2011,
+        "y_min": 0.7129,
+        "x_max": 0.3597,
+        "y_max": 0.7284
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The authors received no specific support or funding for  this research..",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "10",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.7811,
+        "x_max": 0.1864,
+        "y_max": 0.7966
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Swar, S. N., Pradhan, P. K., & Mishra, B. P. (2014).\nParametric Investigation of Foundation on Layered Soil  Under Vertical Vibration. IOSR Journal of Engineering,  4(7), 13–22.\n[2] Bhashakhetre, C. S., & Marve, S. R. (2020). A study of\nVibrating  Foundation.  International  Journal  of  Research and Analytical Reviews (IJRAR), 7(2).\n[3] Tank, Y. R., & Dhameliya, H. K. (2015). A Review on\nthe  Dynamic  Behaviour  of  Foundation  Supporting  Vibrating Machines. International Journal of Innovative  Research  in  Science,  Engineering  and  Technology,  4(12).\n[4] Gannavaram, V. P., Bhaskar, M. U., & Lavanya, B.\n(2023).  Analysis  of  the  Dynamic  Behaviour  of  a  Foundation Subjected to Machine Induced Vibrations.  Tuijin Jishu/Journal of Propulsion Technology, 44(3).\n[5] Vora, K. M. (2018). Dynamic Analysis of Block Type\nMachine Foundation as Per IS: 2974 (Part-I) – D.D.  Barkan Method By Application Software. International  Journal of Advance Research, Ideas and Innovations  in Technology, 4(2).\n[6] Kovrova, V., Volkova, V., & Pakrastins, L. (2024). The\nImpact  of  Vibration  on  Buildings:  Problems  and  Solutions. E3S Web of Conferences, 534,\n[7] AL-Obadee, A. I. M. (2020",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

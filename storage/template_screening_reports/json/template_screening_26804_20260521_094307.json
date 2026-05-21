@@ -1,0 +1,770 @@
+{
+  "submission_no": "26804",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.5.2/storage/ojs-downloads/26804/1. JT_RSM-assisted Rosemary Essential Oil Precipitation.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/1. JT_RSM-assisted Rosemary Essential Oil Precipitation.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 76,
+  "structure_score": 47,
+  "layout_score": 89,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.6236,
+        "y_max": 0.2494
+      },
+      "evidence_text": "Matched heading: \"RSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATI\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "RSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATI",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows a full title section with all expected components; DOC snippet is missing the title section entirely.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with author and affiliation details, while the DOC detector failed to extract the title section, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a full title section with all expected components; DOC snippet is missing the title section entirely."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2733,
+        "x_max": 0.6245,
+        "y_max": 0.3048
+      },
+      "evidence_text": "Matched heading: \"Phuri Kalnaowakula, Chatchawan Sookmanb, Jittima Kalnaowakulc,  Kanchana Luepongb*\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.9,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Phuri Kalnaowakula, Chatchawan Sookmanb, Jittima Kalnaowakulc,  Kanchana Luepongb*",
+          "score": 0.9
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.9,
+      "ai_evidence": "PDF snippet shows full Authors section with names, affiliations, and corresponding author details. DOC snippet does not contain the Authors section, likely due to extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete Authors section, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows full Authors section with names, affiliations, and corresponding author details. DOC snippet does not contain the Authors section, likely due to extraction failure."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.3212,
+        "x_max": 0.6385,
+        "y_max": 0.4007
+      },
+      "evidence_text": "Matched heading: \"aFaculty of  Industry and  Technology, Rajamangala  University  of  Technology Isan, Sakon Nakhon 47\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "aFaculty of  Industry and  Technology, Rajamangala  University  of  Technology Isan, Sakon Nakhon 47",
+          "score": 0.8
+        },
+        {
+          "text": "Phuri Kalnaowakula, Chatchawan Sookmanb, Jittima Kalnaowakulc,  Kanchana Luepongb*",
+          "score": 0.5
+        },
+        {
+          "text": "kanchana.l@mail.rmutk.ac.th",
+          "score": 0.45
+        },
+        {
+          "text": "RSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATI",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet shows a clear Affiliations section with author names and affiliations. DOC snippet contains the same text but was not detected by the DOC detector, indicating extraction issues in DOC.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and structured Affiliations section, while the DOC detector did not find it, likely due to extraction failure from the DOC source.",
+      "ai_evidence_summary": "PDF snippet shows a clear Affiliations section with author names and affiliations. DOC snippet contains the same text but was not detected by the DOC detector, indicating extraction issues in DOC."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "kanchana.l@mail.rmutk.ac.th",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1606,
+        "y_min": 0.4466,
+        "x_max": 0.48,
+        "y_max": 0.4621
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nNanotechnology plays a pivotal role in various industrial and clinical applications,  including food science, agriculture, and herbal medicine. This study aims to enhance  the parameters for rosemary essential oil encapsulation by the solvent evaporation  technique. These were used in response surface methodology (RSM) with a design to  look at how changing variables like spinning speed, temperature, and concentration of  rosemary essential oil (REO) affected the results. To achieve efficiency, adequate  encapsulation investigation, such as Fourier transform infrared spectroscopy (FTIR),  scanning electron microscopy (SEM), and Thermogravimetric analysis (TGA), was  conducted. The effect of various homogenizer speeds on encapsulation efficiency (EE  (%)), and REO were studied. The different of homogenizer speeds start from 1,000,  10,000 to 20,000 rpm combined with temperature and REO were presented the  highest encapsulation efficiency (EE (%)). The maximum rotating speeds indicated that  the EE (%) of REO encapsulated over 90%. SEM demonstrated that, among all  components, the REO had the most pronounced spherical morphology. The FTIR  spectra showed a suitable intramol",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nRSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATION VIA RAPID  HOMOGENIZATION DYNAMICS\nPhuri Kalnaowakula, Chatchawan Sookmanb, Jittima Kalnaowakulc,  Kanchana Luepongb*\naFaculty of  Industry and  Technology, Rajamangala  University  of  Technology Isan, Sakon Nakhon 47160, Thailand bFaculty  of  Engineering,  Rajamangala  University  of  Technology  Krungthep, Bangkok 10120, Thailand cSirindhorn College of Public Health Trang, Trang 92110, Thailand\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nkanchana.l@mail.rmutk.ac.th\nGraphical abstract Abstract\nNanotechnology plays a pivotal role in various industrial and clinical applications,  inc",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4071,
+        "y_min": 0.6833,
+        "x_max": 0.9144,
+        "y_max": 0.7062
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Rosemary, Essential oil, Molecular distillation, Surfactant reagent assisted,  homogenizer method.\n© 2026 Penerbit UTM Press. All rights reserved\n78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Nearby content: \"Jurnal Teknologi\nFull Paper\nRSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATION VIA RAPID  HOMOGENIZATION DYNAMICS\nPhuri Kalnaowakula, Chatchawan Soo\" | Detection method: semantic_fallback",
+      "notes": "Abstrak detected in PDF layout, but DOC and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "semantic_fallback",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nRSM-ASSISTED ROSEMARY ESSENTIAL OIL  PRECIPITATION FOR ELUCIDATING THE  INTERPLAY OF NANOENCAPSULATION VIA RAPID  HOMOGENIZATION DYNAMICS\nPhuri Kalnaowakula, Chatchawan Sookmanb, Jittima Kalnaowakulc,  Kanchana Luepongb*\naFaculty of  Industry and  Technology, Rajamangala  University  of  Technology Isan, Sakon Nakhon 47160, Thailand bFaculty  of  Engineering,  Rajamangala  University  of  Technology  Krungthep, Bangkok 10120, Thailand cSirindhorn College of Public Health Trang, Trang 92110, Thailand\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nkanchana.l@mail.rmutk.ac.th\nGraphical abstract Abstract\nNanotechnology plays a pivotal role in various industrial and clinical applications,  inc",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "PDF only",
+      "evidence_sources": [
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "FAILED",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Kata_Kunci not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "FAILED",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5296,
+        "y_min": 0.7744,
+        "x_max": 0.8039,
+        "y_max": 0.7899
+      },
+      "evidence_text": "Matched heading: \"3.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "3.1 The chemical makeup of rosemary essential oil  (REO)\nThe results of the chemical composition analysis of REO  are summarized in Table 3. In accordance with Table 3,  the primary components of REO are camphor, 1,8-cineole,  3-carene,  α-pinene,  trans-caryophyllene,  and  β-pinene.  These findings align with established knowledge of the  primary chemical constituents of REO as documented in",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion detected in DOC, but PDF and AI did not confirm.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "DOC only",
+      "evidence_sources": [
+        "DOC"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "7",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.6408,
+        "y_min": 0.1209,
+        "x_max": 0.7995,
+        "y_max": 0.1365
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "This  research  is  fully  supported  by  Rajamangala  University of Technology Krungthep with Contract no. F1- 2567-1008.  Additionally,  we  would  like  to  express  our  deepest thanks to the Faculty of Industry and Technology,  Rajamangala  University  of  Technology  Isan,  and  Sirindhorn College of Public Health Trang, which gave us  opportunities to carry out the investigations in this study,  which is greatly appreciated. Finally, Center of Excellent in  Chemical Engineering Analytical and Instrumentation, and  the Research and Development Institute of Rajamangala  University of Technology Krungthep were instrumental in  facilitating the successful completion of this work.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "7",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5296,
+        "y_min": 0.3144,
+        "x_max": 0.6264,
+        "y_max": 0.3299
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Dias, M.I., Ferreira, I.C.F.R., and Barreiro, M.F. 2015.  Microencapsulation of Bioactives for Food Applications. Food  Function. 6: 1035–1052.\n[2] Onwulata,  C.I.  2013.  Microencapsulation  and  Functional  Bioactive Foods. J. Food Process. Preserv. 37: 510–532.\n[3] Liu,  J.,  Lai,  R.,  Wang,  X.,  Wang,  H.,  and  Liu,  Y.  2020.  Preparation  and  Characterization  of  Composites  of  Hydroxypropyl Tapioca Starch and Zein.  Starch – Stärke. 72:  1900204.\n[4] Huang, K., Yuan, Y., and Baojun, X. A. 2023. Critical Review on  the  Microencapsulation  of  Bioactive  Compounds  and  Their  Application. Food Rev. Int. 39: 2594–2634.\n[5] Sousa,  V.I.,  Parente,  J.F.,  Marques,  J.F.,  Forte,  M.A.,  and  Tavares, C.J. 2022. Microencapsulation of Essential Oils: A  Review. Polymer. 14: 1730.\n[6] Niizawa,  I.,  Espinaco,  B.Y.,  Zorrilla,  S.E.,  and  Sihufe,  G.A.  2019.  Natural  Astaxanthin  Encapsulation:  Use  of  Response  Surface Methodology for the Design of Alginate Beads. Int. J.  Biol. Macromol. 121: 601–608.\n[7] Sánchez-Camargo, A.d.P., and Herrero, M. 2017. Rosemary  (Rosmarinus  Officinalis)  as  a  Functional  Ingredient:  Recent  Scientific Evidence. Curr. Opin. Fo",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

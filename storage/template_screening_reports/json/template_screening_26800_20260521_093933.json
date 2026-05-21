@@ -1,0 +1,789 @@
+{
+  "submission_no": "26800",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.2/storage/ojs-downloads/26800/MACHINE LEARNING-INTEGRATED POWER BI DASHBOARD FOR MONITORING AND PREDICTING ON-TIME STUDENT GRADUATION.doc",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/MACHINE LEARNING-INTEGRATED POWER BI DASHBOARD FOR MONITORING AND PREDICTING ON-TIME STUDENT GRADUATION.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 84,
+  "structure_score": 60,
+  "layout_score": 100,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1569,
+        "x_max": 0.6837,
+        "y_max": 0.1795
+      },
+      "evidence_text": "Matched heading: \"MACHINE  LEARNING-INTEGRATED  POWER  BI\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "MACHINE  LEARNING-INTEGRATED  POWER  BI",
+          "score": 1.0
+        },
+        {
+          "text": "DASHBOARD FOR MONITORING AND PREDICTING ON- TIME STUDENT GRADUATION Siti Nurlaili Karima*, Syafira S",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows the full title 'MACHINE LEARNING-INTEGRATED POWER BI DASHBOARD FOR MONITORING AND PREDICTING ON-TIME STUDENT GRADUATION' along with author and affiliation information. DOC snippet do",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section, while the DOC detector did not find the title section likely due to extraction failure.",
+      "ai_evidence_summary": "PDF snippet shows the full title 'MACHINE LEARNING-INTEGRATED POWER BI DASHBOARD FOR MONITORING AND PREDICTING ON-TIME STUDENT GRADUATION' along with author and affiliation information. DOC snippet does not contain the title section but includes other manuscript metadata."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.1802,
+        "x_max": 0.6764,
+        "y_max": 0.2423
+      },
+      "evidence_text": "Matched heading: \"DASHBOARD FOR MONITORING AND PREDICTING ON- TIME STUDENT GRADUATION Siti Nurlaili Karima*, Syafira S\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "DASHBOARD FOR MONITORING AND PREDICTING ON- TIME STUDENT GRADUATION Siti Nurlaili Karima*, Syafira S",
+          "score": 0.8
+        },
+        {
+          "text": "aDepartment of Computing, Universiti Teknologi PETRONAS, 32610 Seri  Iskandar, Perak, Malaysia",
+          "score": 0.8
+        },
+        {
+          "text": "MACHINE  LEARNING-INTEGRATED  POWER  BI",
+          "score": 0.55
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet contains a well-structured authors section with names and affiliations. DOC snippet does not contain the authors section, likely due to extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The DOC extraction failed to detect the authors section despite the PDF clearly containing it, indicating a likely DOC extraction failure.",
+      "ai_evidence_summary": "PDF snippet contains a well-structured authors section with names and affiliations. DOC snippet does not contain the authors section, likely due to extraction failure."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.2587,
+        "x_max": 0.6814,
+        "y_max": 0.2902
+      },
+      "evidence_text": "Matched heading: \"aDepartment of Computing, Universiti Teknologi PETRONAS, 32610 Seri  Iskandar, Perak, Malaysia\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "Accepted",
+        "Graphical abstract Abstract"
+      ],
+      "all_candidates": [
+        {
+          "text": "aDepartment of Computing, Universiti Teknologi PETRONAS, 32610 Seri  Iskandar, Perak, Malaysia",
+          "score": 0.85
+        },
+        {
+          "text": "DASHBOARD FOR MONITORING AND PREDICTING ON- TIME STUDENT GRADUATION Siti Nurlaili Karima*, Syafira S",
+          "score": 0.5
+        },
+        {
+          "text": "nurlaili.karim@utp.edu.my",
+          "score": 0.45
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        },
+        {
+          "text": "XB Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet shows a strong, well-formed affiliations section with department and university information. DOC snippet does not contain the affiliations section, indicating a failure in DOC extraction r",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction detected the affiliations section clearly, while the DOC extraction failed to find it, likely due to extraction issues with the DOC source.",
+      "ai_evidence_summary": "PDF snippet shows a strong, well-formed affiliations section with department and university information. DOC snippet does not contain the affiliations section, indicating a failure in DOC extraction rather than absence of the section in the manuscript."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7301,
+        "y_min": 0.273,
+        "x_max": 0.9108,
+        "y_max": 0.2885
+      },
+      "evidence_text": "Matched heading: \"*, Syafira Shuhaimia\naDepartment of Computing, Universiti Teknologi PETRONAS, 32610 Seri Iskandar, P\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "nurlaili.karim@utp.edu.my",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.176,
+        "y_min": 0.323,
+        "x_max": 0.5106,
+        "y_max": 0.3385
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nOn-time graduation is an important performance indicator in higher education,  reflecting  institutional  effectiveness  and  student  success.  However,  existing  academic  monitoring  systems  are  often  limited  to  descriptive  analytics  and  fragmented data, making early identification of at-risk students difficult. This study  proposes  a  machine  learning-integrated  academic  risk  modelling  framework  combined with an interactive Power BI dashboard to monitor and predict student  graduation  outcomes.  A  synthetic  dataset  of  4500  undergraduate  Computer  Science students was generated to simulate realistic academic progression. The  CRISP-DM methodology was adopted, and several supervised learning models  were  evaluated.  A  layered  feature  engineering  approach  was  introduced  to  capture  both  academic  performance  and  progression  dynamics.  After  hyperparameter optimization, the tuned Random Forest model achieved the best  performance with an accuracy of 91.34%, F1-score of 94.26% and AUC-ROC of  0.954. Key predictors include academic risk score, CGPA, attendance and failed  courses. The model outputs were integrated into an interactive das",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Jurnal Teknologi\nFull Paper\nMACHINE  LEARNING-INTEGRATED  POWER  BI\nDASHBOARD FOR MONITORING AND PREDICTING ON- TIME STUDENT GRADUATION Siti Nurlaili Karima*, Syafira Shuhaimia\naDepartment of Computing, Universiti Teknologi PETRONAS, 32610 Seri  Iskandar, Perak, Malaysia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nnurlaili.karim@utp.edu.my\nGraphical abstract Abstract\nOn-time graduation is an important performance indicator in higher education,  reflecting  institutional  effectiveness  and  student  success.  However,  existing  academic  monitoring  systems  are  often  limited  to  descriptive  analytics  and  fragmented data, making early identification of at-risk students difficult. This study  proposes  a  m",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4377,
+        "y_min": 0.583,
+        "x_max": 0.9144,
+        "y_max": 0.6059
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Student graduation prediction, machine learning, Power BI, Random  Forest, predictive analytics, SMOTE.",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.4377,
+        "y_min": 0.6207,
+        "x_max": 0.5046,
+        "y_max": 0.6362
+      },
+      "evidence_text": "Matched heading: \"Abstrak\" | Detection method: source_docx_text",
+      "notes": "Abstrak confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstrak",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Kadar  tamat  pengajian  tepat  pada  masanya  merupakan  penunjuk  prestasi  penting dalam pendidikan tinggi kerana mencerminkan keberkesanan institusi  dan kejayaan pelajar. Walau bagaimanapun, sistem pemantauan akademik sedia  ada masih terhad kepada analitik deskriptif dan data yang terpisah, sekali gus  menyukarkan pengenalpastian awal pelajar berisiko. Kajian ini mencadangkan  satu rangka kerja pemodelan risiko akademik berasaskan pembelajaran mesin  yang digabungkan dengan papan pemuka interaktif Power BI untuk memantau  dan  meramal  hasil  tamat  pengajian  pelajar.  Satu  set  data  sintetik  yang  mengandungi 4500 rekod pelajar Sarjana Muda Sains Komputer telah dijana bagi  mensimulasikan  corak  perkembangan  akademik  yang  realistik.  Metodologi  CRISP-DM digunakan dan beberapa model pembelajaran mesin terselia telah  dinilai.  Pendekatan  kejuruteraan  ciri  berlapis  diperkenalkan  bagi  menangkap  kedua-dua  aspek  prestasi  akademik  dan  dinamik  perkembangan  pelajar.  Keputusan  menunjukkan  bahawa  model  Random  Forest  mencapai  prestasi  terbaik dengan ketepatan 91.34%, skor F1 sebanyak 94.26% dan AUC-ROC  sebanyak 0.954. Faktor utama yang mempengaruhi ram",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": {
+        "x_min": 0.4377,
+        "y_min": 0.9039,
+        "x_max": 0.9144,
+        "y_max": 0.9151
+      },
+      "evidence_text": "Matched heading: \"Kata kunci\" | Detection method: source_docx_text",
+      "notes": "Kata_Kunci confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Kata kunci",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Ramalan tamat pengajian pelajar, pembelajaran mesin, Power BI,\n78:1 (2026) 1–7 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet contains a detailed Introduction discussing the importance of on-time graduation, use of LMS and SIS data, and machine learning applications. PDF snippet includes title, author info, and p",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong, coherent Introduction section snippet with relevant context and objectives, while the PDF detector failed to extract the Introduction, likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet contains a detailed Introduction discussing the importance of on-time graduation, use of LMS and SIS data, and machine learning applications. PDF snippet includes title, author info, and partial abstract but no Introduction text."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"3.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "3.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a comprehensive Methodology description including framework, dataset generation, and data attributes. PDF snippet only includes title, author info, and abstract, with no Methodolo",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a detailed Methodology section with specific framework and dataset description, while PDF detector did not find any Methodology content, likely due to extraction or layout issues in the PDF.",
+      "ai_evidence_summary": "DOC snippet provides a comprehensive Methodology description including framework, dataset generation, and data attributes. PDF snippet only includes title, author info, and abstract, with no Methodology content detected."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.0846,
+        "x_max": 0.8084,
+        "y_max": 0.1002
+      },
+      "evidence_text": "Matched heading: \"4.0  RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "4.0  RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Model  performance  was  evaluated  using  accuracy,  precision, recall, F1-score, AUC-ROC and cross-validation  F1-score (see Table 3).\nTable 3 Performance Comparison of Machine Learning Models",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"5.0  CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "5.0  CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a clear Conclusion section summarizing the study's development, dataset, model performance, system integration, and limitations. PDF snippet contains only metadata and abstract fr",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong Conclusion section with detailed summary and limitations, while the PDF detector did not find any Conclusion section, likely due to extraction or layout issues in the PDF.",
+      "ai_evidence_summary": "DOC snippet provides a clear Conclusion section summarizing the study's development, dataset, model performance, system integration, and limitations. PDF snippet contains only metadata and abstract fragments without Conclusion content."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Detection method: not_found",
+      "notes": "Acknowledgement not found by DOC, PDF, or AI.",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.0,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "FAILED",
+      "formatting_status": "PASS",
+      "detection_method": "not_found",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": false,
+      "detected_from_ai": false,
+      "final_source_used": "None",
+      "evidence_sources": [],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "6",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.3039,
+        "x_max": 0.6259,
+        "y_max": 0.3194
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] T. Susnjak et al., “Learning analytics dashboard: A tool for  providing actionable insights to learners,” International Journal  of Educational Technology in Higher Education, vol. 19, no. 12,  2022.\n[2] J.  L.  Ifenthaler  and  D.  Yau,  “Utilising  learning  analytics  to  support  study  success  in  higher  education:  A  systematic  review,” Educational Technology Research and Development,  vol. 68, no. 4, pp. 1961–1990, 2020. doi:10.1007/s11423-020- 09788-z.\n[3] M.  Timmi,  L.  Laaouina,  A.  Jeghal,  S.  El  Garouani,  and  A.  Yahyaouy, “Learning analytics: A review of the literature,” in  Proc. 2022 Int. Conf. Intell. Syst. Comput. Vis. (ISCV), 2022,  pp. 1–4. doi:10.1109/ISCV54655.2022.9806113.\n[4] A.  Santoso  et  al.,  “Predicting  time  to  graduation  of  Open  University students: An educational data mining study,” Open  Education Studies, vol. 6, no. 1, pp. 202–214, 2024.\n[5] K.  Zhang  et  al.,  “A  comparative  study  of  machine  learning  algorithms  for  student  performance  prediction,”  Applied  Sciences,  vol.  11,  no.  20,  p.  9775,  2021.  doi:10.3390/app11209775.\n[6] T.  Nguyen  et  al.,  “A  deep  learning  approach  for  student  performance  pr",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

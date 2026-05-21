@@ -1,0 +1,234 @@
+{
+  "template_name": "Jurnal Teknologi",
+  "coordinate_mode": "normalized_0_to_1",
+  "scoring": {
+    "structure": 40,
+    "layout": 30,
+    "formatting": 30
+  },
+  "rules": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "required": true,
+      "text_pattern": ".+",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.20,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.20
+      },
+      "tolerance": 0.10,
+      "format_rules": {
+        "uppercase_preferred": true,
+        "bold_preferred": true
+      }
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "required": true,
+      "text_pattern": ".+",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "tolerance": 0.10
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "required": true,
+      "text_pattern": ".+",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "tolerance": 0.12
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "required": true,
+      "text_pattern": "Corresponding author|Corresponding Author|\\*.*@.*\\.com",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.40
+      },
+      "tolerance": 0.12
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "required": true,
+      "text_pattern": "Graphical abstract|Graphical Abstract",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "tolerance": 0.12,
+      "format_rules": {
+        "image_required": true
+      }
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "required": true,
+      "text_pattern": "(?im)^\\s*Abstract\\s*$|^\\s*Abstract\\b(?!.*Graphical)",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.30,
+        "x_max": 0.98,
+        "y_min": 0.30,
+        "y_max": 0.75
+      },
+      "tolerance": 0.12
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "required": true,
+      "text_pattern": "Keywords|Keyword",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.30,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "tolerance": 0.12,
+      "min_keyword_count": 5
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "required": true,
+      "text_pattern": "^Abstrak$|Abstrak",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "tolerance": 0.15
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "required": true,
+      "text_pattern": "Kata kunci|Kata Kunci",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "tolerance": 0.15,
+      "min_keyword_count": 5
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "required": true,
+      "text_pattern": "(?im)^\\s*\\d+(?:\\.\\d+)*\\.?\\s+INTRODUCTION\\b|^\\s*INTRODUCTION\\b",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.10,
+        "y_max": 0.95
+      },
+      "tolerance": 0.15
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "required": true,
+      "text_pattern": "(?im)^\\s*\\d+(?:\\.\\d+)*\\.?\\s+(METHODOLOGY|METHODS|MATERIALS AND METHODS)\\b|^\\s*(METHODOLOGY|METHODS|MATERIALS AND METHODS)\\b",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "tolerance": 0.20
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "required": true,
+      "text_pattern": "(?im)^\\s*\\d+(?:\\.\\d+)*\\.?\\s+RESULTS?\\s+AND\\s+DISCUSSIONS?\\b|^\\s*RESULTS?\\s+AND\\s+DISCUSSIONS?\\b",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "tolerance": 0.20
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "required": true,
+      "text_pattern": "(?im)^\\s*\\d+(?:\\.\\d+)*\\.?\\s+CONCLUSIONS?\\b|^\\s*CONCLUSIONS?\\b",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "tolerance": 0.20
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "required": false,
+      "text_pattern": "Acknowledgement|Acknowledgment|Acknowledgements",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "tolerance": 0.20
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "required": true,
+      "text_pattern": "(?im)^\\s*(?:\\d+(?:\\.\\d+)*\\.?\\s+)?REFERENCES?\\b|^\\s*REFERENCES?\\b",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "tolerance": 0.20,
+      "min_reference_count": 20
+    }
+  ]
+}

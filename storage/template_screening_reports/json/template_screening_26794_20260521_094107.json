@@ -1,0 +1,823 @@
+{
+  "submission_no": "26794",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.4.1/storage/ojs-downloads/26794/1_JT_Syarifah_Review_Template_Manuscript.docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/1_JT_Syarifah_Review_Template_Manuscript.pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 87,
+  "structure_score": 67,
+  "layout_score": 100,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1569,
+        "x_max": 0.673,
+        "y_max": 0.1795
+      },
+      "evidence_text": "Matched heading: \"DEEP   LEARNING   MODELS   FOR\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "DEEP   LEARNING   MODELS   FOR",
+          "score": 1.0
+        },
+        {
+          "text": "IONOSPHERIC  BEHAVIOUR  PREDICTION  FROM  GNSS  SIGNALS:  A  SYSTEMATIC  REVIEW",
+          "score": 1.0
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet contains the full title 'DEEP LEARNING MODELS FOR IONOSPHERIC BEHAVIOUR PREDICTION FROM GNSS SIGNALS: A SYSTEMATIC REVIEW' along with author and affiliation information, while DOC snippet ",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF extraction clearly contains a strong and complete title section, while the DOC extraction failed to locate the title, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet contains the full title 'DEEP LEARNING MODELS FOR IONOSPHERIC BEHAVIOUR PREDICTION FROM GNSS SIGNALS: A SYSTEMATIC REVIEW' along with author and affiliation information, while DOC snippet does not contain the title section."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.266,
+        "x_max": 0.6473,
+        "y_max": 0.2815
+      },
+      "evidence_text": "Matched heading: \"Syarifah Noor Syakiylla Binti Sayed Dauda, Kamarul Hawari Ghazalib*\" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.9,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Syarifah Noor Syakiylla Binti Sayed Dauda, Kamarul Hawari Ghazalib*",
+          "score": 0.9
+        },
+        {
+          "text": "DEEP   LEARNING   MODELS   FOR",
+          "score": 0.55
+        },
+        {
+          "text": "IONOSPHERIC  BEHAVIOUR  PREDICTION  FROM  GNSS  SIGNALS:  A  SYSTEMATIC  REVIEW",
+          "score": 0.55
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.9,
+      "ai_evidence": "PDF snippet shows a full Authors section with names and affiliations; DOC snippet lacks this section entirely.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete Authors section, while the DOC detector did not find it, likely due to extraction failure from the DOC source.",
+      "ai_evidence_summary": "PDF snippet shows a full Authors section with names and affiliations; DOC snippet lacks this section entirely."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.2979,
+        "x_max": 0.6709,
+        "y_max": 0.3774
+      },
+      "evidence_text": "Matched heading: \"aCentre for Advanced Industrial Technology, Universiti Malaysia Pahang  Al-Sultan Abdullah, 26600 Pe\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "aCentre for Advanced Industrial Technology, Universiti Malaysia Pahang  Al-Sultan Abdullah, 26600 Pe",
+          "score": 0.85
+        },
+        {
+          "text": "Syarifah Noor Syakiylla Binti Sayed Dauda, Kamarul Hawari Ghazalib*",
+          "score": 0.5
+        },
+        {
+          "text": "kamarul@umpsa.edu.my",
+          "score": 0.45
+        },
+        {
+          "text": "IONOSPHERIC  BEHAVIOUR  PREDICTION  FROM  GNSS  SIGNALS:  A  SYSTEMATIC  REVIEW",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet shows detailed affiliations with institution names and addresses; DOC snippet does not contain the affiliations section, suggesting extraction failure in DOC.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and structured Affiliations section, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows detailed affiliations with institution names and addresses; DOC snippet does not contain the affiliations section, suggesting extraction failure in DOC."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7212,
+        "y_min": 0.2745,
+        "x_max": 0.902,
+        "y_max": 0.29
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "kamarul@umpsa.edu.my",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1974,
+        "y_min": 0.4073,
+        "x_max": 0.5447,
+        "y_max": 0.4228
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nThe  ionosphere  plays  an  important  role  in  satellite  communication,  navigation systems, and space weather monitoring. However, its highly  nonlinear variability driven by solar radiation, geomagnetic activity, and  atmospheric  dynamics  makes  accurate  prediction  of  ionospheric  parameters  particularly  challenging.  In  recent  years,  deep  learning  techniques have been increasingly applied to ionospheric modelling due to  their  capability  to  learn  complex  nonlinear  relationships  from  Global  Navigation Satellite System (GNSS) signal. Despite the rapid growth of  research in this area, differences in modelling architectures, datasets, and  evaluation  methods  make  it  difficult  to  systematically  compare  model  performance across studies. This study presents a systematic review of  deep  learning  approaches  for  ionospheric  modelling  based  on  recent  studies between 2020 and 2025. The cross-study comparison was made in  terms  of  modelling  architectures,  input  features,  datasets,  prediction  targets, and reported prediction accuracy. The results show that hybrid  deep learning architectures dominate current research, while Total El",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nDEEP   LEARNING   MODELS   FOR\nIONOSPHERIC  BEHAVIOUR  PREDICTION  FROM  GNSS  SIGNALS:  A  SYSTEMATIC  REVIEW\nSyarifah Noor Syakiylla Binti Sayed Dauda, Kamarul Hawari Ghazalib*\naCentre for Advanced Industrial Technology, Universiti Malaysia Pahang  Al-Sultan Abdullah, 26600 Pekan Pahang Darul Makmur, Malaysia bFaculty of Electrical and Electronic Engineering Technology, Universiti  Malaysia  Pahang  Al-Sultan  Abdullah,  26600  Pekan  Pahang  Darul  Makmur, Malaysia\nArticle history\nReceived\nX Month 202Y\nReceived in revised form\nXA Month 202Y\nAccepted\nXB Month 202Y\n*Corresponding author\nkamarul@umpsa.edu.my\nGraphical abstract Abstract\nThe  ionosphere  plays  an  important  role  in  satellite  com",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.4718,
+        "y_min": 0.7021,
+        "x_max": 0.9058,
+        "y_max": 0.725
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        },
+        {
+          "text": "Keywords",
+          "score": 0.5
+        },
+        {
+          "text": "Keyword",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Deep learning, ionosphere, architecture modelling, total electron  prediction, root mean square",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.4718,
+        "y_min": 0.7398,
+        "x_max": 0.5387,
+        "y_max": 0.7553
+      },
+      "evidence_text": "Matched heading: \"Abstrak\" | Detection method: source_docx_text",
+      "notes": "Abstrak confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstrak",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Ionosfera memainkan peranan penting dalam komunikasi satelit, sistem  navigasi, dan pemantauan cuaca angkasa. Namun begitu, variasi ionosfera  yang sangat tidak linear, yang dipacu oleh sinaran suria, aktiviti geomagnet,  serta dinamik atmosfera menjadikan ramalan parameter ionosfera satu  cabaran yang kompleks. Dalam beberapa tahun kebelakangan ini, teknik  pembelajaran mendalam semakin banyak digunakan dalam pemodelan  ionosfera kerana keupayaannya untuk mempelajari hubungan tidak linear  yang  kompleks  daripada  isyarat  Global  Navigation  Satellite  System  (GNSS). Walaupun bidang ini berkembang dengan pesat, perbezaan dari  segi  seni  bina  model,  set  data,  dan  kaedah  penilaian  menyebabkan  perbandingan prestasi model antara kajian menjadi sukar untuk dilakukan  secara sistematik.  Kajian  ini  membentangkan satu tinjauan sistematik",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "PASS",
+      "page": "2",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": {
+        "x_min": 0.4718,
+        "y_min": 0.2452,
+        "x_max": 0.9056,
+        "y_max": 0.2681
+      },
+      "evidence_text": "Matched heading: \"Kata kunci\" | Detection method: source_docx_text",
+      "notes": "Kata_Kunci confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Kata kunci",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ":  Pembelajaran mendalam, ionosfera, seni bina pemodelan,  jumlah kandungan electron, punca kuasa dua min\n© 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION\nThe ionosphere is a highly active area of the Earth’s upper  atmosphere composed with high concentrations of ions and  abundant free electrons [1]. It located between 60 and more  than 1000 km above the Earth’s surface. This layer yielding  from  ionization  process  through  interaction  of  solar  radiation  with  atmospheric  gases,  and  also  driven  by  cosmic rays, and high energy particles from outer space [2].  The  ionized  nature  of  ionosphere  permits  reflecting,  refracting,  and  modifying  signal  propagation,  offer  numerous  significant  advantages  for  satellite-based  communication  and  navigation  systems.  Despite  these  advantages, the ionosphere poses critical problems for  contemporary space-based systems.\nThe  ionosphere  is  significantly  affected  by  various\nphysical  events,  such  as  atmospheric  tides,  seasonal  fluctuations,  geomagnetic  storms,  and  solar  extreme  ultraviolet radiation [3]. Fluctuations in ionospheric electron  density can induce scintillation effects,",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a clear Introduction discussing the ionosphere's characteristics and challenges for space-based systems. PDF snippet lacks the Introduction section, showing only header and abstra",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a strong, coherent Introduction section snippet describing the ionosphere and research context, while PDF detector did not find the section likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides a clear Introduction discussing the ionosphere's characteristics and challenges for space-based systems. PDF snippet lacks the Introduction section, showing only header and abstract fragments."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.6085,
+        "x_max": 0.915,
+        "y_max": 0.6996
+      },
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [
+        {
+          "text": "methods",
+          "score": 0.5
+        },
+        {
+          "text": "Methods",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "in ionospheric modelling by incorporating effect  size estimation, weighted performance aggregation, and  heterogeneity  analysis.  This  method  facilitates  the  recognition of overarching performance trends within the  literature and offers significant insights into the advantages  and  drawbacks  of  current  deep  learning  models  for  ionospheric prediction tasks.\n3.0 RESULTS AND DISCUSSION\nThe  preliminary  search  produced  456  records  of\npublished articles. After elimination 85 duplicate entries,  371 distinct articles remained for further screening. The  remaining  articles  were  screened  based  on  titles  and  abstracts to ascertained their relevance to the goals of this  review.  At  this  stage,  studies  unrelated  to  ionospheric  modelling, those not utilise deep learning approaches, and  articles concentrating on irrelevant atmospheric parameters  were removed.\nConsequently, 326 papers were excluded, resulting in 45\npublications for comprehensive evaluation. The remaining  publications  were  meticulously  assessed  based  on  established inclusion and exclusion criteria. Studies were  comprised if they utilised deep learning models for the",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "4",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.716,
+        "x_max": 0.8034,
+        "y_max": 0.7315
+      },
+      "evidence_text": "Matched heading: \"3.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The  preliminary  search  produced  456  records  of\npublished articles. After elimination 85 duplicate entries,  371 distinct articles remained for further screening. The  remaining  articles  were  screened  based  on  titles  and  abstracts to ascertained their relevance to the goals of this  review.  At  this  stage,  studies  unrelated  to  ionospheric  modelling, those not utilise deep learning approaches, and  articles concentrating on irrelevant atmospheric parameters  were removed.\nConsequently, 326 papers were excluded, resulting in 45\npublications for comprehensive evaluation. The remaining  publications  were  meticulously  assessed  based  on  established inclusion and exclusion criteria. Studies were  comprised if they utilised deep learning models for the",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet contains a detailed Conclusion summarizing the study's systematic review, findings on deep learning models for ionospheric prediction, and methodological insights. PDF snippet lacks any Co",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong Conclusion section snippet with detailed summary and findings, while the PDF detector did not find the section, likely due to extraction or layout issues in the PDF.",
+      "ai_evidence_summary": "DOC snippet contains a detailed Conclusion summarizing the study's systematic review, findings on deep learning models for ionospheric prediction, and methodological insights. PDF snippet lacks any Conclusion content, showing only front matter and metadata."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "8",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.6406,
+        "y_min": 0.4659,
+        "x_max": 0.7993,
+        "y_max": 0.4814
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The  author  gratefully  acknowledges  Universiti  Malaysia  Pahang  Al-Sultan  Abdullah  for  the  financial  support  provided through the Postdoctoral Fellowship programme.  The author is currently serving as a Postdoctoral Fellow at  the university, where the institutional support and research  environment have greatly facilitated the progress of this  work. This research was conducted under the support of the  Strategic  Research  Fund  (SRF)  project  SRF01251303  funded by Malaysia Ministry of Science, Technology and  Innovation  (MOSTI),  which  provided  the  necessary  resources and infrastructure to carry out the study. The  author sincerely appreciates the university’s commitment to  advancing research and innovation.\nReferences [1] Esmaeili-Karnawah, A., Fallah,R., SKhorashadizadeh, S. M. and  Niknam, A. R. 2024. Propagation Characteristics Analysis of High- Frequency  Radio  Waves  in  The  Lower  Ionosphere  Layers,  Heliyon. 10(24): 1–7. doi: 10.1016/j.heliyon.2024.e40963.\n[2] Winant, A., Pierrard, V., Botek, E. and Herbst, K. 2023. The  Atmospheric Influence on Cosmic-Ray-Induced Ionization and  Absorbed  Dose  Rates,  Universe.  9(12):  1–17.  doi:\n10.3390/univer",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "8",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.6779,
+        "x_max": 0.9142,
+        "y_max": 0.7319
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Esmaeili-Karnawah, A., Fallah,R., SKhorashadizadeh, S. M. and  Niknam, A. R. 2024. Propagation Characteristics Analysis of High- Frequency  Radio  Waves  in  The  Lower  Ionosphere  Layers,  Heliyon. 10(24): 1–7. doi: 10.1016/j.heliyon.2024.e40963.\n[2] Winant, A., Pierrard, V., Botek, E. and Herbst, K. 2023. The  Atmospheric Influence on Cosmic-Ray-Induced Ionization and  Absorbed  Dose  Rates,  Universe.  9(12):  1–17.  doi:\n10.3390/universe9120502.\n[3] Oljira, A. 2023. A study of Solar Flares and Geomagnetic Storms  Impact on Total Electron Content Over  High-Latitude Region  During  July-  November  2021:  The  Case  of  Tromso  Station,  Advances  in  Space  Research.  72(9):  3868–3881.  doi:\n10.1016/j.asr.2023.06.051.\n[4] Tongkasem, N. et al. 2025. Spatio-temporal Characteristics of  Ionospheric Irregularities in Low Latitude Regions During the Peak  of Solar Cycle 25, Advances in Space Research, 76(1): 254–268.  doi: 10.1016/j.asr.2025.04.062.\n[5] Pongracic, B., Wu, F., Fathollahi, L. and Brcic, D.  Midlatitude  Klobuchar.  2019.  Correction  Model  Based  on  the  K-Means  Clustering of Ionospheric Daily Variations, GPS Solutions. 23(3):  80-87. doi: 10.1007/s10291-019",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}

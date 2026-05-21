@@ -1,0 +1,801 @@
+{
+  "submission_no": "26132",
+  "source_file": "/Users/nasruddinmadon/turnitin-assistant-v5.42/storage/ojs-downloads/26132/DEVELOPMENT OF TRANSFORMATION CONSTRUCT AND TRANSGENIC TOBACCO PLANTS CARRYING EgPAL5 GENE .docx",
+  "pdf_file": "/Users/nasruddinmadon/turnitin-assistant-v5.7.1/storage/template_screening_reports/converted_pdf/DEVELOPMENT OF TRANSFORMATION CONSTRUCT AND TRANSGENIC TOBACCO PLANTS CARRYING EgPAL5 GENE .pdf",
+  "final_status": "NEEDS MANUAL REVIEW",
+  "final_score": 84,
+  "structure_score": 60,
+  "layout_score": 100,
+  "formatting_score": 100,
+  "items": [
+    {
+      "id": "title",
+      "label": "Article Title",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.2,
+        "x_max": 0.95,
+        "y_min": 0.05,
+        "y_max": 0.2
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.1561,
+        "x_max": 0.6579,
+        "y_max": 0.2252
+      },
+      "evidence_text": "Matched heading: \"DEVELOPMENT  OF  TRANSFORMATION  CONSTRUCT AND TRANSGENIC TOBACCO  PLANTS CARRYING EgPAL5 GENE\" | Detection method: score_ranking",
+      "notes": "Title detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 1.0,
+      "rejected_false_positives": [
+        "Jurnal Teknologi",
+        "Full Paper",
+        "Article history",
+        "Received"
+      ],
+      "all_candidates": [
+        {
+          "text": "DEVELOPMENT  OF  TRANSFORMATION  CONSTRUCT AND TRANSGENIC TOBACCO  PLANTS CARRYING EgPAL5 GENE",
+          "score": 1.0
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.65
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 1.0,
+      "ai_evidence": "PDF snippet shows a full title section with the title 'DEVELOPMENT OF TRANSFORMATION CONSTRUCT AND TRANSGENIC TOBACCO PLANTS CARRYING EgPAL5 GENE' and author details. DOC snippet does not contain the ",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and complete title section with high confidence, while the DOC detector failed to extract it, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows a full title section with the title 'DEVELOPMENT OF TRANSFORMATION CONSTRUCT AND TRANSGENIC TOBACCO PLANTS CARRYING EgPAL5 GENE' and author details. DOC snippet does not contain the title section, indicating a DOC extraction failure."
+    },
+    {
+      "id": "authors",
+      "label": "Authors",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.15,
+        "y_max": 0.28
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.239,
+        "x_max": 0.6556,
+        "y_max": 0.3024
+      },
+      "evidence_text": "Matched heading: \"Mohd  Nordin  Nursaadaha,  Nur  Syafiqah  Shariful  Bahria,  Omar  Nawawia, Mohamad Shafek Hilmana, \" | Detection method: score_ranking",
+      "notes": "Authors detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.7,
+      "rejected_false_positives": [
+        "Article history",
+        "Received",
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "Mohd  Nordin  Nursaadaha,  Nur  Syafiqah  Shariful  Bahria,  Omar  Nawawia, Mohamad Shafek Hilmana, ",
+          "score": 0.7
+        },
+        {
+          "text": "DEVELOPMENT  OF  TRANSFORMATION  CONSTRUCT AND TRANSGENIC TOBACCO  PLANTS CARRYING EgPAL5 GENE",
+          "score": 0.55
+        },
+        {
+          "text": "X Month 202Y",
+          "score": 0.55
+        },
+        {
+          "text": "Received in revised form",
+          "score": 0.55
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.55
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "PDF snippet includes full author names and affiliations, confirming presence of authors section. DOC snippet is incomplete and lacks authors section, indicating extraction failure.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The DOC extraction failed to capture the authors section likely due to truncation or extraction limitations, while the PDF extraction clearly contains a detailed authors section.",
+      "ai_evidence_summary": "PDF snippet includes full author names and affiliations, confirming presence of authors section. DOC snippet is incomplete and lacks authors section, indicating extraction failure."
+    },
+    {
+      "id": "affiliations",
+      "label": "Affiliations",
+      "status": "WARNING",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.22,
+        "y_max": 0.35
+      },
+      "found_region": {
+        "x_min": 0.0984,
+        "y_min": 0.3159,
+        "x_max": 0.6557,
+        "y_max": 0.4752
+      },
+      "evidence_text": "Matched heading: \"aLaboratory of Plant Genetics and Cell Biology, Faculty of Plantation  and  Agrotechnology,  Univers\" | Detection method: score_ranking",
+      "notes": "Affiliations detected by PDF and AI, but DOC source text did not confirm. [AI: doc_extraction_failure, preferred=PDF]",
+      "formatting_ok": true,
+      "confidence": 0.0,
+      "candidate_confidence": 0.8,
+      "rejected_false_positives": [
+        "Accepted"
+      ],
+      "all_candidates": [
+        {
+          "text": "aLaboratory of Plant Genetics and Cell Biology, Faculty of Plantation  and  Agrotechnology,  Univers",
+          "score": 0.8
+        },
+        {
+          "text": "yusufchong@uitm.edu.my",
+          "score": 0.45
+        },
+        {
+          "text": "Mohd  Nordin  Nursaadaha,  Nur  Syafiqah  Shariful  Bahria,  Omar  Nawawia, Mohamad Shafek Hilmana, ",
+          "score": 0.45
+        },
+        {
+          "text": "DEVELOPMENT  OF  TRANSFORMATION  CONSTRUCT AND TRANSGENIC TOBACCO  PLANTS CARRYING EgPAL5 GENE",
+          "score": 0.4
+        },
+        {
+          "text": "XA Month 202Y",
+          "score": 0.3
+        }
+      ],
+      "structure_status": "WARNING",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "score_ranking",
+      "nearby_content": "",
+      "detected_from_docx": false,
+      "detected_from_pdf": true,
+      "detected_from_ai": true,
+      "final_source_used": "PDF + AI",
+      "evidence_sources": [
+        "PDF",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.8,
+      "ai_evidence": "PDF snippet shows full author list with affiliations and addresses; DOC snippet lacks the Affiliations section despite containing other manuscript parts.",
+      "ai_preferred_source": "PDF",
+      "ai_likely_issue": "doc_extraction_failure",
+      "ai_conflict_reason": "The PDF detector found a clear and detailed Affiliations section with author names and institutional addresses, while the DOC detector failed to extract this component, likely due to extraction issues.",
+      "ai_evidence_summary": "PDF snippet shows full author list with affiliations and addresses; DOC snippet lacks the Affiliations section despite containing other manuscript parts."
+    },
+    {
+      "id": "corresponding_author",
+      "label": "Corresponding Author",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.15,
+        "x_max": 0.95,
+        "y_min": 0.28,
+        "y_max": 0.4
+      },
+      "found_region": {
+        "x_min": 0.7541,
+        "y_min": 0.2708,
+        "x_max": 0.9021,
+        "y_max": 0.2835
+      },
+      "evidence_text": "Matched heading: \"Corresponding author\" | Detection method: source_docx_text",
+      "notes": "Corresponding_Author confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Corresponding author",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "yusufchong@uitm.edu.my",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "graphical_abstract",
+      "label": "Graphical Abstract",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.35,
+        "y_min": 0.25,
+        "y_max": 0.65
+      },
+      "found_region": {
+        "x_min": 0.1788,
+        "y_min": 0.5052,
+        "x_max": 0.4788,
+        "y_max": 0.5207
+      },
+      "evidence_text": "Matched heading: \"Graphical abstract\" | Detection method: source_docx_text",
+      "notes": "Graphical_Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Graphical abstract",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Abstract\nTobacco (Nicotiana tabacum) is a globally significant industrial crop, yet its yield and  productivity are frequently compromised by a diverse range of biotic and abiotic  stresses. Developing crops with enhanced genetic potential is a crucial strategy to  ensure survival and yield stability. This study reports the development of a novel  genetic resource through the integration of the EgPAL5 gene from oil palm (Elaeis  guineensis) into the tobacco genome. The 2,115-bp  EgPAL5 gene was amplified,  cloned  into  the  pMDC32  binary  vector,  and  introduced  into  tobacco  plants  via  Agrobacterium-mediated  transformation.  Regenerated  shoots  were  cultured  on  selective media containing hygromycin and timentin, maintained until rooting, and  subsequently acclimatised to soil. Among 42 putative transformants obtained, 10  vigorous lines were selected for PCR verification, all exhibiting the expected amplicon  size confirming stable integration of EgPAL5 transformation. This work successfully  demonstrated the feasibility of incorporating the EgPAL5 gene into tobacco genome  for crop improvement purposes, establishing a validated transgenic resource for future  biotech",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstract",
+      "label": "English Abstract",
+      "status": "PASS",
+      "page": "",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.3,
+        "y_max": 0.75
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"Abstract\" | Detection method: source_docx_text",
+      "notes": "Abstract confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "78:1 (2016) 1–5 | www.jurnalteknologi.utm.my | eISSN 2180–3722 |\nJurnal Teknologi\nFull Paper\nDEVELOPMENT  OF  TRANSFORMATION  CONSTRUCT AND TRANSGENIC TOBACCO  PLANTS CARRYING EgPAL5 GENE\nMohd  Nordin  Nursaadaha,  Nur  Syafiqah  Shariful  Bahria,  Omar  Nawawia, Mohamad Shafek Hilmana, Muhammad Ikhwan Mughnia,  Shamsiah Abdullaha, Tianqi Baib, Cuixian Zhangb, Mat Yunus Abdul  Masanic, Chai-Ling Hod, Chong Yu Lok Yusufa*\naLaboratory of Plant Genetics and Cell Biology, Faculty of Plantation  and  Agrotechnology,  Universiti  Teknologi  MARA  Jasin  Campus,  77300 Merlimau, Melaka, Malaysia bInstitute of Tropical and Subtropical Cash Crops, Yunnan Academy of  Agricultural Sciences, Baoshan 675800, China cMalaysian Palm Oil Board (MPOB) No. 6, Persiaran Institusi, Bandar  Baru Bangi, 43000 Ka",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.3,
+        "x_max": 0.98,
+        "y_min": 0.65,
+        "y_max": 0.85
+      },
+      "found_region": {
+        "x_min": 0.406,
+        "y_min": 0.7186,
+        "x_max": 0.9056,
+        "y_max": 0.7415
+      },
+      "evidence_text": "Matched heading: \"Keywords\" | Detection method: source_docx_text",
+      "notes": "Keywords confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Keywords",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ":  Agrobacterium-mediated  transformation,  molecular  biology,  Nicotiana  tabacum, PAL, tissue culture",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "abstrak",
+      "label": "Malay Abstract (Abstrak)",
+      "status": "PASS",
+      "page": "1",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.75,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.406,
+        "y_min": 0.7564,
+        "x_max": 0.4728,
+        "y_max": 0.7719
+      },
+      "evidence_text": "Matched heading: \"Abstrak\" | Detection method: source_docx_text",
+      "notes": "Abstrak confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Abstrak",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "Tembakau  (Nicotiana  tabacum)  merupakan  tanaman  industri  yang  signifikan  di  peringkat global, namun hasil dan produktiviti tanaman ini sering terjejas oleh pelbagai  tekanan biotik dan abiotik. Pembangunan tanaman dengan potensi genetik yang  dipertingkat adalah strategi kritikal bagi menjamin kelangsungan hidup dan kestabilan  hasil. Kajian ini melaporkan pembangunan sumber genetik baharu melalui integrasi  gen EgPAL5 daripada kelapa sawit (Elaeis guineensis) ke dalam genom tembakau.  Gen EgPAL5 sepanjang 2,115-bp telah diamplifikasikan, diklon ke dalam vektor binari  pMDC32,  dan  dimasukkan  ke  dalam  pokok  tembakau  melalui  transformasi  berperantara Agrobacterium. Pucuk teregenerasi dikultur di atas media pemilihan yang  mengandungi higromisin dan timentin, dikekalkan sehingga pembentukan akar, dan  seterusnya diaklimatisasi ke tanah. Daripada 42 transforman putatif yang diperoleh, 10",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "kata_kunci",
+      "label": "Kata Kunci",
+      "status": "PASS",
+      "page": "2",
+      "expected_region": {
+        "page": 1,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.88,
+        "y_max": 0.98
+      },
+      "found_region": {
+        "x_min": 0.406,
+        "y_min": 0.1515,
+        "x_max": 0.9055,
+        "y_max": 0.1744
+      },
+      "evidence_text": "Matched heading: \"Kata kunci\" | Detection method: source_docx_text",
+      "notes": "Kata_Kunci confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Kata kunci",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": ": Transformasi berperantara Agrobacterium,  biologi molekular,  Nicotiana  tabacum, PAL, kultur tisu\n© 202@ Penerbit UTM Press. All rights reserved\n1.0 INTRODUCTION\nTobacco is a perennial herbaceous plant native to South  America.  It  belongs  to  the  Solanaceae  family,  which  encompasses brinjal, chilli, petunia, potato, and tomato.  This crop has traditionally been associated with global  cigarette  production.  Therefore,  it  is  now  cultivated  worldwide because of its economic importance. According  to Zhu et al. [1], China is the largest producer of tobacco,  followed by India and Brazil. Tobacco can grow up to two  meters tall and produces large leaves that accumulate high  levels of nicotine [2]. In commercial varieties, particularly  Nicotiana tabacum, nicotine levels can be increased to  approximately  6.47%  of  dry  weight  through  a  genetic  manipulation  approach  [2].  As  a  hybrid  between  N.  sylvestris and  N.  tomentosiformis,  N.  tabacum is  an  allotetraploid plant that contains 48 chromosomes [3]. It can  be easily transformed genetically, which makes it a useful  system for plant biotechnology studies. Apart from that,  tobacco  is  also  used  in",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "introduction",
+      "label": "Introduction",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 1,
+        "page_max": 3,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.1,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"1.0 INTRODUCTION\" | Detection method: source_docx_text",
+      "notes": "Introduction confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "1.0 INTRODUCTION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a clear and relevant Introduction section with research context and background. PDF snippet lacks any Introduction content, suggesting extraction failure rather than absence of th",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong, coherent Introduction section snippet, while the PDF detector did not find any corresponding text, likely due to extraction or layout issues in the PDF source.",
+      "ai_evidence_summary": "DOC snippet provides a clear and relevant Introduction section with research context and background. PDF snippet lacks any Introduction content, suggesting extraction failure rather than absence of the section."
+    },
+    {
+      "id": "methodology",
+      "label": "Methodology",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_min": 2,
+        "page_max": 6,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"2.0 METHODOLOGY\" | Detection method: source_docx_text",
+      "notes": "Methodology confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "2.0 METHODOLOGY"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a comprehensive Methodology excerpt describing experimental design and procedures. PDF snippet contains only header and author information with no methodological details.",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "DOC detector found a detailed Methodology section snippet with experimental procedures, while PDF detector found no relevant text, likely due to extraction or layout issues.",
+      "ai_evidence_summary": "DOC snippet provides a comprehensive Methodology excerpt describing experimental design and procedures. PDF snippet contains only header and author information with no methodological details."
+    },
+    {
+      "id": "results_discussion",
+      "label": "Results and Discussion",
+      "status": "PASS",
+      "page": "3",
+      "expected_region": {
+        "page_min": 3,
+        "page_max": 10,
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.5291,
+        "y_min": 0.7715,
+        "x_max": 0.8034,
+        "y_max": 0.787
+      },
+      "evidence_text": "Matched heading: \"3.0 RESULTS AND DISCUSSION\" | Detection method: source_docx_text",
+      "notes": "Results_Discussion confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "3.0 RESULTS AND DISCUSSION",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "3.1 Vector Construction\nAn approximately 2.1-kb PCR product corresponding to the  EgPAL5 gene was successfully amplified and cloned into  the  pMDC32  vector,  generating  the  pMDC32-EgPAL5  transformation construct with a total size of 12,111 bp.  Sanger sequencing confirmed that the amplicon sequence  was  identical  to  the  EgPAL5 gene  sequence.  The  transformation  construct  was  designed  so  that  the  expression of EgPAL5 gene is regulated by a constitutive",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "conclusion",
+      "label": "Conclusion",
+      "status": "WARNING",
+      "page": "",
+      "expected_region": {
+        "page_position": "after_results_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": null,
+      "evidence_text": "Matched heading: \"4.0 CONCLUSION\" | Detection method: source_docx_text",
+      "notes": "Conclusion confirmed by DOC and AI, but PDF/layout detection failed. [AI: pdf_extraction_failure, preferred=DOC]",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [
+        "4.0 CONCLUSION"
+      ],
+      "all_candidates": [],
+      "structure_status": "WARNING",
+      "layout_status": "WARNING",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "",
+      "detected_from_docx": true,
+      "detected_from_pdf": false,
+      "detected_from_ai": true,
+      "final_source_used": "DOC + AI",
+      "evidence_sources": [
+        "DOC",
+        "AI"
+      ],
+      "ai_status": "YES",
+      "ai_confidence": 0.85,
+      "ai_evidence": "DOC snippet provides a clear Conclusion section discussing study outcomes, gene transformation, and future applications. PDF snippet contains only header and author information with no Conclusion text",
+      "ai_preferred_source": "DOC",
+      "ai_likely_issue": "pdf_extraction_failure",
+      "ai_conflict_reason": "The DOC detector found a strong and coherent Conclusion section snippet, while the PDF detector did not find any corresponding text, likely due to extraction or layout issues in the PDF.",
+      "ai_evidence_summary": "DOC snippet provides a clear Conclusion section discussing study outcomes, gene transformation, and future applications. PDF snippet contains only header and author information with no Conclusion text."
+    },
+    {
+      "id": "acknowledgement",
+      "label": "Acknowledgement",
+      "status": "PASS",
+      "page": "6",
+      "expected_region": {
+        "page_position": "after_conclusion_before_references",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.6406,
+        "y_min": 0.2299,
+        "x_max": 0.7993,
+        "y_max": 0.2454
+      },
+      "evidence_text": "Matched heading: \"Acknowledgement\" | Detection method: source_docx_text",
+      "notes": "Acknowledgement confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "Acknowledgement",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "The pJET1.2-EgPAL5  plasmid  was  kindly  provided  by  Assoc. Prof. Dr. Mohd Puad Abdullah of Universiti Putra  Malaysia (UPM) Serdang, Malaysia. The authors thank  the  laboratory  staff  for  facility  support.  This  work  was  funded  by  the  Ministry  of  Higher  Education  (MOHE),  Malaysia, under the Fundamental Research Grant Scheme  (FRGS/1/2022/STG01/UITM/02/13).",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    },
+    {
+      "id": "references",
+      "label": "References",
+      "status": "PASS",
+      "page": "6",
+      "expected_region": {
+        "page_position": "last_1_to_2_pages",
+        "x_min": 0.03,
+        "x_max": 0.98,
+        "y_min": 0.05,
+        "y_max": 0.95
+      },
+      "found_region": {
+        "x_min": 0.0895,
+        "y_min": 0.3794,
+        "x_max": 0.1864,
+        "y_max": 0.3949
+      },
+      "evidence_text": "Matched heading: \"References\" | Detection method: source_docx_text",
+      "notes": "References confirmed by both DOC and PDF detection.",
+      "formatting_ok": true,
+      "confidence": 0.85,
+      "candidate_confidence": 0.85,
+      "rejected_false_positives": [],
+      "all_candidates": [
+        {
+          "text": "References",
+          "score": 0.5
+        }
+      ],
+      "structure_status": "PASS",
+      "layout_status": "PASS",
+      "formatting_status": "PASS",
+      "detection_method": "source_docx_text",
+      "nearby_content": "[1] Zhu, R., He, S., Ling, H., Liang, Y., Wei, B., Yuan, X., Cheng, W., Peng, B., Xiao, J., Wei, J., He, Y., Xiao, H., Wang, Z. 2024, Optimizing tobacco quality   and yield through the scientific application of organic-inorganic fertilizer in China: a meta-analysis. Frontiers in Plant Science. Volume 15 - 2024.  DOI : https://doi.org/10.3389/fpls.2024.1500544\n[2] Datiles, M. J., Acevedo-Rodríguez, P. 2022, Nicotiana tabacum (tobacco). CABI Compendium.  DOI : https://doi.org/10.1079/cabicompendium.36326\n[3] Bai, Y., Pattanaik, S., Patra, B., Werkman, J. R., Xie, C. H., Yuan, L. 2011, Flavonoid-related basic helix-loop-helix regulators, NtAn1a and NtAn1b, of   tobacco have originated from two ancestors and are functionally active. Planta. 234(2): p. 363-75.  DOI : https://doi.org/10.1007/s00425-011-1407-y\n[4] Selwal, N., Tabassum, Z., Rahayu, F., Yulia, N. D., Sugiono, S., Endarto, O., Riajaya, P. D., Djajadi, D., Khamidah, A., Wani, A. K. 2023, Therapeutic   potential and phytoremediation capabilities of the tobacco plant: Advancements through genetic engineering and cultivation techniques. Biocatalysis and  Agricultural Biotechnology. 52: p. 102845.  DOI : https://doi.org/10.1016/",
+      "detected_from_docx": true,
+      "detected_from_pdf": true,
+      "detected_from_ai": false,
+      "final_source_used": "DOC + PDF",
+      "evidence_sources": [
+        "DOC",
+        "PDF"
+      ],
+      "ai_status": "SKIPPED",
+      "ai_confidence": 0.0,
+      "ai_evidence": "",
+      "ai_preferred_source": "NONE",
+      "ai_likely_issue": "none",
+      "ai_conflict_reason": "",
+      "ai_evidence_summary": ""
+    }
+  ],
+  "screening_version": "v5.7.1-multi-source-ai-evaluator",
+  "use_ai_verifier": true,
+  "ai_text_model": "gpt-4.1-mini",
+  "ai_vision_model": "gpt-4.1-mini"
+}
